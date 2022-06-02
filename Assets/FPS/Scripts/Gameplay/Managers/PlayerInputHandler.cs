@@ -211,7 +211,10 @@ namespace Unity.FPS.Gameplay {
 
                 // apply sensitivity multiplier
                 i *= LookSensitivity;
-
+                if(mouseInputName == GameConstants.k_MouseAxisNameVertical)
+                {
+                    i *= -1f;
+                }
                 if (isGamepad)
                 {
                     // since mouse input is already deltaTime-dependant, only scale input with frame time if it's coming from sticks
