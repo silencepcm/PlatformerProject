@@ -1,0 +1,146 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3182763651228131676
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3182763651228131674}
+  - component: {fileID: 8771465242247208752}
+  - component: {fileID: 6876085172534938728}
+  m_Layer: 5
+  m_Name: GameManager
+  m_TagString: GameManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3182763651228131674
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3182763651228131676}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8771465242247208752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3182763651228131676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c547c7f171cbfd4f82edf1433420858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FallDamage: 0
+  MaxSpeedOnGround: 0
+  MaxSpeedInAir: 0
+  JumpForce: 0
+  GravityForce: 0
+  MaxChargeDuration: 0
+  MaxAmmo: 0
+  BulletSpreadAngle: 0
+  TrampoplanteForce: 0
+  MinSpeedFallDamage: 0
+  FallDamageValeurAtMinSpeed: 0
+  MaxSpeedFallDamage: 0
+  FallDamageValeurAtMaxSpeed: 0
+  MaxVie: 0
+  Vie: 0
+  MaxSoif: 0
+  MinSoif: 0
+  MaxGourde: 0
+  MinGourde: 0
+  MaxNourriture: 0
+  MinNourriture: 0
+  Collect: 0
+  Eat: 0
+  DelaySoif: 0
+  DelayNourriture: 0
+  DegatsNourriture: 0
+  DegatsSoif: 0
+  NbIngredientA: 0
+  NbIngredientB: 0
+  NbIngredientC: 0
+  NbIngredientD: 0
+  NbIngredientE: 0
+  NbIngredientF: 0
+  NbIngredientG: 0
+  NbRecette1: 0
+  NbRecette2: 0
+  NbRecette3: 0
+  NbRecette4: 0
+  NbRecette5: 0
+  BulletGravity: 0
+  BulletSpeed: 0
+  BruteWalkSpeed: 0
+  BruteRunSpeed: 0
+  BruteAngleSpeed: 0
+  BruteAttackDistance: 0
+  BruteAttackStopDistance: 0
+  BruteDetectDistance: 0
+  BruteAcceleration: 0
+  TourelleWalkSpeed: 0
+  TourelleRunSpeed: 0
+  TourelleAngleSpeed: 0
+  TourelleAttackDistance: 0
+  TourelleAttackStopDistance: 0
+  TourelleDetectDistance: 0
+  TourelleAcceleration: 0
+  FrondeWalkSpeed: 0
+  FrondeRunSpeed: 0
+  FrondeAngleSpeed: 0
+  FrondeAttackDistance: 0
+  FrondeAttackStopDistance: 0
+  FrondeDetectDistance: 0
+  FrondeAcceleration: 0
+  Player: {fileID: 0}
+  InventairePanel: {fileID: 0}
+  NbIngredient1: {fileID: 0}
+  NbIngredient2: {fileID: 0}
+  NbIngredient3: {fileID: 0}
+  NbIngredient4: {fileID: 0}
+  NbIngredient5: {fileID: 0}
+  NbMunitionDirect: {fileID: 0}
+  NbMunitionOblique: {fileID: 0}
+  Recette1: {fileID: 0}
+  Recette2: {fileID: 0}
+  Recette3: {fileID: 0}
+  Recette4: {fileID: 0}
+  NbPotionSante: {fileID: 0}
+  NbPotionTrampoplante: {fileID: 0}
+  AthMunitionDirect: {fileID: 0}
+  AthMunitionOblique: {fileID: 0}
+--- !u!114 &6876085172534938728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3182763651228131676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8baaad7e8ce95c042a46d6da7777afa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventairePanel: {fileID: 0}
+  SliderNourriture: {fileID: 0}
+  SliderEau: {fileID: 0}
+  SliderGourde: {fileID: 0}
+  Vie: {fileID: 0}
+  activeImageConsom: {fileID: 0}
+  passiveImageConsom: {fileID: 0}
+  activeTextConsom: {fileID: 0}
+  passiveTextConsom: {fileID: 0}
