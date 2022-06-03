@@ -22,7 +22,21 @@ namespace Unity.FPS.Gameplay
             Collider m_Collider;
             bool m_HasPlayedFeedback;
 
-            protected virtual void Start()
+        public GameObject objet;
+
+        public enum TypeRessource
+        {
+           Ouverte,
+           Fermer
+        }
+
+        public TypeRessource Type;
+
+        public bool collision = false;
+
+        public GameObject Prefab;
+
+        protected virtual void Start()
             {
                 PickupRigidbody = GetComponent<Rigidbody>();
                 DebugUtility.HandleErrorIfNullGetComponent<Rigidbody, TrampoplanteScript>(PickupRigidbody, this, gameObject);
@@ -38,21 +52,54 @@ namespace Unity.FPS.Gameplay
 
             void OnTriggerEnter(Collider other)
             {
-                PlayerCharacterController pickingPlayer = other.GetComponent<PlayerCharacterController>();
-
-                if (pickingPlayer != null)
+                collision = true;
+                 PlayerCharacterController pickingPlayer = other.GetComponent<PlayerCharacterController>();
+                
+                if (pickingPlayer != null && Type == TypeRessource.Ouverte)
                 {
                     OnTriggered(pickingPlayer);
+                    
                 }
+                else
+                {
+                Debug.Log("press E");
+                //afficher Ui appuyer sue e pour utiliser une potion de trampoplante
+                
+                }
+                
+
             }
 
-            protected virtual void OnTriggered(PlayerCharacterController playerController)
+        private void OnTriggerExit(Collider other)
+        {
+            collision = false;
+        }
+
+        protected virtual void OnTriggered(PlayerCharacterController playerController)
             {
                 PlayPickupFeedback();
                 playerController.TrampoplanteJump();
             }
 
-            public void PlayPickupFeedback()
+        public void Update()
+        {
+            if (Type == TypeRessource.Fermer && Input.GetKeyDown(KeyCode.E))
+            {
+                if (GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbTrampoplante > 0)
+                {
+                    Debug.Log("la trampoplante s'ouvre");
+                    Instantiate(Prefab, transform.position, Quaternion.identity);
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbTrampoplante -= 1;
+                    Destroy(objet);
+                }
+                else
+                {
+                    Debug.Log("pas de potion");
+                    //afficher Ui pas de potion de trampoplnate dans l'inventaire
+                }
+            }
+        }
+        public void PlayPickupFeedback()
             {
                 if (m_HasPlayedFeedback)
                     return;

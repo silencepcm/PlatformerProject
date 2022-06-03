@@ -359,6 +359,7 @@ GameObject:
   - component: {fileID: 3122855503829242450}
   - component: {fileID: 1272397862697293493}
   - component: {fileID: 8028738278767878622}
+  - component: {fileID: 8667039463674289548}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -613,6 +614,33 @@ MonoBehaviour:
   timer: 0
   CriticalVie: 0
   CriticalHealthRatio: 0.3
+--- !u!114 &8667039463674289548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7253983127304857660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad114d41ab00860449d8544452d20e9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Munitite: 0
+  Directite: 0
+  Clochite: 0
+  Baie: 0
+  Fruit: 0
+  Poussite: 0
+  Plontite1: 0
+  NbMunitionDirect: 0
+  NbMunitionOblique: 0
+  NbPotionSante: 0
+  NbTrampoplante: 0
+  RecetteMunitionDirect: 0
+  RecetteMunitionOblique: 0
+  RecettePotionSante: 0
+  RecetteTrampoplante: 0
 --- !u!1 &7383874627095517793
 GameObject:
   m_ObjectHideFlags: 0

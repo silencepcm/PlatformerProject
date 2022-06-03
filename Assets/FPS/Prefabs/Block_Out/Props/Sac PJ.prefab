@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7813359170365907765}
+  - component: {fileID: 1883973506167852457}
   m_Layer: 0
   m_Name: Sac PJ
   m_TagString: Untagged
@@ -31,6 +32,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1883973506167852457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8063469983227546002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad114d41ab00860449d8544452d20e9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Munitite: 0
+  Directite: 0
+  Clochite: 0
+  Baie: 0
+  Fruit: 0
+  Poussite: 0
+  Plontite1: 0
+  Sac: 0
+  NbMunitionDirect: 20
+  NbMunitionOblique: 20
+  "NbPotionSant\xE9": 0
+  NbTrampoplante: 0
+  RecetteMunitionDirect: 0
+  RecetteMunitionOblique: 0
+  "RecettePotionSant\xE9": 0
+  RecetteTrampoplante: 0
+--- !u!64 &4524714463533743795
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8620265732780300717}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7765401353969466642, guid: 660c2a4a360b2884b81912f1d3a73817, type: 3}
 --- !u!114 &9120030105548429872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,6 +88,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollectSfx: {fileID: 8300000, guid: 507e834cf580ab1499f2dd5c2bc7af48, type: 3}
   CollectVfxPrefab: {fileID: 0}
+  Type: 7
 --- !u!1001 &8890175839427798268
 PrefabInstance:
   m_ObjectHideFlags: 0
