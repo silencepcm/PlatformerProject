@@ -150,7 +150,7 @@ namespace Unity.FPS.Gameplay
             WeaponParentSocket.localPosition =
                 m_WeaponMainLocalPosition + m_WeaponBobLocalPosition + m_WeaponRecoilLocalPosition;
         }
-       
+
         // Sets the FOV of the main camera and the weapon camera simultaneously
         public void SetFov(float fov)
         {

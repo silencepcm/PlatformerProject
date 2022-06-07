@@ -1929,6 +1929,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollectSfx: {fileID: 8300000, guid: 507e834cf580ab1499f2dd5c2bc7af48, type: 3}
   CollectVfxPrefab: {fileID: 0}
+  Type: 1
 --- !u!1 &9013980846157590756
 GameObject:
   m_ObjectHideFlags: 0

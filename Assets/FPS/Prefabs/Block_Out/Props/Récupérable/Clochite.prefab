@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 9030837085000887244}
   - component: {fileID: -5754084199372789682}
   - component: {fileID: -7511558181221131132}
+  - component: {fileID: -7369575446029953126}
+  - component: {fileID: -4331995611690013087}
   m_Layer: 0
   m_Name: Clochite
   m_TagString: Untagged
@@ -82,3 +84,31 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-7369575446029953126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2423996423507611409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c72a2c2e0f8c9194f9ab3b97752e8fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollectSfx: {fileID: 0}
+  CollectVfxPrefab: {fileID: 0}
+  Type: 2
+--- !u!65 &-4331995611690013087
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2423996423507611409}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.8624263, y: 8.225491, z: 12.483763}
+  m_Center: {x: -1.9025822, y: 1.6455876, z: 6.0544267}

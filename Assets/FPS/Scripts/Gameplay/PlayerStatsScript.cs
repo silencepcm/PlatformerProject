@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using Unity.FPS.Game;
 
 
-public class PlayerStatsScript : MonoBehaviour
+public class PlayerStatsScript : Personnage
 {
     public static PlayerStatsScript _instance;
     public static PlayerStatsScript Instance
@@ -21,9 +21,6 @@ public class PlayerStatsScript : MonoBehaviour
         }
     }
 
-    public int Vie = 100;
-    public int MaxVie = 100;
-    public bool alive;
     public float DelaySoif;
     public float DelayNourriture;
     public float Thirst;
@@ -77,7 +74,7 @@ public class PlayerStatsScript : MonoBehaviour
 
     bool m_IsDead;
 
-    private void Start()
+    void Start()
     {
         DelaySoif = GameManager.Instance.DelaySoif;
         DelayNourriture = GameManager.Instance.DelayNourriture;
@@ -107,10 +104,14 @@ public class PlayerStatsScript : MonoBehaviour
         NbRecette3 = GameManager.Instance.NbRecette3;
         NbRecette4 = GameManager.Instance.NbRecette4;
         NbRecette5 = GameManager.Instance.NbRecette5;
+
     }
 
-    private void Update()
+
+
+    void Update()
     {
+
         Thirst -= 1f * Time.deltaTime;
         Nourriture -= 0.3f * Time.deltaTime;
         /*
@@ -191,46 +192,5 @@ public class PlayerStatsScript : MonoBehaviour
     public void Die()
     {
         alive = false;
-    }
-
-
-
-
-    public void Heal(int healAmount)
-    {
-        float healthBefore = Vie;
-        Vie += healAmount;
-        Vie = Mathf.Clamp(Vie, 0, MaxVie);
-    }
-
-    public void TakeDamage(int damage, GameObject damageSource)
-    {
-        float healthBefore = Vie;
-        Vie -= damage;
-        Vie = Mathf.Clamp(Vie, 0, Vie);
-
-        if (Vie == 0f)
-        {
-            HandleDeath();
-        }
-    }
-
-    public void Kill()
-    {
-        Vie = 0;
-
-        HandleDeath();
-    }
-
-    void HandleDeath()
-    {
-        if (!alive)
-            return;
-
-        // call OnDie action
-        if (Vie <= 0)
-        {
-            alive = false;
-        }
     }
 }

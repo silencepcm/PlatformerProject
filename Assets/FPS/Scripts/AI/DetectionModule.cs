@@ -38,7 +38,7 @@ namespace Unity.FPS.AI
         {
             Player = GameObject.FindGameObjectWithTag("Player");
         }
-        /*
+
         public virtual void HandleTargetDetection(GameObject actor, Collider[] selfColliders)
         {
             // Handle known target detection timeout
@@ -95,7 +95,7 @@ namespace Unity.FPS.AI
             {
                 OnLostTarget();
             }
-        }*/
+        }
 
 
         public virtual void OnDamaged(GameObject damageSource)

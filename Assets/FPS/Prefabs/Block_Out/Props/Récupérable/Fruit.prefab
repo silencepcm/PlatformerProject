@@ -77,6 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollectSfx: {fileID: 8300000, guid: 507e834cf580ab1499f2dd5c2bc7af48, type: 3}
   CollectVfxPrefab: {fileID: 0}
+  Type: 4
 --- !u!1001 &6266462899963335642
 PrefabInstance:
   m_ObjectHideFlags: 0
