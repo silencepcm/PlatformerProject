@@ -113,24 +113,25 @@ public class GameManager : MonoBehaviour
     public GameObject Player;
     public GameObject InventairePanel;
 
-    public GameObject NbIngredient1;
-    public GameObject NbIngredient2;
-    public GameObject NbIngredient3;
-    public GameObject NbIngredient4;
-    public GameObject NbIngredient5;
-    //public GameObject NbIngredient6;
-    // public GameObject NbIngredient7;
-
-    //public GameObject NbMunitionDirect;
-    //public GameObject NbMunitionOblique;
+    public TextMeshProUGUI NbIngredient1;
+    public TextMeshProUGUI NbIngredient2;
+    public TextMeshProUGUI NbIngredient3;
+    public TextMeshProUGUI NbIngredient4;
+    public TextMeshProUGUI NbIngredient5;
+    public TextMeshProUGUI NbIngredient6;
+    public TextMeshProUGUI NbIngredient7;
 
     public GameObject Recette1;
     public GameObject Recette2;
     public GameObject Recette3;
     public GameObject Recette4;
+    public GameObject Recette5;
 
-    public GameObject NbPotionSante;
-    public GameObject NbPotionTrampoplante;
+    public TextMeshProUGUI NbPotionDirect;
+    public TextMeshProUGUI NbPotionOblique;
+    public TextMeshProUGUI NbPotionSante;
+    public TextMeshProUGUI NbPotionTrampoplante;
+    public TextMeshProUGUI NbPotionPlonte;
 
     public GameObject AthMunitionDirect;
     public GameObject AthMunitionOblique;
@@ -295,24 +296,24 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        AthMunitionDirect.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().NbMunitionDirect.ToString();
-        AthMunitionOblique.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().NbMunitionOblique.ToString();
+        AthMunitionDirect.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().NbPotionDirect.ToString();
+        AthMunitionOblique.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().NbPotionOblique.ToString();
 
         if (InventairePanel.activeInHierarchy)
         {
 
-            NbIngredient1.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().Munitite.ToString();
-            NbIngredient2.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().Directite.ToString();
-            NbIngredient3.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().Clochite.ToString();
-            NbIngredient4.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().Baie.ToString();
-            NbIngredient5.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().Fruit.ToString();
-            //NbIngredient6.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().Poussite.ToString();
-            //NbIngredient7.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().Plontite1.ToString();
-            NbPotionSante.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().NbPotionSante.ToString();
-            NbPotionTrampoplante.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().NbTrampoplante.ToString();
-
-            //NbMunitionDirect.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().NbMunitionDirect.ToString();
-            //NbMunitionOblique.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().NbMunitionOblique.ToString();
+            NbIngredient1.text = Player.GetComponent<InventaireScript>().Munitite.ToString();
+            NbIngredient2.text = Player.GetComponent<InventaireScript>().Directite.ToString();
+            NbIngredient3.text = Player.GetComponent<InventaireScript>().Clochite.ToString();
+            NbIngredient4.text = Player.GetComponent<InventaireScript>().Baie.ToString();
+            NbIngredient5.text = Player.GetComponent<InventaireScript>().Fruit.ToString();
+            NbIngredient6.text = Player.GetComponent<InventaireScript>().Poussite.ToString();
+            NbIngredient7.text = Player.GetComponent<InventaireScript>().Plontite.ToString();
+            NbPotionDirect.text = Player.GetComponent<InventaireScript>().NbPotionDirect.ToString();
+            NbPotionOblique.text = Player.GetComponent<InventaireScript>().NbPotionOblique.ToString();
+            NbPotionSante.text = Player.GetComponent<InventaireScript>().NbPotionSante.ToString();
+            NbPotionTrampoplante.text = Player.GetComponent<InventaireScript>().NbPotionTrampoplante.ToString();
+            NbPotionPlonte.text = Player.GetComponent<InventaireScript>().NbPotionPlonte.ToString();
 
             if (Player.GetComponent<InventaireScript>().RecetteMunitionDirect > 0 && Recette1.activeInHierarchy == false)
             {
@@ -337,6 +338,11 @@ public class GameManager : MonoBehaviour
                 Recette4.SetActive(true);
             }
 
+            if (Player.GetComponent<InventaireScript>().RecettePlonte > 0 && Recette5.activeInHierarchy == false)
+            {
+                Recette5.SetActive(true);
+            }
+
         }
     }
 
@@ -346,7 +352,7 @@ public class GameManager : MonoBehaviour
         {
             Player.GetComponent<InventaireScript>().Directite -= 2;
             Player.GetComponent<InventaireScript>().Munitite -= 3;
-            Player.GetComponent<InventaireScript>().NbMunitionDirect += 1;
+            Player.GetComponent<InventaireScript>().NbPotionDirect += 1;
         }
     }
     public void OnClickRecetteMunitionOblique()
@@ -355,7 +361,7 @@ public class GameManager : MonoBehaviour
         {
             Player.GetComponent<InventaireScript>().Clochite -= 2;
             Player.GetComponent<InventaireScript>().Munitite -= 3;
-            Player.GetComponent<InventaireScript>().NbMunitionOblique += 1;
+            Player.GetComponent<InventaireScript>().NbPotionOblique += 1;
         }
     }
     public void OnClickRecettePotionDeSanté()
@@ -370,11 +376,21 @@ public class GameManager : MonoBehaviour
     }
     public void OnClickRecetteDeTrampoplante()
     {
-        if (Player.GetComponent<InventaireScript>().Fruit >= 2 && Player.GetComponent<InventaireScript>().Clochite >= 2)
+        if (Player.GetComponent<InventaireScript>().Directite >= 2 && Player.GetComponent<InventaireScript>().Poussite >= 2)
         {
-            Player.GetComponent<InventaireScript>().Clochite -= 2;
-            Player.GetComponent<InventaireScript>().Fruit -= 2;
-            Player.GetComponent<InventaireScript>().NbTrampoplante += 1;
+            Player.GetComponent<InventaireScript>().Directite -= 2;
+            Player.GetComponent<InventaireScript>().Poussite -= 2;
+            Player.GetComponent<InventaireScript>().NbPotionTrampoplante += 1;
         }
     }
+    public void OnClickRecetteDePlonte()
+    {
+        if (Player.GetComponent<InventaireScript>().Poussite >= 5 && Player.GetComponent<InventaireScript>().Plontite >= 1)
+        {
+            Player.GetComponent<InventaireScript>().Poussite -= 5;
+            Player.GetComponent<InventaireScript>().Plontite -= 1;
+            Player.GetComponent<InventaireScript>().NbPotionPlonte += 1;
+        }
+    }
+
 }

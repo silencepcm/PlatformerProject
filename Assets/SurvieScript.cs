@@ -6,6 +6,7 @@ using TMPro;
 //Script en construction : OBJECTIF : GEstion des barres d'eau/de Nourriture/de Gourde/de vie + lancement de la mort lier a la barre de vie
 public class SurvieScript : MonoBehaviour
 {
+    public GameObject Player;
     public GameObject InventairePanel;
     public Slider SliderNourriture;
     public Slider SliderEau;
@@ -125,48 +126,63 @@ public class SurvieScript : MonoBehaviour
                 Debug.Log("Manger");
                 if (baieActive)
                 {
-                    if (InventairePanel.GetComponent<InventaireScript>().Baie > 0)
+                    if (Player.GetComponent<InventaireScript>().Baie > 0)
                     {
                         SliderNourriture.value += 20f;
-                        InventairePanel.GetComponent<InventaireScript>().Baie -= 1;
+                        Player.GetComponent<InventaireScript>().Baie -= 1;
                     }
                 }
                 else
                 {
-                    if (InventairePanel.GetComponent<InventaireScript>().Fruit > 0)
+                    if (Player.GetComponent<InventaireScript>().Fruit > 0)
                     {
                         SliderNourriture.value += 20f;
-                        InventairePanel.GetComponent<InventaireScript>().Fruit -= 1;
+                        Player.GetComponent<InventaireScript>().Fruit -= 1;
                     }
                 }
             }
             timerHoldButton = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.H) && timer > timerCoolDown && InventairePanel.GetComponent<InventaireScript>().NbPotionSante > 0 && Vie.value < maxVie)
+        if (Input.GetKeyDown(KeyCode.H) && timer > timerCoolDown && Player.GetComponent<InventaireScript>().NbPotionSante > 0 && Vie.value < maxVie)
         {
-            InventairePanel.GetComponent<InventaireScript>().NbPotionSante -= 1;
+            Player.GetComponent<InventaireScript>().NbPotionSante -= 1;
             Vie.value = maxVie;
         }
 
         if (baieActive)
         {
-            activeTextConsom.GetComponent<TextMeshProUGUI>().text = InventairePanel.GetComponent<InventaireScript>().Baie.ToString();
-            passiveTextConsom.GetComponent<TextMeshProUGUI>().text = InventairePanel.GetComponent<InventaireScript>().Fruit.ToString();
+            activeTextConsom.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().Baie.ToString();
+            passiveTextConsom.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().Fruit.ToString();
         }
         else
         {
-            activeTextConsom.GetComponent<TextMeshProUGUI>().text = InventairePanel.GetComponent<InventaireScript>().Fruit.ToString();
-            passiveTextConsom.GetComponent<TextMeshProUGUI>().text = InventairePanel.GetComponent<InventaireScript>().Baie.ToString();
+            activeTextConsom.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().Fruit.ToString();
+            passiveTextConsom.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().Baie.ToString();
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            if (InventairePanel.activeInHierarchy)
+            {
+                InventairePanel.SetActive(true);
+            }
+            else
+            {
+                InventairePanel.SetActive(false);
+            }
         }
 
     }
 
     public void Dead()
     {
-        Debug.Log("Mort"); // tuer le perso et lancer la scene de defaite
+        Debug.Log("Mort");
     }
 
-    // Update is called once per frame
+    public void OnClickInventairePanelExit()
+    {
+        InventairePanel.SetActive(false);
+    }
     
 }

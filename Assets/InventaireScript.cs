@@ -11,17 +11,19 @@ public class InventaireScript : MonoBehaviour
     public int Baie;
     public int Fruit;
     public int Poussite;
-    public int Plontite1;
+    public int Plontite;
 
-    public int NbMunitionDirect;
-    public int NbMunitionOblique;
+    public int NbPotionDirect;
+    public int NbPotionOblique;
     public int NbPotionSante;
-    public int NbTrampoplante;
+    public int NbPotionTrampoplante;
+    public int NbPotionPlonte;
 
     public int RecetteMunitionDirect;
     public int RecetteMunitionOblique;
     public int RecettePotionSante;
     public int RecetteTrampoplante;
+    public int RecettePlonte;
 
     // Start is called before the first frame update
     void Start()
@@ -32,13 +34,17 @@ public class InventaireScript : MonoBehaviour
         Baie = 0;
         Fruit = 0;
         Poussite = 0;
-        Plontite1 = 0;
-        NbMunitionDirect = 5;
-        NbMunitionOblique = 5;
+        Plontite = 0;
+        NbPotionDirect = 5;
+        NbPotionOblique = 5;
+        NbPotionSante = 0;
+        NbPotionTrampoplante = 0;
+        NbPotionPlonte = 0;
         RecetteMunitionDirect = 1;
         RecetteMunitionOblique = 1;
         RecettePotionSante = 0;
         RecetteTrampoplante = 0;
+        RecettePlonte = 0;
     }
 
 }
