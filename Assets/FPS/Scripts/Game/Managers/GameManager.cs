@@ -86,27 +86,30 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public float BruteWalkSpeed;
     [HideInInspector] public float BruteRunSpeed;
-    [HideInInspector] public float BruteAngleSpeed;
-    [HideInInspector] public float BruteAttackDistance;
-    [HideInInspector] public float BruteAttackStopDistance;
-    [HideInInspector] public float BruteDetectDistance;
     [HideInInspector] public float BruteAcceleration;
+    [HideInInspector] public float BruteAngleSpeed;
+    [HideInInspector] public float BruteAttackDelay;
+    [HideInInspector] public float BruteAttackDistance;
+    [HideInInspector] public float BruteStopDistance;
+    [HideInInspector] public float BruteDetectDistance;
+    
+    
 
-    [HideInInspector] public float TourelleWalkSpeed;
-    [HideInInspector] public float TourelleRunSpeed;
     [HideInInspector] public float TourelleAngleSpeed;
+    [HideInInspector] public float TourelleAttackDelay;
     [HideInInspector] public float TourelleAttackDistance;
     [HideInInspector] public float TourelleAttackStopDistance;
     [HideInInspector] public float TourelleDetectDistance;
-    [HideInInspector] public float TourelleAcceleration;
 
     [HideInInspector] public float FrondeWalkSpeed;
     [HideInInspector] public float FrondeRunSpeed;
-    [HideInInspector] public float FrondeAngleSpeed;
-    [HideInInspector] public float FrondeAttackDistance;
-    [HideInInspector] public float FrondeAttackStopDistance;
-    [HideInInspector] public float FrondeDetectDistance;
     [HideInInspector] public float FrondeAcceleration;
+    [HideInInspector] public float FrondeAngleSpeed;
+    [HideInInspector] public float FrondeAttackDelay;
+    [HideInInspector] public float FrondeAttackDistance;
+    [HideInInspector] public float FrondeStopDistance;
+    [HideInInspector] public float FrondeDetectDistance;
+    
 
 
 
@@ -198,24 +201,24 @@ public class GameManager : MonoBehaviour
             BruteWalkSpeed = data.BruteWalkSpeed;
             BruteRunSpeed = data.BruteRunSpeed;
             BruteAngleSpeed = data.BruteAngleSpeed;
+            BruteAttackDelay = data.BruteAttackDelay;
             BruteAttackDistance = data.BruteAttackDistance;
-            BruteAttackStopDistance = data.BruteAttackStopDistance;
+            BruteStopDistance = data.BruteStopDistance;
             BruteDetectDistance = data.BruteDetectDistance;
             BruteAcceleration = data.BruteAcceleration;
 
-            TourelleWalkSpeed = data.TourelleWalkSpeed;
-            TourelleRunSpeed = data.TourelleRunSpeed;
             TourelleAngleSpeed = data.TourelleAngleSpeed;
+            TourelleAttackDelay = data.TourelleAttackDelay;
             TourelleAttackDistance = data.TourelleAttackDistance;
             TourelleAttackStopDistance = data.TourelleAttackStopDistance;
             TourelleDetectDistance = data.TourelleDetectDistance;
-            TourelleAcceleration = data.TourelleAcceleration;
 
             FrondeWalkSpeed = data.FrondeWalkSpeed;
             FrondeRunSpeed = data.FrondeRunSpeed;
+            FrondeAttackDelay = data.FrondeAttackDelay;
             FrondeAngleSpeed = data.FrondeAngleSpeed;
             FrondeAttackDistance = data.FrondeAttackDistance;
-            FrondeAttackStopDistance = data.FrondeAttackStopDistance;
+            FrondeStopDistance = data.FrondeStopDistance;
             FrondeDetectDistance = data.FrondeDetectDistance;
             FrondeAcceleration = data.FrondeAcceleration;
 
@@ -274,12 +277,10 @@ public class GameManager : MonoBehaviour
             BruteRunSpeed = 4.5f;
             BruteAngleSpeed = 120f;
             BruteAttackDistance = 2f;
-            BruteAttackStopDistance = 2.3f;
+            BruteStopDistance = 2.3f;
             BruteDetectDistance = 8f;
             BruteAcceleration = 8f;
 
-            TourelleWalkSpeed = 3f;
-            TourelleRunSpeed = 4.5f;
             TourelleAngleSpeed = 120f;
             TourelleAttackDistance = 6f;
             TourelleAttackStopDistance = 10f;
@@ -289,7 +290,7 @@ public class GameManager : MonoBehaviour
             FrondeRunSpeed = 4.5f;
             FrondeAngleSpeed = 120f;
             FrondeAttackDistance = 6f;
-            FrondeAttackStopDistance = 10f;
+            FrondeStopDistance = 10f;
             FrondeDetectDistance = 10f;
         }
     }

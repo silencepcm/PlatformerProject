@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 3122855503829242450}
   - component: {fileID: 1272397862697293493}
   - component: {fileID: 8028738278767878622}
-  - component: {fileID: 8667039463674289548}
+  - component: {fileID: 934107949939837868}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -614,7 +614,7 @@ MonoBehaviour:
   timer: 0
   CriticalVie: 0
   CriticalHealthRatio: 0.3
---- !u!114 &8667039463674289548
+--- !u!114 &934107949939837868
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

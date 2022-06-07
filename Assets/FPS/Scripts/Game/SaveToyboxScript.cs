@@ -67,12 +67,12 @@ namespace Unity.FPS.Game
             data.BruteRunSpeed = GameManager.Instance.BruteRunSpeed;
             data.BruteAngleSpeed = GameManager.Instance.BruteAngleSpeed;
             data.BruteAttackDistance = GameManager.Instance.BruteAttackDistance;
-            data.BruteAttackStopDistance = GameManager.Instance.BruteAttackStopDistance;
+            data.BruteStopDistance = GameManager.Instance.BruteStopDistance;
             data.BruteDetectDistance = GameManager.Instance.BruteDetectDistance;
+            data.BruteAcceleration = GameManager.Instance.BruteAcceleration;
 
-            data.TourelleWalkSpeed = GameManager.Instance.TourelleWalkSpeed;
-            data.TourelleRunSpeed = GameManager.Instance.TourelleRunSpeed;
             data.TourelleAngleSpeed = GameManager.Instance.TourelleAngleSpeed;
+            data.TourelleAttackDelay = GameManager.Instance.TourelleAttackDelay;
             data.TourelleAttackDistance = GameManager.Instance.TourelleAttackDistance;
             data.TourelleAttackStopDistance = GameManager.Instance.TourelleAttackStopDistance;
             data.TourelleDetectDistance = GameManager.Instance.TourelleDetectDistance;
@@ -81,9 +81,9 @@ namespace Unity.FPS.Game
             data.FrondeRunSpeed = GameManager.Instance.FrondeRunSpeed;
             data.FrondeAngleSpeed = GameManager.Instance.FrondeAngleSpeed;
             data.FrondeAttackDistance = GameManager.Instance.FrondeAttackDistance;
-            data.FrondeAttackStopDistance = GameManager.Instance.FrondeAttackStopDistance;
+            data.FrondeStopDistance = GameManager.Instance.FrondeStopDistance;
             data.FrondeDetectDistance = GameManager.Instance.FrondeDetectDistance;
-
+            data.FrondeAcceleration = GameManager.Instance.FrondeAcceleration;
 
             string json_data = JsonUtility.ToJson(data);
             File.WriteAllText(file_path(), json_data);

@@ -107,7 +107,6 @@ public class PlayerStatsScript : MonoBehaviour
         NbRecette3 = GameManager.Instance.NbRecette3;
         NbRecette4 = GameManager.Instance.NbRecette4;
         NbRecette5 = GameManager.Instance.NbRecette5;
-        Debug.Log(MaxVie);
     }
 
     private void Update()

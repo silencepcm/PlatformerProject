@@ -218,6 +218,7 @@ namespace Unity.FPS.Gameplay
         if (collider.gameObject.tag == "InteractableEnv")
         {
             collider.GetComponent<Animator>().SetTrigger("start");
+                Debug.Log(collider);
         } else if (collider.gameObject.tag == "Enemy")
             {
                 collider.GetComponent<FPS.AI.EnemyMobile>().OnDamaged();
