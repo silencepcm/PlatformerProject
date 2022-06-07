@@ -100,23 +100,36 @@ namespace Unity.FPS.AI
         const string k_AnimOnDamagedTrigger = "OnDamaged";
         public enum EnemyType { Brute, Tourelle, Fronde};
         public EnemyType enemyType;
-        float WalkSpeed;
-        float RunSpeed;
         void ImportParams()
         {
             switch (enemyType)
             {
                 case EnemyType.Brute:
-                    WalkSpeed = GameManager.Instance.BruteWalkSpeed;
-                    RunSpeed = GameManager.Instance.BruteRunSpeed;
+                    GetComponent<EnemyMobile>().WalkSpeed = GameManager.Instance.BruteWalkSpeed;
+                    GetComponent<EnemyMobile>().RunSpeed = GameManager.Instance.BruteRunSpeed;
                     NavMeshAgent.angularSpeed = GameManager.Instance.BruteAngleSpeed;
                     NavMeshAgent.speed = GameManager.Instance.BruteWalkSpeed;
                     NavMeshAgent.acceleration = GameManager.Instance.BruteAcceleration;
+                    AttackRange = GameManager.Instance.BruteAttackDistance;
+                    AttackDelay = GameManager.Instance.BruteAttackDelay;
+                    DetectionRange = GameManager.Instance.BruteDetectDistance;
                     break;
                 case EnemyType.Tourelle:
+                    NavMeshAgent.angularSpeed = GameManager.Instance.TourelleAngleSpeed;
+                    AttackDelay = GameManager.Instance.TourelleAttackDelay;
+                    AttackRange = GameManager.Instance.TourelleAttackDistance;
+                    NavMeshAgent.speed = 0f;
+                    DetectionRange = GameManager.Instance.TourelleDetectDistance;
                     break;
                 case EnemyType.Fronde:
-
+                    GetComponent<EnemyMobile>().WalkSpeed = GameManager.Instance.FrondeWalkSpeed;
+                    GetComponent<EnemyMobile>().RunSpeed = GameManager.Instance.FrondeRunSpeed;
+                    NavMeshAgent.angularSpeed = GameManager.Instance.FrondeAngleSpeed;
+                    NavMeshAgent.speed = GameManager.Instance.FrondeWalkSpeed;
+                    NavMeshAgent.acceleration = GameManager.Instance.FrondeAcceleration;
+                    AttackRange = GameManager.Instance.FrondeAttackDistance;
+                    AttackDelay = GameManager.Instance.FrondeAttackDelay;
+                    DetectionRange = GameManager.Instance.FrondeDetectDistance;
                     break;
             }
         }
@@ -130,7 +143,7 @@ namespace Unity.FPS.AI
             //m_EnemyManager.RegisterEnemy(this);
 
 
-
+            
             NavMeshAgent = GetComponent<NavMeshAgent>();
             m_SelfColliders = GetComponentsInChildren<Collider>();
 
@@ -169,7 +182,7 @@ namespace Unity.FPS.AI
             // Handle known target detection timeout
             if (Player && !IsSeeingTarget && (Time.time - TimeLastSeenTarget) > KnownTargetTimeout)
             {
-                detected = false;
+                OnLostTarget();
             }
 
             // Find the closest visible hostile actor
@@ -184,7 +197,7 @@ namespace Unity.FPS.AI
                     (Player.transform.Find("AimPoint").position - DetectionSourcePoint.position).normalized, DetectionRange,
                     -1, QueryTriggerInteraction.Ignore);
                 RaycastHit closestValidHit = new RaycastHit();
-                closestValidHit.distance = Mathf.Infinity;
+                closestValidHit.distance = DetectionRange;
                 bool foundValidHit = false;
                 foreach (var hit in hits)
                 {
@@ -194,7 +207,7 @@ namespace Unity.FPS.AI
                         foundValidHit = true;
                     }
                 }
-
+                
                 if (foundValidHit)
                 {
                     IsSeeingTarget = true;
@@ -210,9 +223,10 @@ namespace Unity.FPS.AI
 
             // Detection events
             if (!HadKnownTarget &&
-                !detected)
+                !detected && IsSeeingTarget)
             {
                 OnDetect();
+                detected = true;
             }
 
             if (HadKnownTarget &&
@@ -273,6 +287,7 @@ namespace Unity.FPS.AI
 
         void OnLostTarget()
         {
+            detected = false;
             onLostTarget.Invoke();
 
         }

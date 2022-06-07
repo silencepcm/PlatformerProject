@@ -22,8 +22,6 @@ namespace Unity.FPS.AI
         [Tooltip("Optional animator for OnShoot animations")]
         public Animator Animator;
 
-        public UnityAction onDetectedTarget;
-        public UnityAction onLostTarget;
 
         public GameObject Player { get; private set; }
         public bool IsTargetInAttackRange { get; private set; }
@@ -99,9 +97,6 @@ namespace Unity.FPS.AI
             }
         }*/
 
-        public virtual void OnLostTarget() => onLostTarget?.Invoke();
-
-        public virtual void OnDetect() => onDetectedTarget?.Invoke();
 
         public virtual void OnDamaged(GameObject damageSource)
         {

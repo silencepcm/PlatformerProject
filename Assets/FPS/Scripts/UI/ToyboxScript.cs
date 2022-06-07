@@ -24,7 +24,6 @@ namespace Unity.FPS.Gameplay
         public GameObject FallDamageVALEURatMaxSpeed;
         public GameObject InventaireUIFeedBack;
         public GameObject UIPanel;
-        public GameObject InnerPanel;
         WeaponController playerWeaponsController;
         public List<Transform> toggleUI;
         int activeSetting = 0;
@@ -139,27 +138,24 @@ namespace Unity.FPS.Gameplay
                             text.text = GameManager.Instance.BruteDetectDistance.ToString();
                             break;
                         case "AttackStopDistance":
-                            text.text = GameManager.Instance.BruteAttackStopDistance.ToString();
+                            text.text = GameManager.Instance.BruteStopDistance.ToString();
                             break;
                         case "AngleSpeed":
                             text.text = GameManager.Instance.BruteAngleSpeed.ToString();
                             break;
+                        case "Acceleration":
+                            text.text = GameManager.Instance.BruteAcceleration.ToString();
+                            break;
                     }
                 }
             }
-            else if (BruteSettingsUI.activeSelf)
+            else if (TourelleSettingsUI.activeSelf)
             {
                 foreach (Transform element in BruteSettingsUI.transform)
                 {
                     TMP_InputField text = element.GetComponent<TMP_InputField>();
                     switch (element.name)
                     {
-                        case "WalkSpeed":
-                            text.text = GameManager.Instance.TourelleWalkSpeed.ToString();
-                            break;
-                        case "RunSpeed":
-                            text.text = GameManager.Instance.TourelleRunSpeed.ToString();
-                            break;
                         case "AttackDistance":
                             text.text = GameManager.Instance.TourelleAttackDistance.ToString();
                             break;
@@ -195,7 +191,7 @@ namespace Unity.FPS.Gameplay
                             text.text = GameManager.Instance.FrondeDetectDistance.ToString();
                             break;
                         case "AttackStopDistance":
-                            text.text = GameManager.Instance.FrondeAttackStopDistance.ToString();
+                            text.text = GameManager.Instance.FrondeStopDistance.ToString();
                             break;
                         case "AngleSpeed":
                             text.text = GameManager.Instance.FrondeAngleSpeed.ToString();
@@ -467,11 +463,33 @@ namespace Unity.FPS.Gameplay
                 }
             }
         }
-        public void SetBruteAttackStopDistance(TMP_InputField textObj)
+        public void SetBruteStopDistance(TMP_InputField textObj)
         {
             if (float.TryParse(textObj.text, out float f))
             {
-                GameManager.Instance.BruteAttackStopDistance = f;
+                GameManager.Instance.BruteStopDistance = f;
+                if (setEnemyParamsUpdate != null)
+                {
+                    setEnemyParamsUpdate.Invoke();
+                }
+            }
+        } 
+        public void SetBruteAttackDelay(TMP_InputField textObj)
+        {
+            if (float.TryParse(textObj.text, out float f))
+            {
+                GameManager.Instance.BruteAttackDelay = f;
+                if (setEnemyParamsUpdate != null)
+                {
+                    setEnemyParamsUpdate.Invoke();
+                }
+            }
+        }
+        public void SetBruteAcceleration(TMP_InputField textObj)
+        {
+            if (float.TryParse(textObj.text, out float f))
+            {
+                GameManager.Instance.BruteAcceleration = f;
                 if (setEnemyParamsUpdate != null)
                 {
                     setEnemyParamsUpdate.Invoke();
@@ -481,28 +499,6 @@ namespace Unity.FPS.Gameplay
 
 
 
-        public void SetTourelleWalkSpeed(TMP_InputField textObj)
-        {
-            if (float.TryParse(textObj.text, out float f))
-            {
-                GameManager.Instance.TourelleWalkSpeed = f;
-                if (setEnemyParamsUpdate != null)
-                {
-                    setEnemyParamsUpdate.Invoke();
-                }
-            }
-        }
-        public void SetTourelleRunSpeed(TMP_InputField textObj)
-        {
-            if (float.TryParse(textObj.text, out float f))
-            {
-                GameManager.Instance.TourelleRunSpeed = f;
-                if (setEnemyParamsUpdate != null)
-                {
-                    setEnemyParamsUpdate.Invoke();
-                }
-            }
-        }
         public void SetTourelleAngularSpeed(TMP_InputField textObj)
         {
             if (float.TryParse(textObj.text, out float f))
@@ -536,11 +532,11 @@ namespace Unity.FPS.Gameplay
                 }
             }
         }
-        public void SetTourelleAttackStopDistance(TMP_InputField textObj)
+        public void SetTourelleAttackDelay(TMP_InputField textObj)
         {
             if (float.TryParse(textObj.text, out float f))
             {
-                GameManager.Instance.TourelleAttackStopDistance = f;
+                GameManager.Instance.TourelleAttackDelay = f;
                 if (setEnemyParamsUpdate != null)
                 {
                     setEnemyParamsUpdate.Invoke();
@@ -605,11 +601,33 @@ namespace Unity.FPS.Gameplay
                 }
             }
         }
-        public void SetFrondeAttackStopDistance(TMP_InputField textObj)
+        public void SetFrondeStopDistance(TMP_InputField textObj)
         {
             if (float.TryParse(textObj.text, out float f))
             {
-                GameManager.Instance.FrondeAttackStopDistance = f;
+                GameManager.Instance.FrondeStopDistance = f;
+                if (setEnemyParamsUpdate != null)
+                {
+                    setEnemyParamsUpdate.Invoke();
+                }
+            }
+        }
+        public void SetFrondeAttackDelay(TMP_InputField textObj)
+        {
+            if (float.TryParse(textObj.text, out float f))
+            {
+                GameManager.Instance.FrondeAttackDelay = f;
+                if (setEnemyParamsUpdate != null)
+                {
+                    setEnemyParamsUpdate.Invoke();
+                }
+            }
+        }
+        public void SetFrondeAcceleration(TMP_InputField textObj)
+        {
+            if (float.TryParse(textObj.text, out float f))
+            {
+                GameManager.Instance.FrondeAcceleration = f;
                 if (setEnemyParamsUpdate != null)
                 {
                     setEnemyParamsUpdate.Invoke();

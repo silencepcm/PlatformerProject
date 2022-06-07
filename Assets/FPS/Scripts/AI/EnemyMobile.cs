@@ -10,7 +10,9 @@ namespace Unity.FPS.AI
         {
             Patrol,
             Follow,
+            Detect,
             Attack,
+            Death
         }
         int Vie = 3;
         public Animator Animator;
@@ -32,12 +34,15 @@ namespace Unity.FPS.AI
         EnemyController m_EnemyController;
         AudioSource m_AudioSource;
 
-        const string k_AnimMoveSpeedParameter = "MoveSpeed";
+        const string k_AnimRunParameter = "Run";
+        const string k_AnimWalkParameter = "Walk";
         const string k_AnimAttackParameter = "Attack";
-        const string k_AnimAlertedParameter = "Alerted";
+        const string k_AnimAlertedParameter = "PlayerSeen";
         const string k_AnimOnDamagedParameter = "OnDamaged";
         const string k_AnimOnDeathParameter = "Death";
-
+        public float WalkSpeed { get; set; }
+        public float RunSpeed { get; set; }
+        float lastTimeSpeed;
         void Start()
         {
             m_EnemyController = GetComponent<EnemyController>();
@@ -48,7 +53,7 @@ namespace Unity.FPS.AI
             m_EnemyController.onDetectedTarget += OnDetectedTarget;
             m_EnemyController.onLostTarget += OnLostTarget;
             m_EnemyController.SetPathDestinationToClosestNode();
-
+            lastTimeSpeed = 0f;
             // Start patrolling
             AiState = AIState.Patrol;
 
@@ -63,15 +68,18 @@ namespace Unity.FPS.AI
         {
             UpdateAiStateTransitions();
             UpdateCurrentAiState();
-
             float moveSpeed = m_EnemyController.NavMeshAgent.velocity.magnitude;
-
+            
+            bool walking = AiState == AIState.Patrol && Vector3.Distance(transform.position, m_EnemyController.GetDestinationOnPath())>1f;
+            bool running = AiState == AIState.Follow && Vector3.Distance(transform.position, m_EnemyController.GetDestinationOnPath()) > m_EnemyController.NavMeshAgent.stoppingDistance && m_EnemyController.NavMeshAgent.speed>1f;
             // Update animator speed parameter
-            Animator.SetFloat(k_AnimMoveSpeedParameter, moveSpeed);
+            Animator.SetBool(k_AnimRunParameter, running);
+            Animator.SetBool(k_AnimWalkParameter, walking);
 
             // changing the pitch of the movement sound depending on the movement speed
             m_AudioSource.pitch = Mathf.Lerp(PitchDistortionMovementSpeed.Min, PitchDistortionMovementSpeed.Max,
                 moveSpeed / m_EnemyController.NavMeshAgent.speed);
+            lastTimeSpeed = moveSpeed;
         }
 
         void UpdateAiStateTransitions()
@@ -107,6 +115,7 @@ namespace Unity.FPS.AI
                 case AIState.Patrol:
                     m_EnemyController.UpdatePathDestination();
                     m_EnemyController.SetNavDestination(m_EnemyController.GetDestinationOnPath());
+                    m_EnemyController.OrientTowards(m_EnemyController.GetDestinationOnPath());
                     break;
                 case AIState.Follow:
                     m_EnemyController.SetNavDestination(m_EnemyController.Player.transform.position);
@@ -134,12 +143,16 @@ namespace Unity.FPS.AI
         {
             Animator.SetTrigger(k_AnimAttackParameter);
         }
-
+        public void OnEndDetectionAnimation()
+        {
+                AiState = AIState.Follow;
+        }
         void OnDetectedTarget()
         {
             if (AiState == AIState.Patrol)
             {
-                AiState = AIState.Follow;
+                AiState = AIState.Detect;
+                StartCoroutine(DetectWait());
             }
 
             for (int i = 0; i < OnDetectVfx.Length; i++)
@@ -160,6 +173,7 @@ namespace Unity.FPS.AI
             if (AiState == AIState.Follow || AiState == AIState.Attack)
             {
                 AiState = AIState.Patrol;
+                GetComponent<EnemyController>().NavMeshAgent.speed = GameManager.Instance.BruteWalkSpeed;
             }
 
             for (int i = 0; i < OnDetectVfx.Length; i++)
@@ -187,15 +201,20 @@ namespace Unity.FPS.AI
             } else
             {
                 Animator.SetTrigger(k_AnimOnDeathParameter);
+                AiState = AIState.Death;
                 StartCoroutine(DeathWait());
             }
             
         }
         IEnumerator DeathWait()
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f);
             Destroy(gameObject);
         }
-        
+        IEnumerator DetectWait()
+        {
+            yield return new WaitForSeconds(1f);
+            AiState = AIState.Follow;
+        }
     }
 }
