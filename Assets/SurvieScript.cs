@@ -112,9 +112,9 @@ public class SurvieScript : MonoBehaviour
 
             
         }
-        if (Input.GetKeyDown(KeyCode.H) && timer > timerCoolDown && InventairePanel.GetComponent<InventaireScript>().NbPotionSanté > 0 && Vie.value < maxVie)
+        if (Input.GetKeyDown(KeyCode.H) && timer > timerCoolDown && InventairePanel.GetComponent<InventaireScript>().NbPotionSante > 0 && Vie.value < maxVie)
         {
-            InventairePanel.GetComponent<InventaireScript>().NbPotionSanté -= 1;
+            InventairePanel.GetComponent<InventaireScript>().NbPotionSante -= 1;
             Vie.value = maxVie;
         }
 
@@ -132,7 +132,7 @@ public class SurvieScript : MonoBehaviour
         Sac.GetComponent<InventaireScript>().Directite = InventairePanel.GetComponent<InventaireScript>().Directite;
         Sac.GetComponent<InventaireScript>().Clochite = InventairePanel.GetComponent<InventaireScript>().Clochite;
         Sac.GetComponent<InventaireScript>().Sac = 1;
-        Sac.GetComponent<InventaireScript>().NbPotionSanté = InventairePanel.GetComponent<InventaireScript>().NbPotionSanté;
+        Sac.GetComponent<InventaireScript>().NbPotionSante = InventairePanel.GetComponent<InventaireScript>().NbPotionSante;
         Sac.GetComponent<InventaireScript>().NbTrampoplante = InventairePanel.GetComponent<InventaireScript>().NbTrampoplante;
         Sac.GetComponent<InventaireScript>().Fruit = InventairePanel.GetComponent<InventaireScript>().Fruit;
         Sac.GetComponent<InventaireScript>().Baie = InventairePanel.GetComponent<InventaireScript>().Baie;
@@ -140,7 +140,7 @@ public class SurvieScript : MonoBehaviour
         Sac.GetComponent<InventaireScript>().Plontite1 = InventairePanel.GetComponent<InventaireScript>().Plontite1;
         Sac.GetComponent<InventaireScript>().RecetteMunitionDirect = InventairePanel.GetComponent<InventaireScript>().RecetteMunitionDirect;
         Sac.GetComponent<InventaireScript>().RecetteMunitionOblique = InventairePanel.GetComponent<InventaireScript>().RecetteMunitionOblique;
-        Sac.GetComponent<InventaireScript>().RecettePotionSanté = InventairePanel.GetComponent<InventaireScript>().RecettePotionSanté;
+        Sac.GetComponent<InventaireScript>().RecettePotionSante = InventairePanel.GetComponent<InventaireScript>().RecettePotionSante;
         Sac.GetComponent<InventaireScript>().RecetteTrampoplante = InventairePanel.GetComponent<InventaireScript>().RecetteTrampoplante;
 
         
@@ -151,7 +151,7 @@ public class SurvieScript : MonoBehaviour
         InventairePanel.GetComponent<InventaireScript>().Munitite = 0;
         InventairePanel.GetComponent<InventaireScript>().NbMunitionDirect = InventairePanel.GetComponent<InventaireScript>().NbMunitionDirect / 2;
         InventairePanel.GetComponent<InventaireScript>().NbMunitionOblique = InventairePanel.GetComponent<InventaireScript>().NbMunitionOblique / 2;
-        InventairePanel.GetComponent<InventaireScript>().NbPotionSanté = 0;
+        InventairePanel.GetComponent<InventaireScript>().NbPotionSante = 0;
         InventairePanel.GetComponent<InventaireScript>().NbTrampoplante = 0;
         InventairePanel.GetComponent<InventaireScript>().Fruit = 0;
         InventairePanel.GetComponent<InventaireScript>().Baie = 0;
@@ -159,7 +159,7 @@ public class SurvieScript : MonoBehaviour
         InventairePanel.GetComponent<InventaireScript>().Plontite1 = 0;
         InventairePanel.GetComponent<InventaireScript>().RecetteMunitionDirect = 0;
         InventairePanel.GetComponent<InventaireScript>().RecetteMunitionOblique = 0;
-        InventairePanel.GetComponent<InventaireScript>().RecettePotionSanté = 0;
+        InventairePanel.GetComponent<InventaireScript>().RecettePotionSante = 0;
         InventairePanel.GetComponent<InventaireScript>().RecetteTrampoplante = 0;
 
     }

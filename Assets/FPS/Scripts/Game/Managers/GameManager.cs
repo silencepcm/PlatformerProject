@@ -29,24 +29,20 @@ public class GameManager : MonoBehaviour
 
     public GameObject AthMunitionDirect;
     public GameObject AthMunitionOblique;
-
+  
     #region SINGLETON PATTERN
     private static GameManager _instance;
     public static GameManager Instance
     {
         get
         {
+           
             if (_instance == null)
             {
                 _instance = FindObjectOfType<GameManager>();
+                _instance.Awake();
 
-                if (_instance == null)
-                {
-                    Resources.Load<GameObject>("GameManager");
-                    _instance.Start();
-                }
             }
-
             return _instance;
         }
     }
@@ -135,7 +131,7 @@ public class GameManager : MonoBehaviour
     
 
 
-    public void Start()
+    public void Awake()
     {
         SaveData data = SaveToyboxScript.LoadData();
         if (data != null)
@@ -305,7 +301,7 @@ public class GameManager : MonoBehaviour
             NbIngredient5.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().Fruit.ToString();
             //NbIngredient6.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().Poussite.ToString();
             //NbIngredient7.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().Plontite1.ToString();
-            NbPotionSanté.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().NbPotionSanté.ToString();
+            NbPotionSanté.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().NbPotionSante.ToString();
             NbPotionTrampoplante.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().NbTrampoplante.ToString();
 
            
@@ -322,7 +318,7 @@ public class GameManager : MonoBehaviour
             }
 
 
-            if (Player.GetComponent<InventaireScript>().RecettePotionSanté > 0 && Recette3.activeInHierarchy == false)
+            if (Player.GetComponent<InventaireScript>().RecettePotionSante > 0 && Recette3.activeInHierarchy == false)
             {
                 Recette3.SetActive(true);
             }
@@ -360,7 +356,7 @@ public class GameManager : MonoBehaviour
         {
             Player.GetComponent<InventaireScript>().Baie -= 3;
             Player.GetComponent<InventaireScript>().Fruit -= 1;
-            Player.GetComponent<InventaireScript>().NbPotionSanté += 1;
+            Player.GetComponent<InventaireScript>().NbPotionSante += 1;
 
         }
     }

@@ -127,7 +127,7 @@ namespace Unity.FPS.Gameplay
                 GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().Poussite += GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Poussite;
                 GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().RecetteMunitionDirect += GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().RecetteMunitionDirect;
                 GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().RecetteMunitionOblique += GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().RecetteMunitionOblique;
-                GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().RecettePotionSanté += GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().RecettePotionSanté;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().RecettePotionSante += GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().RecettePotionSante;
                 GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().RecetteTrampoplante += GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().RecetteTrampoplante;
 
                 GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Sac += 0;
@@ -142,7 +142,7 @@ namespace Unity.FPS.Gameplay
                 GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Poussite += 0;
                 GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().RecetteMunitionDirect += 0;
                 GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().RecetteMunitionOblique += 0;
-                GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().RecettePotionSanté += 0;
+                GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().RecettePotionSante += 0;
                 GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().RecetteTrampoplante += 0;
             }
             PlayPickupFeedback();
