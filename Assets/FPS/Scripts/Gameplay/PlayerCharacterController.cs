@@ -44,7 +44,7 @@ namespace Unity.FPS.Gameplay
         public float SprintSpeedModifier = 2f;
 
         [Tooltip("Height at which the player dies instantly when falling off the map")]
-        public float KillHeight = -50f;
+        public float KillHeight = -5f;
 
         [Header("Rotation")] [Tooltip("Rotation speed for moving the camera")]
         public float RotationSpeed = 200f;
@@ -178,7 +178,7 @@ namespace Unity.FPS.Gameplay
             // check for Y kill
             if (!IsDead && transform.position.y < KillHeight)
             {
-                player.Kill();
+               GameObject.FindGameObjectWithTag("GameManager").GetComponent<SurvieScript>().Dead();
                 OnDie();
             }
             HasJumpedThisFrame = false;

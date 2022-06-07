@@ -6,24 +6,43 @@ using UnityEngine.UI;
 using TMPro;
 public class GameManager : MonoBehaviour
 {
+    public GameObject Player;
+    public GameObject InventairePanel;
 
+    public GameObject NbIngredient1;
+    public GameObject NbIngredient2;
+    public GameObject NbIngredient3;
+    public GameObject NbIngredient4;
+    public GameObject NbIngredient5;
+    //public GameObject NbIngredient6;
+    // public GameObject NbIngredient7;
+
+    
+
+    public GameObject Recette1;
+    public GameObject Recette2;
+    public GameObject Recette3;
+    public GameObject Recette4;
+
+    public GameObject NbPotionSanté;
+    public GameObject NbPotionTrampoplante;
+
+    public GameObject AthMunitionDirect;
+    public GameObject AthMunitionOblique;
+  
     #region SINGLETON PATTERN
     private static GameManager _instance;
     public static GameManager Instance
     {
         get
         {
+           
             if (_instance == null)
             {
                 _instance = FindObjectOfType<GameManager>();
+                _instance.Awake();
 
-                if (_instance == null)
-                {
-                    Resources.Load<GameObject>("GameManager");
-                    _instance.Start();
-                }
             }
-
             return _instance;
         }
     }
@@ -112,34 +131,7 @@ public class GameManager : MonoBehaviour
     
 
 
-
-    public GameObject Player;
-    public GameObject InventairePanel;
-
-    public GameObject NbIngredient1;
-    public GameObject NbIngredient2;
-    public GameObject NbIngredient3;
-    public GameObject NbIngredient4;
-    public GameObject NbIngredient5;
-    //public GameObject NbIngredient6;
-    // public GameObject NbIngredient7;
-
-    public GameObject NbMunitionDirect;
-    public GameObject NbMunitionOblique;
-
-    public GameObject Recette1;
-    public GameObject Recette2;
-    public GameObject Recette3;
-    public GameObject Recette4;
-
-    public GameObject NbPotionSante;
-    public GameObject NbPotionTrampoplante;
-
-    public GameObject AthMunitionDirect;
-    public GameObject AthMunitionOblique;
-
-
-    public void Start()
+    public void Awake()
     {
         SaveData data = SaveToyboxScript.LoadData();
         if (data != null)
@@ -270,7 +262,7 @@ public class GameManager : MonoBehaviour
             NbRecette5 = 0;
 
             BulletGravity = 10;
-            BulletSpeed = 3;
+            BulletSpeed = 10;
 
 
             BruteWalkSpeed = 3f;
@@ -309,11 +301,10 @@ public class GameManager : MonoBehaviour
             NbIngredient5.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().Fruit.ToString();
             //NbIngredient6.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().Poussite.ToString();
             //NbIngredient7.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().Plontite1.ToString();
-            NbPotionSante.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().NbPotionSante.ToString();
+            NbPotionSanté.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().NbPotionSante.ToString();
             NbPotionTrampoplante.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().NbTrampoplante.ToString();
 
-            //NbMunitionDirect.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().NbMunitionDirect.ToString();
-            //NbMunitionOblique.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().NbMunitionOblique.ToString();
+           
 
             if (Player.GetComponent<InventaireScript>().RecetteMunitionDirect > 0 && Recette1.activeInHierarchy == false)
             {

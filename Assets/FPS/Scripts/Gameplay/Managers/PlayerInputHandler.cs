@@ -70,11 +70,7 @@ namespace Unity.FPS.Gameplay {
 
             return Vector3.zero;
         }
-        public bool GetReloadButtonDown()
-        {
-            return false;
-        }
-
+       
         public float GetLookInputsHorizontal()
         {
             return GetMouseOrStickLookAxis(GameConstants.k_MouseAxisNameHorizontal,
@@ -154,15 +150,15 @@ namespace Unity.FPS.Gameplay {
         {
             if (CanProcessInput())
             {
-                /*bool isGamepad = Input.GetAxis(GameConstants.k_ButtonNameGamepadFire) != 0f;
+                bool isGamepad = Input.GetAxis(GameConstants.k_ButtonNameGamepadFire) != 0f;
                 if (isGamepad)
                 {
                     return Input.GetAxis(GameConstants.k_ButtonNameGamepadFire) >= TriggerAxisThreshold;
                 }
                 else
-                {*/
+                {
                     return Input.GetButton(GameConstants.k_ButtonNameTir);
-               // }
+                }
             }
 
             return false;
@@ -171,20 +167,28 @@ namespace Unity.FPS.Gameplay {
         {
             if (CanProcessInput())
             {
-          /*      bool isGamepad = Input.GetAxis(GameConstants.k_ButtonNameGamepadAim) != 0f;
+                bool isGamepad = Input.GetAxis(GameConstants.k_ButtonNameGamepadAim) != 0f;
                 if (isGamepad)
                 {
                     return Input.GetAxis(GameConstants.k_ButtonNameGamepadAim) >= TriggerAxisThreshold;
                 }
 
                 else
-                {*/
+                {
                     return Input.GetButton(GameConstants.k_ButtonNameAim);
-               //}
+                }
             }
 
             return false;
         }
+
+        public bool GetAimInputHeld()
+        {
+            
+
+            return false;
+        }
+
         public bool GetSprintInputHeld()
         {
             if (CanProcessInput())
@@ -195,6 +199,67 @@ namespace Unity.FPS.Gameplay {
             return false;
         }
 
+        public bool GetReloadButtonDown()
+        {
+            if (CanProcessInput())
+            {
+                return Input.GetButtonDown(GameConstants.k_ButtonReload);
+            }
+
+            return false;
+        }
+
+        public int GetSwitchWeaponInput()
+        {
+            if (CanProcessInput())
+            {
+
+                bool isGamepad = Input.GetAxis(GameConstants.k_ButtonNameGamepadSwitchWeapon) != 0f;
+                string axisName = isGamepad
+                    ? GameConstants.k_ButtonNameGamepadSwitchWeapon
+                    : GameConstants.k_ButtonNameSwitchWeapon;
+
+                if (Input.GetAxis(axisName) > 0f)
+                    return -1;
+                else if (Input.GetAxis(axisName) < 0f)
+                    return 1;
+                else if (Input.GetAxis(GameConstants.k_ButtonNameNextWeapon) > 0f)
+                    return -1;
+                else if (Input.GetAxis(GameConstants.k_ButtonNameNextWeapon) < 0f)
+                    return 1;
+            }
+
+            return 0;
+        }
+
+        public int GetSelectWeaponInput()
+        {
+            if (CanProcessInput())
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha1))
+                    return 1;
+                else if (Input.GetKeyDown(KeyCode.Alpha2))
+                    return 2;
+                else if (Input.GetKeyDown(KeyCode.Alpha3))
+                    return 3;
+                else if (Input.GetKeyDown(KeyCode.Alpha4))
+                    return 4;
+                else if (Input.GetKeyDown(KeyCode.Alpha5))
+                    return 5;
+                else if (Input.GetKeyDown(KeyCode.Alpha6))
+                    return 6;
+                else if (Input.GetKeyDown(KeyCode.Alpha7))
+                    return 7;
+                else if (Input.GetKeyDown(KeyCode.Alpha8))
+                    return 8;
+                else if (Input.GetKeyDown(KeyCode.Alpha9))
+                    return 9;
+                else
+                    return 0;
+            }
+
+            return 0;
+        }
         public bool GetCanOpenInventaire()
         {
             return canOpenInventaire;
@@ -206,15 +271,14 @@ namespace Unity.FPS.Gameplay {
                 // Check if this look input is coming from the mouse
                 bool isGamepad = Input.GetAxis(stickInputName) != 0f;
                 float i = isGamepad ? Input.GetAxis(stickInputName) : Input.GetAxisRaw(mouseInputName);
-                
-                // handle inverting vertical
+
+                // handle inverting vertical input
+                if (InvertYAxis)
+                    i *= -1f;
 
                 // apply sensitivity multiplier
                 i *= LookSensitivity;
-                if(mouseInputName == GameConstants.k_MouseAxisNameVertical)
-                {
-                    i *= -1f;
-                }
+
                 if (isGamepad)
                 {
                     // since mouse input is already deltaTime-dependant, only scale input with frame time if it's coming from sticks

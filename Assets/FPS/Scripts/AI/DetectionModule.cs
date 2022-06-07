@@ -95,9 +95,9 @@ namespace Unity.FPS.AI
             {
                 OnLostTarget();
             }
-        }*/
+        }
 
-
+        */
         public virtual void OnDamaged(GameObject damageSource)
         {
             TimeLastSeenTarget = Time.time;

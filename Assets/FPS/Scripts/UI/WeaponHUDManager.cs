@@ -38,7 +38,7 @@ namespace Unity.FPS.UI
             DebugUtility.HandleErrorIfNullGetComponent<AmmoCounter, WeaponHUDManager>(newAmmoCounter, this,
                 ammoCounterInstance);
 
-            newAmmoCounter.Initialize(newWeapon, weaponIndex);
+           // newAmmoCounter.Initialize(newWeapon, weaponIndex);
 
             m_AmmoCounters.Add(newAmmoCounter);
         }
@@ -48,11 +48,11 @@ namespace Unity.FPS.UI
             int foundCounterIndex = -1;
             for (int i = 0; i < m_AmmoCounters.Count; i++)
             {
-                if (m_AmmoCounters[i].WeaponCounterIndex == weaponIndex)
+                /*if (m_AmmoCounters[i].WeaponCounterIndex == weaponIndex)
                 {
                     foundCounterIndex = i;
                     Destroy(m_AmmoCounters[i].gameObject);
-                }
+                }*/
             }
 
             if (foundCounterIndex >= 0)

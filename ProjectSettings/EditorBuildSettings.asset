@@ -5,10 +5,23 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 1
+    path: Assets/FPS/Scenes/IntroMenu.unity
+    guid: 56e3faabc5bb30f49a68bb8f1292f988
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+    path: Assets/FPS/Scenes/WinScene.unity
+    guid: 037d06fbede2b4041a843d9ee6fe750c
+  - enabled: 1
+    path: Assets/FPS/Scenes/LoseScene.unity
+    guid: 72e5c65a45893714484002914e3fd521
+  - enabled: 0
+    path: Assets/FPS/Scenes/MainScene.unity
+    guid: d794a2ef8ba31d847ad3c19d03e2ddb9
   - enabled: 1
     path: Assets/FPS/Scenes/ToyBox.unity
     guid: e60e9145506baf64ebb22ecdcae90eb6
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: f2bf9b861531c9745a23355ae9424a33,
+      type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
+      guid: 0952ef3254a99064aa17091cfa357dac, type: 2}

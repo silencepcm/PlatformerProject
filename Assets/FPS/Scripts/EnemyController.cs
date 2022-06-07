@@ -159,6 +159,11 @@ namespace Unity.FPS.AI
             onAttack += OnAttack;
             onDetectedTarget += OnDetectedTarget;
             ImportParams();
+
+             /*   NavMeshAgent.speed = m_NavigationModule.MoveSpeed;
+                NavMeshAgent.angularSpeed = m_NavigationModule.AngularSpeed;
+                NavMeshAgent.acceleration = m_NavigationModule.Acceleration;*/
+            
         }
 
         void Update()
