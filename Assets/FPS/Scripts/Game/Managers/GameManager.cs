@@ -124,8 +124,8 @@ public class GameManager : MonoBehaviour
     //public GameObject NbIngredient6;
     // public GameObject NbIngredient7;
 
-    public GameObject NbMunitionDirect;
-    public GameObject NbMunitionOblique;
+    //public GameObject NbMunitionDirect;
+    //public GameObject NbMunitionOblique;
 
     public GameObject Recette1;
     public GameObject Recette2;
