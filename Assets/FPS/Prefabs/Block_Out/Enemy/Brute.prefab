@@ -1030,7 +1030,7 @@ PrefabInstance:
     - target: {fileID: -4961615271798045233, guid: 461acca1788fe8b4cb6c40f09013b2e8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 80cf95b3f4613ae4896c5219d5b3f2c0, type: 2}
+      objectReference: {fileID: 2100000, guid: fd354828773371044a7504bd7ae055c4, type: 2}
     - target: {fileID: 919132149155446097, guid: 461acca1788fe8b4cb6c40f09013b2e8, type: 3}
       propertyPath: m_Name
       value: 3D_Enemy_Brute_Animation03
