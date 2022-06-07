@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3182763651228131674}
   - component: {fileID: 8771465242247208752}
-  - component: {fileID: 6876085172534938728}
+  - component: {fileID: 2205180563300951592}
   m_Layer: 5
   m_Name: GameManager
   m_TagString: GameManager
@@ -85,45 +85,7 @@ MonoBehaviour:
   NbRecette5: 0
   BulletGravity: 0
   BulletSpeed: 0
-  BruteWalkSpeed: 0
-  BruteRunSpeed: 0
-  BruteAngleSpeed: 0
-  BruteAttackDistance: 0
-  BruteAttackStopDistance: 0
-  BruteDetectDistance: 0
-  BruteAcceleration: 0
-  TourelleWalkSpeed: 0
-  TourelleRunSpeed: 0
-  TourelleAngleSpeed: 0
-  TourelleAttackDistance: 0
-  TourelleAttackStopDistance: 0
-  TourelleDetectDistance: 0
-  TourelleAcceleration: 0
-  FrondeWalkSpeed: 0
-  FrondeRunSpeed: 0
-  FrondeAngleSpeed: 0
-  FrondeAttackDistance: 0
-  FrondeAttackStopDistance: 0
-  FrondeDetectDistance: 0
-  FrondeAcceleration: 0
-  Player: {fileID: 0}
-  InventairePanel: {fileID: 0}
-  NbIngredient1: {fileID: 0}
-  NbIngredient2: {fileID: 0}
-  NbIngredient3: {fileID: 0}
-  NbIngredient4: {fileID: 0}
-  NbIngredient5: {fileID: 0}
-  NbMunitionDirect: {fileID: 0}
-  NbMunitionOblique: {fileID: 0}
-  Recette1: {fileID: 0}
-  Recette2: {fileID: 0}
-  Recette3: {fileID: 0}
-  Recette4: {fileID: 0}
-  NbPotionSante: {fileID: 0}
-  NbPotionTrampoplante: {fileID: 0}
-  AthMunitionDirect: {fileID: 0}
-  AthMunitionOblique: {fileID: 0}
---- !u!114 &6876085172534938728
+--- !u!114 &2205180563300951592
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,12 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8baaad7e8ce95c042a46d6da7777afa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InventairePanel: {fileID: 0}
   SliderNourriture: {fileID: 0}
   SliderEau: {fileID: 0}
   SliderGourde: {fileID: 0}
   Vie: {fileID: 0}
-  activeImageConsom: {fileID: 0}
-  passiveImageConsom: {fileID: 0}
-  activeTextConsom: {fileID: 0}
-  passiveTextConsom: {fileID: 0}
+  perteEauSec: 0
+  perteNourritureSec: 0
+  perteVieSec: 0

@@ -16,12 +16,12 @@ public class InventaireScript : MonoBehaviour
 
     public int NbMunitionDirect;
     public int NbMunitionOblique;
-    public int NbPotionSante;
+    public int NbPotionSanté;
     public int NbTrampoplante;
 
     public int RecetteMunitionDirect;
     public int RecetteMunitionOblique;
-    public int RecettePotionSante;
+    public int RecettePotionSanté;
     public int RecetteTrampoplante;
 
     // Start is called before the first frame update
@@ -37,9 +37,9 @@ public class InventaireScript : MonoBehaviour
         Plontite1 = 0;
         NbMunitionDirect = NbMunitionDirect;
         NbMunitionOblique = NbMunitionOblique;
-        RecetteMunitionDirect = 0;
-        RecetteMunitionOblique = 0;
-        RecettePotionSante = 0;
+        RecetteMunitionDirect = 1;
+        RecetteMunitionOblique = 1;
+        RecettePotionSanté = 0;
         RecetteTrampoplante = 0;
     }
 

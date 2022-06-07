@@ -4,25 +4,30 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
+  - Weapon
+  - GameManager
+  - Collect
+  - Trampoplante
+  - Drinker
   - InteractableEnv
   - Water
-  - Trampoplante
-  - GameManager
-  - Weapon
+  - Enemy
+  - Sac
+  - Gourde
+  - GameFlowManager
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - FirstPersonWeapon
+  - 
   - Water
   - UI
   - 
   - 
+  - PostProcessing
   - 
-  - 
-  - 
-  - 
+  - FirstPersonWeapon
+  - PhysicalAmmo
   - 
   - 
   - 
@@ -44,6 +49,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 788040023
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Foreground
+    uniqueID: 3922283465
     locked: 0

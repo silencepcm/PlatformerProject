@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1883973506167852457}
   m_Layer: 0
   m_Name: Sac PJ
-  m_TagString: Untagged
+  m_TagString: Sac
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,8 +52,8 @@ MonoBehaviour:
   Poussite: 0
   Plontite1: 0
   Sac: 0
-  NbMunitionDirect: 20
-  NbMunitionOblique: 20
+  NbMunitionDirect: 0
+  NbMunitionOblique: 0
   "NbPotionSant\xE9": 0
   NbTrampoplante: 0
   RecetteMunitionDirect: 0
@@ -74,7 +74,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7765401353969466642, guid: 660c2a4a360b2884b81912f1d3a73817, type: 3}
---- !u!114 &9120030105548429872
+--- !u!114 &969490575915695110
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,6 +165,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 3D_Props_Sac_V01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 660c2a4a360b2884b81912f1d3a73817,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 660c2a4a360b2884b81912f1d3a73817, type: 3}

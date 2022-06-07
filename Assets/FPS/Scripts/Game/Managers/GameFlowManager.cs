@@ -8,7 +8,12 @@ namespace Unity.FPS.Game
         [Header("Parameters")]
         [Tooltip("Duration of the fade-to-black at the end of the game")]
         public float EndSceneLoadDelay = 3f;
+        public GameObject Player;
 
+        public Vector3 PtSauvegarde;
+        public Quaternion Rotation;
+
+       
 
         [Header("Win")]
         [Tooltip("This string has to be the name of the scene you want to load when winning")]
@@ -42,21 +47,28 @@ namespace Unity.FPS.Game
 
             AudioUtility.SetMasterVolume(1);
             StartGame();
+            
         }
         void Update()
         {
             if (GameIsEnding)
             {
+                //Player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 float timeRatio = 1 - (m_TimeLoadEndGameScene - Time.time) / EndSceneLoadDelay;
                 FindObjectOfType<HUDManager>().canvasGroup.alpha = timeRatio;
 
                 AudioUtility.SetMasterVolume(1 - timeRatio);
 
                 // See if it's time to load the end scene (after the delay)
-                if (Time.time >= m_TimeLoadEndGameScene)
+                if (Time.time >= 3f)
                 {
-                    SceneManager.LoadScene("ToyBox");
+                    //SceneManager.LoadScene("ToyBox");
+                    // respawn du personnage au  dernier point de sauvegarde
+                    
+                    
+                    Player.GetComponent<Transform>().SetPositionAndRotation(PtSauvegarde, Rotation);
                     GameIsEnding = false;
+
                 }
             }
         }
@@ -102,7 +114,8 @@ namespace Unity.FPS.Game
 
         void StartGame()
         {
-
+            PtSauvegarde = Player.GetComponent<Transform>().position;
+            Rotation = Player.GetComponent<Transform>().rotation;
         }
 
 
