@@ -147,8 +147,8 @@ namespace Unity.FPS.Gameplay
             gameObject.SetActive(false);
             if (name != "Sac")
             {
-                
-                GetComponentInParent<Spawner_Ingredient>().RespawnWaiter(gameObject);
+
+                GetComponentInParent<Spawner_Ingredient>().StartCoroutine(GetComponentInParent<Spawner_Ingredient>().RespawnWaiter(gameObject));
             }
 
            
