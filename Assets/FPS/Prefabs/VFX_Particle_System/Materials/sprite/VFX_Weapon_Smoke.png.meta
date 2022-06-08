@@ -1,0 +1,609 @@
+fileFormatVersion: 2
+guid: f07d8c3265b37574a9ccf2874b8c85aa
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7470787765244861024
+    second: VFX_Weapon_Smoke_0
+  - first:
+      213: -4598725039491484300
+    second: VFX_Weapon_Smoke_1
+  - first:
+      213: -7301131292770252388
+    second: VFX_Weapon_Smoke_2
+  - first:
+      213: 2544633863384793081
+    second: VFX_Weapon_Smoke_3
+  - first:
+      213: -2640023374994413387
+    second: VFX_Weapon_Smoke_4
+  - first:
+      213: -5854569246247425724
+    second: VFX_Weapon_Smoke_5
+  - first:
+      213: 3075369708731542134
+    second: VFX_Weapon_Smoke_6
+  - first:
+      213: -5902896403322575075
+    second: VFX_Weapon_Smoke_7
+  - first:
+      213: -617288104245162098
+    second: VFX_Weapon_Smoke_8
+  - first:
+      213: 8929732637906200769
+    second: VFX_Weapon_Smoke_9
+  - first:
+      213: 1247808867045463618
+    second: VFX_Weapon_Smoke_10
+  - first:
+      213: 7960753604460179942
+    second: VFX_Weapon_Smoke_11
+  - first:
+      213: -798220543134299900
+    second: VFX_Weapon_Smoke_12
+  - first:
+      213: -7090550587541476210
+    second: VFX_Weapon_Smoke_13
+  - first:
+      213: -5847771610910945056
+    second: VFX_Weapon_Smoke_14
+  - first:
+      213: 303069817363275764
+    second: VFX_Weapon_Smoke_15
+  - first:
+      213: -5879334672551837274
+    second: VFX_Weapon_Smoke_16
+  - first:
+      213: 8908928462213321386
+    second: VFX_Weapon_Smoke_17
+  - first:
+      213: 4460401084857453990
+    second: VFX_Weapon_Smoke_18
+  - first:
+      213: -8893227301141661663
+    second: VFX_Weapon_Smoke_19
+  - first:
+      213: -5575335607855806218
+    second: VFX_Weapon_Smoke_20
+  - first:
+      213: 448300826071958758
+    second: VFX_Weapon_Smoke_21
+  - first:
+      213: -4777850656721724813
+    second: VFX_Weapon_Smoke_22
+  - first:
+      213: 274144616873569643
+    second: VFX_Weapon_Smoke_23
+  - first:
+      213: -6921924755737627823
+    second: VFX_Weapon_Smoke_24
+  - first:
+      213: 5027905285649855076
+    second: VFX_Weapon_Smoke_25
+  - first:
+      213: 8338066517364749536
+    second: VFX_Weapon_Smoke_26
+  - first:
+      213: -3374454704858052838
+    second: VFX_Weapon_Smoke_27
+  - first:
+      213: -6297235118827684468
+    second: VFX_Weapon_Smoke_28
+  - first:
+      213: -5500017555512251621
+    second: VFX_Weapon_Smoke_29
+  - first:
+      213: 730971435138021115
+    second: VFX_Weapon_Smoke_30
+  - first:
+      213: 7551248134824165786
+    second: VFX_Weapon_Smoke_31
+  - first:
+      213: 6254268101468161236
+    second: VFX_Weapon_Smoke_32
+  - first:
+      213: 8477945620682970542
+    second: VFX_Weapon_Smoke_33
+  - first:
+      213: 2661384077256894326
+    second: VFX_Weapon_Smoke_34
+  - first:
+      213: 1307884295305457292
+    second: VFX_Weapon_Smoke_35
+  - first:
+      213: -2076532901099576378
+    second: VFX_Weapon_Smoke_36
+  - first:
+      213: 3005545607410543939
+    second: VFX_Weapon_Smoke_37
+  - first:
+      213: -4039634775733263879
+    second: VFX_Weapon_Smoke_38
+  - first:
+      213: 6483871464506792623
+    second: VFX_Weapon_Smoke_39
+  - first:
+      213: -8125726738577525730
+    second: VFX_Weapon_Smoke_40
+  - first:
+      213: -864714635336613769
+    second: VFX_Weapon_Smoke_41
+  - first:
+      213: -4637801557783309653
+    second: VFX_Weapon_Smoke_42
+  - first:
+      213: 3475395722616722501
+    second: VFX_Weapon_Smoke_43
+  - first:
+      213: 2883559720470768284
+    second: VFX_Weapon_Smoke_44
+  - first:
+      213: 2266746999436901393
+    second: VFX_Weapon_Smoke_45
+  - first:
+      213: -9024440009620724219
+    second: VFX_Weapon_Smoke_46
+  - first:
+      213: 6965521137314078967
+    second: VFX_Weapon_Smoke_47
+  - first:
+      213: 1770062861598817582
+    second: VFX_Weapon_Smoke_48
+  - first:
+      213: -367098201297983465
+    second: VFX_Weapon_Smoke_49
+  - first:
+      213: -4507623515339911677
+    second: VFX_Weapon_Smoke_50
+  - first:
+      213: 2633509964795439448
+    second: VFX_Weapon_Smoke_51
+  - first:
+      213: 1438749329706709027
+    second: VFX_Weapon_Smoke_52
+  - first:
+      213: 6938843113210990986
+    second: VFX_Weapon_Smoke_53
+  - first:
+      213: -4906450028846456425
+    second: VFX_Weapon_Smoke_54
+  - first:
+      213: 1010195837831921492
+    second: VFX_Weapon_Smoke_55
+  - first:
+      213: 7569979562208841001
+    second: VFX_Weapon_Smoke_56
+  - first:
+      213: 3432744418415320128
+    second: VFX_Weapon_Smoke_57
+  - first:
+      213: -4875616556914632426
+    second: VFX_Weapon_Smoke_58
+  - first:
+      213: -9157026517210668254
+    second: VFX_Weapon_Smoke_59
+  - first:
+      213: 6872121740740310574
+    second: VFX_Weapon_Smoke_60
+  - first:
+      213: -1442455656172689740
+    second: VFX_Weapon_Smoke_61
+  - first:
+      213: -3178289854851991753
+    second: VFX_Weapon_Smoke_62
+  - first:
+      213: 1801779730333437509
+    second: VFX_Weapon_Smoke_63
+  - first:
+      213: 8740311041864518416
+    second: VFX_Weapon_Smoke_64
+  - first:
+      213: 2539456566071237008
+    second: VFX_Weapon_Smoke_65
+  - first:
+      213: -5569227335831567061
+    second: VFX_Weapon_Smoke_66
+  - first:
+      213: -7513764208627091265
+    second: VFX_Weapon_Smoke_67
+  - first:
+      213: -1476051154612061402
+    second: VFX_Weapon_Smoke_68
+  - first:
+      213: -5195971773113034131
+    second: VFX_Weapon_Smoke_69
+  - first:
+      213: -685318124380366308
+    second: VFX_Weapon_Smoke_70
+  - first:
+      213: 570669207248720121
+    second: VFX_Weapon_Smoke_71
+  - first:
+      213: 7761197101427103862
+    second: VFX_Weapon_Smoke_72
+  - first:
+      213: 7729172827530801362
+    second: VFX_Weapon_Smoke_73
+  - first:
+      213: 7717288372194891289
+    second: VFX_Weapon_Smoke_74
+  - first:
+      213: -1607742726036564566
+    second: VFX_Weapon_Smoke_75
+  - first:
+      213: 5311528842623552998
+    second: VFX_Weapon_Smoke_76
+  - first:
+      213: 8294230170036051656
+    second: VFX_Weapon_Smoke_77
+  - first:
+      213: -1286153859426129581
+    second: VFX_Weapon_Smoke_78
+  - first:
+      213: 3203868893705636473
+    second: VFX_Weapon_Smoke_79
+  - first:
+      213: -5581857967740819457
+    second: VFX_Weapon_Smoke_80
+  - first:
+      213: 4356015932553548365
+    second: VFX_Weapon_Smoke_81
+  - first:
+      213: 5956106024309617078
+    second: VFX_Weapon_Smoke_82
+  - first:
+      213: 3187433530250484173
+    second: VFX_Weapon_Smoke_83
+  - first:
+      213: 3758307652884324850
+    second: VFX_Weapon_Smoke_84
+  - first:
+      213: 6585142210431573464
+    second: VFX_Weapon_Smoke_85
+  - first:
+      213: 1531012023544684750
+    second: VFX_Weapon_Smoke_86
+  - first:
+      213: 5661206584860990200
+    second: VFX_Weapon_Smoke_87
+  - first:
+      213: 7863507948556329559
+    second: VFX_Weapon_Smoke_88
+  - first:
+      213: -6848225248319046780
+    second: VFX_Weapon_Smoke_89
+  - first:
+      213: 6562533891902114004
+    second: VFX_Weapon_Smoke_90
+  - first:
+      213: 7654531646484920341
+    second: VFX_Weapon_Smoke_91
+  - first:
+      213: 9008618684382085605
+    second: VFX_Weapon_Smoke_92
+  - first:
+      213: 3194150856028115113
+    second: VFX_Weapon_Smoke_93
+  - first:
+      213: 4102935416451858253
+    second: VFX_Weapon_Smoke_94
+  - first:
+      213: 5030338419619066211
+    second: VFX_Weapon_Smoke_95
+  - first:
+      213: 5547260862433051700
+    second: VFX_Weapon_Smoke_96
+  - first:
+      213: 813801587877554492
+    second: VFX_Weapon_Smoke_97
+  - first:
+      213: 4288041083200403955
+    second: VFX_Weapon_Smoke_98
+  - first:
+      213: 1435684934069233019
+    second: VFX_Weapon_Smoke_99
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_Weapon_Smoke_0
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 2431
+        width: 308
+        height: 235
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06a11cbf3e19da760800000000000000
+      internalID: 7470787765244861024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Weapon_Smoke_1
+      rect:
+        serializedVersion: 2
+        x: 1640
+        y: 2413
+        width: 387
+        height: 332
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4757a6111fb0e20c0800000000000000
+      internalID: -4598725039491484300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Weapon_Smoke_2
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2386
+        width: 500
+        height: 446
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c99c0f3b5cb2daa90800000000000000
+      internalID: -7301131292770252388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Weapon_Smoke_6
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 1396
+        width: 711
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67aa0f1c478edaa20800000000000000
+      internalID: 3075369708731542134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Weapon_Smoke_7
+      rect:
+        serializedVersion: 2
+        x: 1313
+        y: 1316
+        width: 1032
+        height: 822
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d17e60efef2b41ea0800000000000000
+      internalID: -5902896403322575075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Weapon_Smoke_9
+      rect:
+        serializedVersion: 2
+        x: 2551
+        y: 1206
+        width: 1135
+        height: 1035
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c86c9db588cceb70800000000000000
+      internalID: 8929732637906200769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Weapon_Smoke_29
+      rect:
+        serializedVersion: 2
+        x: 1210
+        y: 0
+        width: 1290
+        height: 1106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1ba7417c230ca3b0800000000000000
+      internalID: -5500017555512251621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Weapon_Smoke_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 23
+        width: 1210
+        height: 1087
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e26b01a205eae5f50800000000000000
+      internalID: 6872121740740310574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Weapon_Smoke_62
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 0
+        width: 1255
+        height: 1106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 737b150673274e3d0800000000000000
+      internalID: -3178289854851991753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: dd604d3bedab6ad48a0c52e5422c278f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
