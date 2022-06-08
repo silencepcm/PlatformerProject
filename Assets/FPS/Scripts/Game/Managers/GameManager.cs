@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
                 if (_instance == null)
                 {
                     Resources.Load<GameObject>("GameManager");
-                    _instance.Start();
+                    _instance.Awake();
                 }
             }
 
@@ -140,7 +140,7 @@ public class GameManager : MonoBehaviour
     public GameObject AthMunitionOblique;
 
 
-    public void Start()
+    public void Awake()
     {
         SaveData data = SaveToyboxScript.LoadData();
         if (data != null)
