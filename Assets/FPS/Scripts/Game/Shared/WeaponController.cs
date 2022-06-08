@@ -182,8 +182,8 @@ namespace Unity.FPS.Game
             MaxAmmo = GameManager.Instance.MaxAmmo;
             BulletSpreadAngle = GameManager.Instance.BulletSpreadAngle;
             BulletsPerShot = 1;
-            m_CurrentAmmoDirect = GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbMunitionDirect += 1;
-            m_CurrentAmmoOblique = GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbMunitionOblique += 1;
+            m_CurrentAmmoDirect = GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionDirect += 1;
+            m_CurrentAmmoOblique = GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionOblique += 1;
             m_CarriedPhysicalBullets = HasPhysicalBullets ? ClipSize : 0;
             m_LastMuzzlePosition = WeaponMuzzle.position;
 
@@ -402,18 +402,18 @@ namespace Unity.FPS.Game
 
         public bool TryShoot()
         {
-            if (GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbMunitionDirect >= 1 || GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbMunitionOblique >= 1
+            if (GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionDirect >= 1 || GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionOblique >= 1
                 && m_LastTimeShot + DelayBetweenShots < Time.time)
             {
-                if (Input.GetKeyDown(KeyCode.Mouse0) && GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbMunitionDirect >= 1)
+                if (Input.GetKeyDown(KeyCode.Mouse0) && GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionDirect >= 1)
                 {
                     NormalHandleShoot();
-                    GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbMunitionDirect -= 1;
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionDirect -= 1;
                 }
-                else if(Input.GetKeyDown(KeyCode.Mouse1) && GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbMunitionOblique >= 1)
+                else if(Input.GetKeyDown(KeyCode.Mouse1) && GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionOblique >= 1)
                 {
                     ObliqueHandleShoot(); 
-                    GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbMunitionOblique -= 1;
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionOblique -= 1;
                 }
                
 

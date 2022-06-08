@@ -24,6 +24,8 @@ namespace Unity.FPS.Gameplay
 
         public GameObject objet;
 
+        public Animator anim;
+
         public enum TypeRessource
         {
            Ouverte,
@@ -77,6 +79,8 @@ namespace Unity.FPS.Gameplay
 
         protected virtual void OnTriggered(PlayerCharacterController playerController)
             {
+            
+                
                 PlayPickupFeedback();
                 playerController.TrampoplanteJump();
             }
@@ -85,11 +89,11 @@ namespace Unity.FPS.Gameplay
         {
             if (Type == TypeRessource.Fermer && Input.GetKeyDown(KeyCode.E))
             {
-                if (GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbTrampoplante > 0)
+                if (GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionTrampoplante > 0)
                 {
                     Debug.Log("la trampoplante s'ouvre");
                     Instantiate(Prefab, transform.position, Quaternion.identity);
-                    GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbTrampoplante -= 1;
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionTrampoplante -= 1;
                     Destroy(objet);
                 }
                 else
@@ -101,7 +105,8 @@ namespace Unity.FPS.Gameplay
         }
         public void PlayPickupFeedback()
             {
-                if (m_HasPlayedFeedback)
+           
+            if (m_HasPlayedFeedback)
                     return;
 
                 if (PickupSfx)
@@ -116,5 +121,11 @@ namespace Unity.FPS.Gameplay
 
                 m_HasPlayedFeedback = true;
             }
+        public void setAnim()
+        {
+            anim.SetTrigger("Boing");
         }
+    }
+
+        
     }
