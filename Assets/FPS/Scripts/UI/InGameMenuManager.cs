@@ -73,14 +73,14 @@ namespace Unity.FPS.UI
                 SetInventaireMenuActivation();
             }
 
-            if (Input.GetAxisRaw(GameConstants.k_AxisNameVertical) != 0)
+            /*if (Input.GetAxisRaw(GameConstants.k_AxisNameVertical) != 0)
             {
                 if (EventSystem.current.currentSelectedGameObject == null)
                 {
                     EventSystem.current.SetSelectedGameObject(null);
                     LookSensitivitySlider.Select();
                 }
-            }
+            }*/
         }
         public void ClosePauseMenu()
         {
@@ -99,7 +99,7 @@ namespace Unity.FPS.UI
                 Time.timeScale = 0f;
                 AudioUtility.SetMasterVolume(VolumeWhenMenuOpen);
 
-                EventSystem.current.SetSelectedGameObject(null);
+                //EventSystem.current.SetSelectedGameObject(null);
             }
             else
             {
