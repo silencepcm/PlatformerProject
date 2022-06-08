@@ -29,6 +29,8 @@ public class SurvieScript : MonoBehaviour
     private float perteVieSec = 0.01f;
     private bool baieActive = true;
     private float timerHoldButton = 0f;
+    public GameObject Prefab;
+   
 
 
     // Start is called before the first frame update
@@ -164,6 +166,41 @@ public class SurvieScript : MonoBehaviour
     public void Dead()
     {
         Debug.Log("Mort"); // tuer le perso et lancer la scene de defaite
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatsScript>().Kill();
+        GameObject Sac = Instantiate(Prefab, transform.position, Quaternion.identity);
+        Sac.GetComponent<InventaireScript>().NbPotionDirect = InventairePanel.GetComponent<InventaireScript>().NbPotionDirect / 2;
+        Sac.GetComponent<InventaireScript>().NbPotionOblique = InventairePanel.GetComponent<InventaireScript>().NbPotionOblique / 2;
+        Sac.GetComponent<InventaireScript>().Munitite = InventairePanel.GetComponent<InventaireScript>().Munitite;
+        Sac.GetComponent<InventaireScript>().Directite = InventairePanel.GetComponent<InventaireScript>().Directite;
+        Sac.GetComponent<InventaireScript>().Clochite = InventairePanel.GetComponent<InventaireScript>().Clochite;
+        Sac.GetComponent<InventaireScript>().NbPotionSante = InventairePanel.GetComponent<InventaireScript>().NbPotionSante;
+        Sac.GetComponent<InventaireScript>().NbPotionTrampoplante = InventairePanel.GetComponent<InventaireScript>().NbPotionTrampoplante;
+        Sac.GetComponent<InventaireScript>().Fruit = InventairePanel.GetComponent<InventaireScript>().Fruit;
+        Sac.GetComponent<InventaireScript>().Baie = InventairePanel.GetComponent<InventaireScript>().Baie;
+        Sac.GetComponent<InventaireScript>().Poussite = InventairePanel.GetComponent<InventaireScript>().Poussite;
+        Sac.GetComponent<InventaireScript>().Plontite = InventairePanel.GetComponent<InventaireScript>().Plontite;
+        Sac.GetComponent<InventaireScript>().RecetteMunitionDirect = InventairePanel.GetComponent<InventaireScript>().RecetteMunitionDirect;
+        Sac.GetComponent<InventaireScript>().RecetteMunitionOblique = InventairePanel.GetComponent<InventaireScript>().RecetteMunitionOblique;
+        Sac.GetComponent<InventaireScript>().RecettePotionSante = InventairePanel.GetComponent<InventaireScript>().RecettePotionSante;
+        Sac.GetComponent<InventaireScript>().RecetteTrampoplante = InventairePanel.GetComponent<InventaireScript>().RecetteTrampoplante;
+
+
+
+        InventairePanel.GetComponent<InventaireScript>().Clochite = 0;
+        InventairePanel.GetComponent<InventaireScript>().Directite = 0;
+        InventairePanel.GetComponent<InventaireScript>().Munitite = 0;
+        InventairePanel.GetComponent<InventaireScript>().NbPotionDirect = InventairePanel.GetComponent<InventaireScript>().NbPotionDirect / 2;
+        InventairePanel.GetComponent<InventaireScript>().NbPotionOblique = InventairePanel.GetComponent<InventaireScript>().NbPotionOblique / 2;
+        InventairePanel.GetComponent<InventaireScript>().NbPotionSante = 0;
+        InventairePanel.GetComponent<InventaireScript>().NbPotionTrampoplante = 0;
+        InventairePanel.GetComponent<InventaireScript>().Fruit = 0;
+        InventairePanel.GetComponent<InventaireScript>().Baie = 0;
+        InventairePanel.GetComponent<InventaireScript>().Poussite = 0;
+        InventairePanel.GetComponent<InventaireScript>().Plontite = 0;
+        InventairePanel.GetComponent<InventaireScript>().RecetteMunitionDirect = 0;
+        InventairePanel.GetComponent<InventaireScript>().RecetteMunitionOblique = 0;
+        InventairePanel.GetComponent<InventaireScript>().RecettePotionSante = 0;
+        InventairePanel.GetComponent<InventaireScript>().RecetteTrampoplante = 0;
     }
 
     // Update is called once per frame

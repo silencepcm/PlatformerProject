@@ -295,7 +295,7 @@ public class GameManager : MonoBehaviour
             FrondeDetectDistance = 10f;
         }
     }
-    /*
+    
     private void Update()
     {
         AthMunitionDirect.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().NbPotionDirect.ToString();
@@ -347,7 +347,7 @@ public class GameManager : MonoBehaviour
 
         }
     }
-    */
+    
     public void OnClickRecetteMunitionDirect()
     {
         if (Player.GetComponent<InventaireScript>().Munitite >= 3 && Player.GetComponent<InventaireScript>().Directite >= 2)
