@@ -304,6 +304,7 @@ namespace Unity.FPS.Gameplay
                                 // force the crouch state to false
                                 if (SetCrouchingState(false, false))
                                 {
+                                    hit.collider.GetComponent<TrampoplanteScript>().setAnim();
                                     // start by canceling out the vertical component of our velocity
                                     CharacterVelocity = new Vector3(CharacterVelocity.x, 0f, CharacterVelocity.z);
 

@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 5924896276398726474}
   - component: {fileID: 8493088012108245376}
   - component: {fileID: 3708294848222398613}
+  - component: {fileID: 8884680023869827383}
+  - component: {fileID: 9037624422037907999}
   m_Layer: 0
   m_Name: Trampoplante_Anim3
-  m_TagString: Untagged
+  m_TagString: Trampoplante
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,3 +104,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8884680023869827383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7988680935920404565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a12b1fe915306804ab7a9f42ccb57690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VerticalBobFrequency: 1
+  BobbingAmount: 1
+  PickupSfx: {fileID: 0}
+  PickupVfxPrefab: {fileID: 0}
+  objet: {fileID: 0}
+  Type: 0
+  collision: 0
+  Prefab: {fileID: 0}
+--- !u!65 &9037624422037907999
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7988680935920404565}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.044322, y: 0.407147, z: 1.1474459}
+  m_Center: {x: -0.014615357, y: 0.16292185, z: 0.022206277}
