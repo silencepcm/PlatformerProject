@@ -53,21 +53,21 @@ namespace Unity.FPS.Game
         {
             if (GameIsEnding)
             {
-                //Player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                Player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 float timeRatio = 1 - (m_TimeLoadEndGameScene - Time.time) / EndSceneLoadDelay;
-                FindObjectOfType<HUDManager>().canvasGroup.alpha = timeRatio;
+                GetComponent<HUDManager>().canvasGroup.alpha = timeRatio;
 
                 AudioUtility.SetMasterVolume(1 - timeRatio);
 
                 // See if it's time to load the end scene (after the delay)
-                if (Time.time >= 3f)
+                if (timeRatio >= 1)
                 {
                     //SceneManager.LoadScene("ToyBox");
                     // respawn du personnage au  dernier point de sauvegarde
-                    
-                    
-                    Player.GetComponent<Transform>().SetPositionAndRotation(PtSauvegarde, Rotation);
+                    GetComponent<HUDManager>().canvasGroup.alpha = 0;
+                    GetComponent<HUDManager>().canvasGroup.gameObject.SetActive(false);
                     GameIsEnding = false;
+                    Player.GetComponent<Transform>().SetPositionAndRotation(PtSauvegarde, Rotation);
 
                 }
             }

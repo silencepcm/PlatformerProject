@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4932503393050649803}
   - component: {fileID: 4932503393050649812}
   - component: {fileID: 2011992656816567155}
+  - component: {fileID: 1199727093956192707}
   m_Layer: 0
   m_Name: GameFlowManager
   m_TagString: Untagged
@@ -47,6 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EndSceneLoadDelay: 3
+  Player: {fileID: 0}
+  PtSauvegarde: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0, w: 0}
   WinSceneName: WinScene
   DelayBeforeFadeToBlack: 4
   WinGameMessage: All objectives completed
@@ -176,3 +180,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888c7d8f8f69c6b42a086589b6f01bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1199727093956192707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4932503393050649813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a6f84d3bcccfa74ba0503c20d9446e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 0}
