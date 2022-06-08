@@ -85,11 +85,11 @@ namespace Unity.FPS.Gameplay
         {
             if (Type == TypeRessource.Fermer && Input.GetKeyDown(KeyCode.E))
             {
-                if (GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbTrampoplante > 0)
+                if (GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionTrampoplante > 0)
                 {
                     Debug.Log("la trampoplante s'ouvre");
                     Instantiate(Prefab, transform.position, Quaternion.identity);
-                    GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbTrampoplante -= 1;
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionTrampoplante -= 1;
                     Destroy(objet);
                 }
                 else

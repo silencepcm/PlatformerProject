@@ -105,7 +105,7 @@ namespace Unity.FPS.Gameplay
             }
             else if (Type == TypeRessource.Plontite1)
             {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().Plontite1 += 1;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().Plontite += 1;
             }
             else if(Type == TypeRessource.Poussite)
             {
@@ -115,30 +115,28 @@ namespace Unity.FPS.Gameplay
             {
                 Debug.Log("biblou");
 
-                GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().Sac += GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Sac;
                 GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().Munitite += GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Munitite;
                 GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().Clochite += GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Clochite;
                 GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().Directite += GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Directite;
-                GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbMunitionOblique += GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().NbMunitionOblique;
-                GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbMunitionDirect += GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().NbMunitionOblique;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionOblique += GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().NbPotionOblique;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionDirect += GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().NbPotionOblique;
                 GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().Baie += GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Baie;
                 GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().Fruit += GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Fruit;
-                GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().Plontite1 += GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Plontite1;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().Plontite += GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Plontite;
                 GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().Poussite += GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Poussite;
                 GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().RecetteMunitionDirect += GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().RecetteMunitionDirect;
                 GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().RecetteMunitionOblique += GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().RecetteMunitionOblique;
                 GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().RecettePotionSante += GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().RecettePotionSante;
                 GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().RecetteTrampoplante += GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().RecetteTrampoplante;
 
-                GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Sac += 0;
                 GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Munitite += 0;
                 GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Clochite += 0;
                 GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Directite += 0;
-                GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().NbMunitionOblique += 0;
-                GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().NbMunitionDirect += 0;
+                GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().NbPotionOblique += 0;
+                GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().NbPotionDirect += 0;
                 GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Baie += 0;
                 GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Fruit += 0;
-                GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Plontite1 += 0;
+                GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Plontite += 0;
                 GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Poussite += 0;
                 GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().RecetteMunitionDirect += 0;
                 GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().RecetteMunitionOblique += 0;
