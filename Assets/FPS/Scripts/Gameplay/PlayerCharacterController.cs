@@ -58,6 +58,7 @@ namespace Unity.FPS.Gameplay
         [Header("TrampopnateForce")]
         [Tooltip("Force applied upward when jumping on trampoplante")]
         public float TrampoplanteForce = 30f;
+        public float DamageFlyForce = 3f;
 
         [Header("Stance")] [Tooltip("Ratio (0-1) of the character height where the camera will be at")]
         public float CameraHeightRatio = 0.9f;
@@ -81,6 +82,7 @@ namespace Unity.FPS.Gameplay
         public AudioClip FootstepSfx;
 
         [Tooltip("Sound played when jumping")] public AudioClip JumpSfx;
+        [Tooltip("Sound played OnDamage")] public AudioClip DamageSfx;
         [Tooltip("Sound played when landing")] public AudioClip LandSfx;
 
         [Tooltip("Sound played when taking damage froma fall")]
@@ -248,11 +250,33 @@ namespace Unity.FPS.Gameplay
 
             }
         }
-        void OnDie()
+        public void OnDie()
         {
             IsDead = true;
 
             EventManager.Broadcast(Events.PlayerDeathEvent);
+        }
+        public void OnRespawn()
+        {
+            IsDead = false;
+        }
+        public void OnDamage(Vector3 PositionDamage)
+        {
+            CharacterVelocity = (transform.position - PositionDamage + Vector3.up) * DamageFlyForce;
+
+            // play sound
+            if (DamageSfx)
+            {
+                AudioSource.PlayOneShot(DamageSfx);
+            }
+
+            // remember last time we jumped because we need to prevent snapping to ground for a short time
+            m_LastTimeJumped = Time.time;
+            HasJumpedThisFrame = true;
+
+            // Force grounding to false
+            IsGrounded = false;
+            m_GroundNormal = Vector3.up;
         }
         void GroundCheck()
         {

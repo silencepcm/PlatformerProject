@@ -40,7 +40,11 @@ public class Personnage : MonoBehaviour
 
         HandleDeath();
     }
-
+    public void Respawn()
+    {
+        Vie = 100;
+        alive = true;
+    }
     void HandleDeath()
     {
         if (!alive)

@@ -74,11 +74,6 @@ public class SurvieScript : MonoBehaviour
             SliderNourriture.value = maxNourriture;
         }
 
-        if(Vie.value >= maxVie)
-        {
-           Vie.value = maxVie;
-        }
-
         //mise a 0 de la barre d'eau
         if (SliderEau.value <= minEau)
         {
@@ -165,7 +160,6 @@ public class SurvieScript : MonoBehaviour
 
     public void Dead()
     {
-        Debug.Log("Mort"); // tuer le perso et lancer la scene de defaite
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatsScript>().Kill();
         GameObject Sac = Instantiate(Prefab, transform.position, Quaternion.identity);
         Sac.GetComponent<InventaireScript>().NbPotionDirect = InventairePanel.GetComponent<InventaireScript>().NbPotionDirect / 2;

@@ -44,7 +44,7 @@ namespace Unity.FPS.Game
         }
         void Start()
         {
-
+            PtSauvegarde = Player.transform.position;
             AudioUtility.SetMasterVolume(1);
             StartGame();
             
@@ -67,8 +67,10 @@ namespace Unity.FPS.Game
                     GetComponent<HUDManager>().canvasGroup.alpha = 0;
                     GetComponent<HUDManager>().canvasGroup.gameObject.SetActive(false);
                     GameIsEnding = false;
+                    Player.GetComponent<Gameplay.PlayerCharacterController>().OnRespawn();
+                    Player.GetComponent<PlayerStatsScript>().Respawn();
                     Player.GetComponent<Transform>().SetPositionAndRotation(PtSauvegarde, Rotation);
-
+                    
                 }
             }
         }

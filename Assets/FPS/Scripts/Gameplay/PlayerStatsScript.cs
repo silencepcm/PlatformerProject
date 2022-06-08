@@ -73,7 +73,6 @@ public class PlayerStatsScript : Personnage
     public bool IsCritical() => GetRatio() <= CriticalHealthRatio;
 
     bool m_IsDead;
-
     void Start()
     {
         DelaySoif = GameManager.Instance.DelaySoif;
@@ -135,7 +134,16 @@ public class PlayerStatsScript : Personnage
         //a faire apres l'inventaire si nourriture dans l'inventaire le joueur mange*/
     }
 
-
+    public void OnDamage(int Degats)
+    {
+        Vie -= Degats;
+        GameManager.Instance.GetComponent<SurvieScript>().Vie.value = Vie;
+        if (Vie <= 0)
+        {
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<SurvieScript>().Dead();
+            GetComponent<Unity.FPS.Gameplay.PlayerCharacterController>().OnDie();
+        }
+    }
     void FixedUpdate()
     {
 

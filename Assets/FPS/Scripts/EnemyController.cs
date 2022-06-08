@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using Unity.FPS.Game;
 using UnityEngine;
@@ -72,7 +73,7 @@ namespace Unity.FPS.AI
         public bool HadKnownTarget;
         public NavMeshAgent NavMeshAgent { get; private set; }
         public DetectionModule DetectionModule { get; private set; }
-
+        public int Degats = 30;
         int m_PathDestinationNodeIndex;
         //ActorsManager m_ActorsManager;
         //Health m_Health;
@@ -250,8 +251,17 @@ namespace Unity.FPS.AI
             {
                 Animator.SetTrigger(k_AnimAttackTrigger);
             }
+            StartCoroutine(WaitAttack());
         }
-
+        IEnumerator WaitAttack()
+        {
+            yield return new WaitForSeconds(0.3f);
+            if(Vector3.Distance(transform.position, Player.transform.position) < 1f)
+            {
+                Player.GetComponent<Gameplay.PlayerCharacterController>().OnDamage(transform.position);
+                Player.GetComponent<PlayerStatsScript>().OnDamage(Degats);
+            }
+        }
         public virtual void OnDamaged(float damage, GameObject damageSource)
         {
             // test if the damage source is the player
@@ -425,7 +435,7 @@ namespace Unity.FPS.AI
                 Gizmos.DrawWireSphere(transform.position, DetectionModule.AttackRange);
             }
         }
-
+        
         public bool TryAtack(Vector3 enemyPosition)
         {
             if (m_GameFlowManager.GameIsEnding)
@@ -450,7 +460,7 @@ namespace Unity.FPS.AI
             }
             return didFire;
         }
-
+        
         public bool TryDropItem()
         {
             if (DropRate == 0 || LootPrefab == null)
