@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public int NbRecette3;
     [HideInInspector] public int NbRecette4;
     [HideInInspector] public int NbRecette5;
+    
 
     [HideInInspector] public float BulletGravity;
     [HideInInspector] public float BulletSpeed;
@@ -138,6 +139,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject AthMunitionDirect;
     public GameObject AthMunitionOblique;
+    public GameObject NbPotionSanteATH;
 
     private bool HasBeenUsed;
 
@@ -302,6 +304,7 @@ public class GameManager : MonoBehaviour
     {
         AthMunitionDirect.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().NbPotionDirect.ToString();
         AthMunitionOblique.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().NbPotionOblique.ToString();
+        NbPotionSanteATH.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().NbPotionSante.ToString();
 
         if (InventairePanel.activeInHierarchy)
         {
@@ -354,9 +357,9 @@ public class GameManager : MonoBehaviour
     {
         if (Player.GetComponent<InventaireScript>().Munitite >= 3 && Player.GetComponent<InventaireScript>().Directite >= 2)
         {
-            Player.GetComponent<InventaireScript>().Directite -= 2;
+            Player.GetComponent<InventaireScript>().Directite -= 1;
             Player.GetComponent<InventaireScript>().Munitite -= 3;
-            Player.GetComponent<InventaireScript>().NbPotionDirect += 1;
+            Player.GetComponent<InventaireScript>().NbPotionDirect += 5;
         }
     }
     public void OnClickRecetteMunitionOblique()
@@ -364,16 +367,16 @@ public class GameManager : MonoBehaviour
         if (Player.GetComponent<InventaireScript>().Munitite >= 3 && Player.GetComponent<InventaireScript>().Clochite >= 2)
         {
             Player.GetComponent<InventaireScript>().Clochite -= 2;
-            Player.GetComponent<InventaireScript>().Munitite -= 3;
-            Player.GetComponent<InventaireScript>().NbPotionOblique += 1;
+            Player.GetComponent<InventaireScript>().Munitite -= 6;
+            Player.GetComponent<InventaireScript>().NbPotionOblique += 5;
         }
     }
     public void OnClickRecettePotionDeSanté()
     {
         if (Player.GetComponent<InventaireScript>().Baie >= 3 && Player.GetComponent<InventaireScript>().Fruit >= 1)
         {
-            Player.GetComponent<InventaireScript>().Baie -= 3;
-            Player.GetComponent<InventaireScript>().Fruit -= 1;
+            Player.GetComponent<InventaireScript>().Baie -= 4;
+            Player.GetComponent<InventaireScript>().Fruit -= 3;
             Player.GetComponent<InventaireScript>().NbPotionSante += 1;
 
         }
@@ -391,8 +394,8 @@ public class GameManager : MonoBehaviour
     {
         if (Player.GetComponent<InventaireScript>().Poussite >= 5 && Player.GetComponent<InventaireScript>().Plontite >= 1)
         {
-            Player.GetComponent<InventaireScript>().Poussite -= 5;
-            Player.GetComponent<InventaireScript>().Plontite -= 1;
+            Player.GetComponent<InventaireScript>().Poussite -= 2;
+            Player.GetComponent<InventaireScript>().Plontite -= 2;
             Player.GetComponent<InventaireScript>().NbPotionPlonte += 1;
         }
     }

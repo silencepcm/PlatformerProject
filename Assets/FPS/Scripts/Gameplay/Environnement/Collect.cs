@@ -19,7 +19,10 @@ namespace Unity.FPS.Gameplay
             Poussite,
             Plontite1,
             Sac,
-            eau
+            eau,
+            RecetteT,
+            RecetteS,
+            RecetteP
         }
 
         public TypeRessource Type;
@@ -107,11 +110,23 @@ namespace Unity.FPS.Gameplay
             {
                 GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().Plontite += 1;
             }
-            else if(Type == TypeRessource.Poussite)
+            else if (Type == TypeRessource.Poussite)
             {
                 GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().Poussite += 1;
             }
-            else if(Type == TypeRessource.Sac)
+            else if (Type == TypeRessource.RecetteP)
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().RecettePlonte += 1;
+            }
+            else if (Type == TypeRessource.RecetteS)
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().RecettePotionSante += 1;
+            }
+            else if (Type == TypeRessource.RecetteT)
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().RecetteTrampoplante += 1;
+            }
+            else if (Type == TypeRessource.Sac)
             {
                 Debug.Log("biblou");
 

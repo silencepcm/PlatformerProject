@@ -18,7 +18,7 @@ public class SurvieScript : MonoBehaviour
     private float minNourriture = 0f;
     private float maxNourriture = 100f;
     private float minEau = 0f;
-    private float maxEau = 100f;
+    private float maxEau = 60f;
     private float minGourde = 0f;
     private float maxGourde = 100f;
     private float maxVie = 100f;

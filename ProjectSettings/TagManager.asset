@@ -15,6 +15,9 @@ TagManager:
   - Sac
   - Gourde
   - GameFlowManager
+  - RecetteTrampoplante
+  - RecetteSoin
+  - RecettePlonte
   layers:
   - Default
   - TransparentFX

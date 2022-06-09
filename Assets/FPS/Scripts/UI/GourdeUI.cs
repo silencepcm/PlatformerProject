@@ -10,37 +10,38 @@ public class GourdeUI : MonoBehaviour
     public GameObject gourdeEtat3;
     public GameObject gourdeEtat4;
 
-    public GameObject _player;
+    public GameObject GameManager;
     float etatGourde;
     
     void Start()
     {
-        etatGourde = _player.GetComponent<PlayerStatsScript>().Gourde;
+        etatGourde = GameManager.GetComponent<SurvieScript>().SliderGourde.value;
     }
 
     void Update()
     {
+        etatGourde = GameManager.GetComponent<SurvieScript>().SliderGourde.value;
         switch (etatGourde)
         {
-            case 0:
+            case 0f:
                 gourdeEtat1.SetActive(true);
                 gourdeEtat2.SetActive(false);
                 gourdeEtat3.SetActive(false);
                 gourdeEtat4.SetActive(false);
                 break;
-            case 1:
+            case 20f:
                 gourdeEtat1.SetActive(false);
                 gourdeEtat2.SetActive(true);
                 gourdeEtat3.SetActive(false);
                 gourdeEtat4.SetActive(false);
                 break;
-            case 2:
+            case 40f:
                 gourdeEtat1.SetActive(false);
                 gourdeEtat2.SetActive(false);
                 gourdeEtat3.SetActive(true);
                 gourdeEtat4.SetActive(false);
                 break;
-            case 3:
+            case 60f:
                 gourdeEtat1.SetActive(false);
                 gourdeEtat2.SetActive(false);
                 gourdeEtat3.SetActive(false);
