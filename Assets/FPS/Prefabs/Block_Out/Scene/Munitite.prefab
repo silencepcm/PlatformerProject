@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 209852423419724938}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 46.76, y: 0.58422637, z: 31.25}
-  m_LocalScale: {x: 0.035279, y: 0.035279, z: 0.035279}
+  m_LocalPosition: {x: 46.759, y: 0.593, z: 31.243}
+  m_LocalScale: {x: 0.05563567, y: 0.05563567, z: 0.05563567}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -97,3 +97,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollectSfx: {fileID: 0}
   CollectVfxPrefab: {fileID: 0}
+  Type: 0

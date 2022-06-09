@@ -71,7 +71,25 @@ namespace Unity.FPS.Gameplay
                 
 
             }
-
+        public void OnTriggerStay(Collider other)
+        {
+            Debug.Log("coll");
+            if (Type == TypeRessource.Fermer && Input.GetKeyDown(KeyCode.E) && other.tag == "MainCamera")
+            {
+                if (GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionTrampoplante > 0)
+                {
+                    Debug.Log("la trampoplante s'ouvre");
+                    Instantiate(Prefab, transform.position, Quaternion.identity);
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionTrampoplante -= 1;
+                    Destroy(objet);
+                }
+                else
+                {
+                    Debug.Log("pas de potion");
+                    //afficher Ui pas de potion de trampoplnate dans l'inventaire
+                }
+            }
+        }
         private void OnTriggerExit(Collider other)
         {
             collision = false;
@@ -87,21 +105,7 @@ namespace Unity.FPS.Gameplay
 
         public void Update()
         {
-            if (Type == TypeRessource.Fermer && Input.GetKeyDown(KeyCode.E))
-            {
-                if (GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionTrampoplante > 0)
-                {
-                    Debug.Log("la trampoplante s'ouvre");
-                    Instantiate(Prefab, transform.position, Quaternion.identity);
-                    GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionTrampoplante -= 1;
-                    Destroy(objet);
-                }
-                else
-                {
-                    Debug.Log("pas de potion");
-                    //afficher Ui pas de potion de trampoplnate dans l'inventaire
-                }
-            }
+            
         }
         public void PlayPickupFeedback()
             {

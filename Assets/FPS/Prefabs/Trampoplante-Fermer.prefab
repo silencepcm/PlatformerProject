@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7220513497893226543}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 21.595, y: 7.321, z: 84.83}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1910464648916471552}
   m_Father: {fileID: 0}
@@ -94,11 +94,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7220513497893226543}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.26, y: 0.32, z: 0.26}
+  m_Center: {x: 0, y: 0.5, z: -0.07}
 --- !u!114 &7220513497893226536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,9 +116,10 @@ MonoBehaviour:
   PickupSfx: {fileID: 0}
   PickupVfxPrefab: {fileID: 0}
   objet: {fileID: 7220513497893226543}
+  anim: {fileID: 0}
   Type: 1
   collision: 0
-  Prefab: {fileID: 8200220640316782922, guid: d771f03a2656e194fba5a444d5a3d9e7, type: 3}
+  Prefab: {fileID: 7988680935920404565, guid: 96455ff3ed9d07e45a568b2661352156, type: 3}
 --- !u!54 &9188861767208537818
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -147,10 +148,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trampopousse
       objectReference: {fileID: 0}
+    - target: {fileID: 3543919710231154629, guid: cf53f7d32c7a1cd4fb78f5e00f295980,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5443495238309780834, guid: cf53f7d32c7a1cd4fb78f5e00f295980,
         type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443495238309780834, guid: cf53f7d32c7a1cd4fb78f5e00f295980,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443495238309780834, guid: cf53f7d32c7a1cd4fb78f5e00f295980,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443495238309780834, guid: cf53f7d32c7a1cd4fb78f5e00f295980,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5443495238309780834, guid: cf53f7d32c7a1cd4fb78f5e00f295980,
         type: 3}

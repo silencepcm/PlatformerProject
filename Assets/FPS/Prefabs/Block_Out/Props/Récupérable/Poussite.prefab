@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5442697018029192451}
   - component: {fileID: 8501851934696308353}
+  - component: {fileID: 8227717650983276949}
   - component: {fileID: 7734929373065570517}
-  - component: {fileID: 6493152875022548233}
   m_Layer: 0
   m_Name: Poussite
   m_TagString: Untagged
@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4666723951752605625}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.023051, y: -0.20639, z: 0}
+  m_LocalScale: {x: 1.5431, y: 1.5431, z: 1.5431}
   m_Children:
   - {fileID: 7788958647593060102}
   m_Father: {fileID: 0}
@@ -50,6 +50,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &8227717650983276949
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4666723951752605625}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.95, y: 1, z: 1}
+  m_Center: {x: 0.06, y: 0.38, z: 0}
 --- !u!114 &7734929373065570517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,19 +78,21 @@ MonoBehaviour:
   CollectSfx: {fileID: 8300000, guid: 507e834cf580ab1499f2dd5c2bc7af48, type: 3}
   CollectVfxPrefab: {fileID: 0}
   Type: 5
---- !u!65 &6493152875022548233
-BoxCollider:
+--- !u!114 &8774132562415850521
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4666723951752605625}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_GameObject: {fileID: 7447863290758012348}
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c72a2c2e0f8c9194f9ab3b97752e8fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollectSfx: {fileID: 8300000, guid: 507e834cf580ab1499f2dd5c2bc7af48, type: 3}
+  CollectVfxPrefab: {fileID: 0}
+  Type: 5
 --- !u!1001 &7754435369239617773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -152,6 +167,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a6d0f5220739f54a8360796e52ce058, type: 3}
+--- !u!1 &7447863290758012348 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6a6d0f5220739f54a8360796e52ce058,
+    type: 3}
+  m_PrefabInstance: {fileID: 7754435369239617773}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7788958647593060102 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6a6d0f5220739f54a8360796e52ce058,
