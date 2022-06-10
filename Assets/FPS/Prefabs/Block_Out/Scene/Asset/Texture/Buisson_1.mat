@@ -8,7 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Buisson_1
-  m_Shader: {fileID: -6465566751694194690, guid: 35c6c7c3fcf40ea45ac70009dfeb427e, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 35c6c7c3fcf40ea45ac70009dfeb427e,
+    type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -85,10 +86,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Brightness_Rim: 0.22
-    - Rim_Power: 3.29
-    - Toon_Ramp_Offset: 0.491
-    - Toon_Ramp_Smoothness: 0.117
+    - Brightness_Rim: 0.41
+    - Rim_Power: 0.9
+    - Toon_Ramp_Offset: 0.5
+    - Toon_Ramp_Smoothness: 0.145
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1

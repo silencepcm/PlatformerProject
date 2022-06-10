@@ -202,7 +202,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3566116657486991983}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.08962044, y: -0, z: -0, w: 0.995976}
   m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -210,7 +210,7 @@ Transform:
   - {fileID: 7127001595691192986}
   m_Father: {fileID: 3410641038933742529}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -10.284, y: 0, z: 0}
 --- !u!81 &6212564562455127622
 AudioListener:
   m_ObjectHideFlags: 0
@@ -411,6 +411,7 @@ MonoBehaviour:
   AimingRotationMultiplier: 0.4
   JumpForce: 9
   TrampoplanteForce: 30
+  DamageFlyForce: 3
   CameraHeightRatio: 0.8
   CapsuleHeightStanding: 1.8
   CapsuleHeightCrouching: 0.9
@@ -419,6 +420,7 @@ MonoBehaviour:
   FootstepSfxFrequencyWhileSprinting: 0.2
   FootstepSfx: {fileID: 8300000, guid: 7739766c86ab26b4db79d25391012836, type: 3}
   JumpSfx: {fileID: 8300000, guid: 344f17527294f924eab5d8bae8cd6b61, type: 3}
+  DamageSfx: {fileID: 0}
   LandSfx: {fileID: 8300000, guid: 9c25e60972cd8724583e06bc9a41cc27, type: 3}
   FallDamageSfx: {fileID: 8300000, guid: ef980d09b569380459e609fe90ef1db2, type: 3}
   RecievesFallDamage: 1
@@ -612,15 +614,17 @@ MonoBehaviour:
   Baie: 0
   Fruit: 0
   Poussite: 0
-  Plontite1: 0
-  NbMunitionDirect: 0
-  NbMunitionOblique: 0
-  "NbPotionSant\u0439": 0
-  NbTrampoplante: 0
+  Plontite: 0
+  NbPotionDirect: 0
+  NbPotionOblique: 0
+  NbPotionSante: 0
+  NbPotionTrampoplante: 0
+  NbPotionPlonte: 0
   RecetteMunitionDirect: 0
   RecetteMunitionOblique: 0
-  "RecettePotionSant\u0439": 0
+  RecettePotionSante: 0
   RecetteTrampoplante: 0
+  RecettePlonte: 0
 --- !u!1 &3649122653518120882
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,6 +905,7 @@ MonoBehaviour:
   ContinuousShootEndSfx: {fileID: 0}
   m_CurrentAmmoDirect: 0
   m_CurrentAmmoOblique: 0
+  timer: 0
   WeaponCamera: {fileID: 5300321114126393847}
   WeaponParentSocket: {fileID: 6933087483567839297}
   DefaultWeaponPosition: {fileID: 7663967321166757698}
