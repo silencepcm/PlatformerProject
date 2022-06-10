@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &124938118033223167
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 124938118033223040}
+  - component: {fileID: 124938118033223041}
+  m_Layer: 0
+  m_Name: SpawnerUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &124938118033223040
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124938118033223167}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &124938118033223041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124938118033223167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7545ce0282782ef4b980af573facdf32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ui_Munite: {fileID: 1302714187112203667, guid: 91eb577ddea27b24899519a16e61d4f1,
+    type: 3}
+  Ui_Directite: {fileID: 1713997108211181253, guid: f33e2fe238093ea49acf44399b1fe01b,
+    type: 3}
+  Ui_Clochite: {fileID: 1789445420598951795, guid: 4c0d125e294374c4ba60cb2f692ede33,
+    type: 3}
+  UI_Baie: {fileID: 2583923941078683540, guid: 848adcd0e4530154694fce966d1a04c0, type: 3}
+  Ui_Fruit: {fileID: 7488464811049977166, guid: 2547f59bbf5b9994e8cdfed76bb1d393,
+    type: 3}
+  Ui_Plontite1: {fileID: 3005223327561379834, guid: 8c8b2d3b735f5644cb29c2768170e152,
+    type: 3}
+  Ui_Poussite: {fileID: 3632381627597646614, guid: c50a18eb2a8fcc846b21efafc8c45019,
+    type: 3}
+  Ui_RecetteP: {fileID: 4788557970079704748, guid: 443c999d5e7bc1147936fbeed18e093d,
+    type: 3}
+  Ui_RecetteS: {fileID: 4788557970079704748, guid: 443c999d5e7bc1147936fbeed18e093d,
+    type: 3}
+  Ui_RecetteT: {fileID: 4788557970079704748, guid: 443c999d5e7bc1147936fbeed18e093d,
+    type: 3}
+  Ui_PotionDirect: {fileID: 8800697803725930520, guid: 52cf64ef180092546b233dbe07c03dcf,
+    type: 3}
+  Ui_PotionOblique: {fileID: 3605544608679814465, guid: 5cd1930737ae4cf45888f753a1c87280,
+    type: 3}
+  Ui_PotionSante: {fileID: 9187598470161038607, guid: 3af125d45d396a04491b4d11e38deb41,
+    type: 3}
+  Ui_PotionTrampoplante: {fileID: 1865705794590268604, guid: 2d47d267fd465e64381b8056122af7c7,
+    type: 3}
+  Ui_potionplonte: {fileID: 9048042652724794114, guid: f669f859806a0df4786e597aef053314,
+    type: 3}
+  Ui_RecetteMO: {fileID: 4788557970079704748, guid: 443c999d5e7bc1147936fbeed18e093d,
+    type: 3}
+  Ui_RecetteMD: {fileID: 4788557970079704748, guid: 443c999d5e7bc1147936fbeed18e093d,
+    type: 3}
+  defaultPosition: {x: 0, y: 0, z: 0}

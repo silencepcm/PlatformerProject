@@ -18,6 +18,9 @@ TagManager:
   - RecetteTrampoplante
   - RecetteSoin
   - RecettePlonte
+  - UIInventaire
+  - canva
+  - InventaireUi
   layers:
   - Default
   - TransparentFX
