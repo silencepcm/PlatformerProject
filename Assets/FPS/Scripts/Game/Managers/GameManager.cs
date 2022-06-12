@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
 
 
 
-    public GameObject Player;
+    private GameObject Player;
     public GameObject InventairePanel;
 
     public TextMeshProUGUI NbIngredient1;
