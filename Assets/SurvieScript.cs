@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DigitalRuby.Tween;
+
 //Script en construction : OBJECTIF : GEstion des barres d'eau/de Nourriture/de Gourde/de vie + lancement de la mort lier a la barre de vie
 public class SurvieScript : MonoBehaviour
 {
@@ -30,7 +32,10 @@ public class SurvieScript : MonoBehaviour
     private bool baieActive = true;
     private float timerHoldButton = 0f;
     public GameObject Prefab;
-   
+    public GameObject FbSante;
+    private SpriteRenderer spriteRenderer;
+
+
 
 
     // Start is called before the first frame update
@@ -44,20 +49,29 @@ public class SurvieScript : MonoBehaviour
     }
     public void FixedUpdate()
     {
+       
         //perte d'eau et de nourriture
         SliderNourriture.value -= perteNourritureSec;
         SliderEau.value -= perteEauSec;
-
+        if (Vie.value < 25f)
+        {
+            FbSante.SetActive(true);
+            TweenColor();
+        }
+        
         //perte de vie si l'une des 2 barres est a 0
         if (SliderEau.value <= 0f || SliderNourriture.value <= 0f)
         {
             Debug.Log(Vie.value);
             Vie.value -= perteVieSec;
+            
+            
             if (Vie.value <= 0f)
             {
                 Dead();
             }
         }
+        FbSante.SetActive(false);
     }
 
     private void Update()
@@ -157,7 +171,18 @@ public class SurvieScript : MonoBehaviour
         }
 
     }
+    private void TweenColor()
+    {
+        System.Action<ITween<Color>> updateColor = (t) =>
+        {
+            spriteRenderer.color = t.CurrentValue;
+        };
 
+        Color endColor = UnityEngine.Random.ColorHSV(0.0f, 1.0f, 0.0f, 1.0f, 0.5f, 1.0f, 1.0f, 1.0f);
+
+        // completion defaults to null if not passed in
+        FbSante.gameObject.Tween("ColorCircle", spriteRenderer.color, endColor, 1.0f, TweenScaleFunctions.QuadraticEaseOut, updateColor);
+    }
     public void Dead()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatsScript>().Kill();
