@@ -1929,6 +1929,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollectSfx: {fileID: 8300000, guid: 507e834cf580ab1499f2dd5c2bc7af48, type: 3}
   CollectVfxPrefab: {fileID: 0}
+  Inventaire: {fileID: 0}
+  HuD: {fileID: 124938118033223167, guid: b224c50a2dd5f36428a3a626b2dedf61, type: 3}
   Type: 1
 --- !u!1 &9013980846157590756
 GameObject:

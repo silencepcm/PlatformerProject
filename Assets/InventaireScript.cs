@@ -35,10 +35,10 @@ public class InventaireScript : MonoBehaviour
         Fruit = 0;
         Poussite = 0;
         Plontite = 0;
-        NbPotionDirect = 19;
-        NbPotionOblique = 19;
+        NbPotionDirect = 5;
+        NbPotionOblique = 5;
         NbPotionSante = 0;
-        NbPotionTrampoplante = 0;
+        NbPotionTrampoplante = 1;
         NbPotionPlonte = 0;
         RecetteMunitionDirect = 1;
         RecetteMunitionOblique = 1;
