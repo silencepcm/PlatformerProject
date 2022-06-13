@@ -15,7 +15,8 @@ namespace Unity.FPS.Gameplay
             PutUpNew,
         }
 
-        [Header("References")] [Tooltip("Secondary camera used to avoid seeing weapon go throw geometries")]
+        [Header("References")]
+        [Tooltip("Secondary camera used to avoid seeing weapon go throw geometries")]
         public Camera WeaponCamera;
 
         [Tooltip("Parent transform where all weapon will be added in the hierarchy")]
@@ -53,7 +54,8 @@ namespace Unity.FPS.Gameplay
         [Tooltip("How fast the weapon goes back to it's original position after the recoil is finished")]
         public float RecoilRestitutionSharpness = 10f;
 
-        [Header("Misc")] [Tooltip("Speed at which the aiming animatoin is played")]
+        [Header("Misc")]
+        [Tooltip("Speed at which the aiming animatoin is played")]
         public float AimingAnimationSpeed = 10f;
 
         [Tooltip("Field of view when not aiming")]
@@ -103,16 +105,36 @@ namespace Unity.FPS.Gameplay
                 return;
             if (Weapon != null && m_WeaponSwitchState == WeaponSwitchState.Up)
             {
-                if (m_InputHandler.GetReloadButtonDown() && Weapon.GetCurrentAmmoDirect()/Weapon.MaxAmmo < 1.0f)
+                if (m_InputHandler.GetReloadButtonDown() && Weapon.GetCurrentAmmoDirect() / Weapon.MaxAmmo < 1.0f)
                 {
                     IsAiming = false;
-                    Weapon.StartReloadAnimation();
+                    Weapon.StartReloadAnimation("Direct");
                     return;
                 }
+                else if (Weapon.AutomaticReload && Weapon.emptyDirect && GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionDirect >= 1)
+                {
+                    Weapon.StartReloadAnimation("Direct");
+                    Weapon.emptyDirect = false;
+                    return;
+                }
+                if (m_InputHandler.GetReloadButtonDown() && Weapon.GetCurrentAmmoOblique() / Weapon.MaxAmmo < 1.0f)
+                {
+                    IsAiming = false;
+                    Weapon.StartReloadAnimation("Oblique");
+                    return;
+                }
+                else if (Weapon.AutomaticReload && Weapon.emptyOblique && GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionOblique >= 1)
+                {
+                    Weapon.StartReloadAnimation("Oblique");
+                    Weapon.emptyOblique = false;
+                    return;
+                }
+
+
                 // handle shooting
                 bool hasFired = Weapon.HandleShootInputs(
                     m_InputHandler.GetTirInputDown());
-                   
+
 
                 // Handle accumulating recoil
                 if (hasFired)
@@ -145,7 +167,7 @@ namespace Unity.FPS.Gameplay
             //UpdateWeaponAiming();
             UpdateWeaponBob();
             UpdateWeaponRecoil();
-            
+
             // Set final weapon socket position based on all the combined animation influences
             WeaponParentSocket.localPosition =
                 m_WeaponMainLocalPosition + m_WeaponBobLocalPosition + m_WeaponRecoilLocalPosition;
@@ -158,7 +180,7 @@ namespace Unity.FPS.Gameplay
             WeaponCamera.fieldOfView = fov * WeaponFovMultiplier;
         }
 
-        
+
 
         // Updates weapon position and camera FoV for the aiming transition
         void UpdateWeaponAiming()
@@ -237,7 +259,7 @@ namespace Unity.FPS.Gameplay
             }
         }
 
-        
+
 
 
     }

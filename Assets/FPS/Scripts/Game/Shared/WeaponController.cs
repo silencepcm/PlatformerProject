@@ -26,7 +26,16 @@ namespace Unity.FPS.Game
     [RequireComponent(typeof(AudioSource))]
     public class WeaponController : MonoBehaviour
     {
-        [Header("Information")] [Tooltip("The name that will be displayed in the UI for this weapon")]
+        enum IdleState
+        {
+            Empty,
+            Direct,
+            Oblique,
+            Complete
+        }
+
+        [Header("Information")]
+        [Tooltip("The name that will be displayed in the UI for this weapon")]
         public string WeaponName;
 
         [Tooltip("The image that will be displayed in the UI for this weapon")]
@@ -45,7 +54,8 @@ namespace Unity.FPS.Game
         [Tooltip("Tip of the weapon, where the projectiles are shot")]
         public Transform WeaponMuzzle;
 
-        [Header("Shoot Parameters")] [Tooltip("The type of weapon wil affect how it shoots")]
+        [Header("Shoot Parameters")]
+        [Tooltip("The type of weapon wil affect how it shoots")]
         public WeaponShootType ShootType;
 
         [Tooltip("The projectile prefab")] public GameObject ProjectilePrefab;
@@ -60,10 +70,12 @@ namespace Unity.FPS.Game
         [Tooltip("Amount of bullets per shot")]
         public int BulletsPerShot = 1;
 
-        [Tooltip("Force that will push back the weapon after each shot")] [Range(0f, 2f)]
+        [Tooltip("Force that will push back the weapon after each shot")]
+        [Range(0f, 2f)]
         public float RecoilForce = 1;
 
-        [Tooltip("Ratio of the default FOV that this weapon applies while aiming")] [Range(0f, 1f)]
+        [Tooltip("Ratio of the default FOV that this weapon applies while aiming")]
+        [Range(0f, 1f)]
         public float AimZoomRatio = 1f;
 
         [Tooltip("Translation to apply to weapon arm when aiming with this weapon")]
@@ -106,7 +118,7 @@ namespace Unity.FPS.Game
         [Tooltip("Additional ammo used when charge reaches its maximum")]
         public float AmmoUsageRateWhileCharging = 1f;
 
-        [Header("Audio & Visual")] 
+        [Header("Audio & Visual")]
         [Tooltip("Optional weapon animator for OnShoot animations")]
         public Animator WeaponAnimator;
 
@@ -161,8 +173,6 @@ namespace Unity.FPS.Game
 
         public bool IsReloading { get; private set; }
 
-        const string k_AnimAttackParameter = "Attack";
-
         private Queue<Rigidbody> m_PhysicalAmmoPool;
 
 
@@ -176,6 +186,11 @@ namespace Unity.FPS.Game
 
         public Transform DownWeaponPosition;
 
+        public bool emptyDirect = true;
+        public bool emptyOblique = true;
+
+        IdleState m_IdleState = IdleState.Empty;
+
         public void Start()
         {
             MaxChargeDuration = GameManager.Instance.MaxChargeDuration;
@@ -183,7 +198,11 @@ namespace Unity.FPS.Game
             BulletSpreadAngle = GameManager.Instance.BulletSpreadAngle;
             BulletsPerShot = 1;
             m_CurrentAmmoDirect = GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionDirect += 1;
+            StartReloadAnimation("Direct");
+            emptyDirect = false;
             m_CurrentAmmoOblique = GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionOblique += 1;
+            StartReloadAnimation("Oblique");
+            emptyOblique = false;
             m_CarriedPhysicalBullets = HasPhysicalBullets ? ClipSize : 0;
             m_LastMuzzlePosition = WeaponMuzzle.position;
 
@@ -246,32 +265,118 @@ namespace Unity.FPS.Game
             IsReloading = false;
         }*/
 
-        public void StartReloadAnimation()
+        public void StartReloadAnimation(string typeAmmoReload)// added parameter to choose loading animation
         {
-            if (m_CurrentAmmoDirect < m_CarriedPhysicalBullets)
+            //if (m_CurrentAmmoDirect < m_CarriedPhysicalBullets)
+            //{
+            //    //GetComponent<Animator>().SetTrigger("Reload");
+            //    Debug.Log("Reload");
+            //    if (WeaponAnimator)
+            //    {
+            //        IsReloading = true;
+            //        WeaponAnimator.SetTrigger("Rechargement Direct 1");
+            //    }
+            //    else
+            //    {
+            //        //Reload();
+            //    }
+            //}
+            //if(m_CurrentAmmoOblique < m_CarriedPhysicalBullets)
+            //{
+            //    if (WeaponAnimator)
+            //    {
+            //        IsReloading = true;
+            //        WeaponAnimator.SetTrigger("Rechargement Oblique 1");
+            //    }
+            //    else
+            //    {
+            //        //Reload();
+            //    }
+            //}
+            if (typeAmmoReload == "Direct")
             {
                 //GetComponent<Animator>().SetTrigger("Reload");
                 Debug.Log("Reload");
-                if (WeaponAnimator)
+                if (m_IdleState == IdleState.Empty)
                 {
-                    IsReloading = true;
-                    WeaponAnimator.SetTrigger("Reload");
+                    if (WeaponAnimator)
+                    {
+                        IsReloading = true;
+                        WeaponAnimator.SetTrigger("Rechargement Direct 1");
+                        m_IdleState = IdleState.Direct;
+                    }
                 }
-                else
+                else if (m_IdleState == IdleState.Oblique)
                 {
-                    //Reload();
+                    if (WeaponAnimator)
+                    {
+                        IsReloading = true;
+                        WeaponAnimator.SetTrigger("Rechargement Direct 2");
+                        m_IdleState = IdleState.Complete;
+                    }
                 }
             }
-            if(m_CurrentAmmoOblique < m_CarriedPhysicalBullets)
+            if (typeAmmoReload == "Oblique")
             {
-                if (WeaponAnimator)
+                if (m_IdleState == IdleState.Empty)
                 {
-                    IsReloading = true;
-                    WeaponAnimator.SetTrigger("Reload");
+                    if (WeaponAnimator)
+                    {
+                        IsReloading = true;
+                        WeaponAnimator.SetTrigger("Rechargement Oblique 1");
+                        m_IdleState = IdleState.Oblique;
+                    }
                 }
-                else
+                else if (m_IdleState == IdleState.Direct)
                 {
-                    //Reload();
+                    if (WeaponAnimator)
+                    {
+                        IsReloading = true;
+                        WeaponAnimator.SetTrigger("Rechargement Oblique 2");
+                        m_IdleState = IdleState.Complete;
+                    }
+                }
+            }
+        }
+
+        void StartShotAnimation(string typeAmmoShot)
+        {
+            if (typeAmmoShot == "Shot Direct")
+            {
+                if (m_IdleState == IdleState.Direct)
+                {
+                    if (WeaponAnimator)
+                    {
+                        WeaponAnimator.SetTrigger("Tir Direct 1");
+                        m_IdleState = IdleState.Empty;
+                    }
+                }
+                else if (m_IdleState == IdleState.Complete)
+                {
+                    if (WeaponAnimator)
+                    {
+                        WeaponAnimator.SetTrigger("Tir Direct 2");
+                        m_IdleState = IdleState.Oblique;
+                    }
+                }
+            }
+            if (typeAmmoShot == "Shot Oblique")
+            {
+                if (m_IdleState == IdleState.Oblique)
+                {
+                    if (WeaponAnimator)
+                    {
+                        WeaponAnimator.SetTrigger("Tir Oblique 1");
+                        m_IdleState = IdleState.Empty;
+                    }
+                }
+                else if (m_IdleState == IdleState.Complete)
+                {
+                    if (WeaponAnimator)
+                    {
+                        WeaponAnimator.SetTrigger("Tir Oblique 2");
+                        m_IdleState = IdleState.Direct;
+                    }
                 }
             }
         }
@@ -390,12 +495,12 @@ namespace Unity.FPS.Game
         {
             bool tryTir = false;
             m_WantsToShoot = inputDown;
-                    if (inputDown && timer > 100f)
-                    {
-                    timer = 0f;
-                    Debug.Log("bob");
-                        tryTir =  TryShoot();
-                    }
+            if (inputDown && timer > 100f)
+            {
+                timer = 0f;
+                Debug.Log("bob");
+                tryTir = TryShoot();
+            }
             return tryTir;
 
         }
@@ -409,18 +514,34 @@ namespace Unity.FPS.Game
                 {
                     NormalHandleShoot();
                     GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionDirect -= 1;
+                    if (AutomaticReload && GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionDirect >= 1)
+                    {
+                        StartReloadAnimation("Direct");
+                    }
+                    else
+                    {
+                        emptyDirect = true;
+                    }
                 }
-                else if(Input.GetKeyDown(KeyCode.Mouse1) && GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionOblique >= 1)
+                else if (Input.GetKeyDown(KeyCode.Mouse1) && GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionOblique >= 1)
                 {
-                    ObliqueHandleShoot(); 
+                    ObliqueHandleShoot();
                     GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionOblique -= 1;
+                    if (AutomaticReload && GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionOblique >= 1)
+                    {
+                        StartReloadAnimation("Oblique");
+                    }
+                    else
+                    {
+                        emptyOblique = true;
+                    }
                 }
-               
+
 
                 return true;
             }
 
-            
+
 
             return false;
         }
@@ -453,7 +574,7 @@ namespace Unity.FPS.Game
 
             if (HasPhysicalBullets)
             {
-               // ShootShell();
+                // ShootShell();
                 m_CarriedPhysicalBullets--;
             }
 
@@ -466,10 +587,7 @@ namespace Unity.FPS.Game
             }
 
             // Trigger attack animation if there is any
-            if (WeaponAnimator)
-            {
-                WeaponAnimator.SetTrigger(k_AnimAttackParameter);
-            }
+            StartShotAnimation("Shot Direct");
 
             OnShoot?.Invoke();
             OnShootProcessed?.Invoke();
@@ -516,10 +634,7 @@ namespace Unity.FPS.Game
             }
 
             // Trigger attack animation if there is any
-            if (WeaponAnimator)
-            {
-                WeaponAnimator.SetTrigger(k_AnimAttackParameter);
-            }
+            StartShotAnimation("Shot Oblique");
 
             OnShoot?.Invoke();
             OnShootProcessed?.Invoke();
