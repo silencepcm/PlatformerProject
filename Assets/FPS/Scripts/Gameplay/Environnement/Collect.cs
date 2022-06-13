@@ -10,6 +10,7 @@ namespace Unity.FPS.Gameplay
         public GameObject CollectVfxPrefab;
         public GameObject Inventaire;
         public GameObject HuD;
+        
 
         public enum TypeRessource
         {
@@ -51,6 +52,7 @@ namespace Unity.FPS.Gameplay
             PlayerCharacterController pickingPlayer = other.GetComponentInParent<PlayerCharacterController>();
             if (pickingPlayer)
             {
+                
                 pickingPlayer.SetCanCollect(gameObject, true);
             }
         }
@@ -60,6 +62,7 @@ namespace Unity.FPS.Gameplay
 
             if (pickingPlayer)
             {
+                
                 pickingPlayer.SetCanCollect(gameObject, false);
             }
         }

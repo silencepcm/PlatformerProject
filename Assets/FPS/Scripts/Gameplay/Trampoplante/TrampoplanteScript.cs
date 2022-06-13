@@ -13,8 +13,10 @@ namespace Unity.FPS.Gameplay
             [Tooltip("Distance the item will move up and down")]
             public float BobbingAmount = 1f;
 
+        public GameObject FxInteraction;
 
-            [Tooltip("Sound played on pickup")] public AudioClip PickupSfx;
+
+        [Tooltip("Sound played on pickup")] public AudioClip PickupSfx;
             [Tooltip("VFX spawned on pickup")] public GameObject PickupVfxPrefab;
 
             public Rigidbody PickupRigidbody { get; private set; }
@@ -60,28 +62,32 @@ namespace Unity.FPS.Gameplay
                 if (pickingPlayer != null && Type == TypeRessource.Ouverte)
                 {
                     OnTriggered(pickingPlayer);
-                    
+                FxInteraction.SetActive(false);
+
                 }
                 else
                 {
                 Debug.Log("press E");
-                //afficher Ui appuyer sue e pour utiliser une potion de trampoplante
-                
+                FxInteraction.SetActive(true);
+
                 }
                 
 
             }
         public void OnTriggerStay(Collider other)
         {
+            FxInteraction.SetActive(true);
             Debug.Log("coll");
             if (Type == TypeRessource.Fermer && Input.GetKeyDown(KeyCode.E) && other.tag == "MainCamera")
             {
+
                 if (GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionTrampoplante > 0)
                 {
                     Debug.Log("la trampoplante s'ouvre");
                     Instantiate(Prefab, transform.position, Quaternion.identity);
                     GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().NbPotionTrampoplante -= 1;
                     Destroy(objet);
+                    FxInteraction.SetActive(false);
                 }
                 else
                 {
@@ -93,6 +99,7 @@ namespace Unity.FPS.Gameplay
         private void OnTriggerExit(Collider other)
         {
             collision = false;
+            FxInteraction.SetActive(false);
         }
 
         protected virtual void OnTriggered(PlayerCharacterController playerController)
