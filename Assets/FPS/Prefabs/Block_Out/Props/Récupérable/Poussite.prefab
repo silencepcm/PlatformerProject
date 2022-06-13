@@ -77,25 +77,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollectSfx: {fileID: 8300000, guid: 507e834cf580ab1499f2dd5c2bc7af48, type: 3}
   CollectVfxPrefab: {fileID: 0}
-  Inventaire: {fileID: 0}
-  HuD: {fileID: 124938118033223167, guid: b224c50a2dd5f36428a3a626b2dedf61, type: 3}
-  Type: 5
---- !u!114 &8774132562415850521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7447863290758012348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c72a2c2e0f8c9194f9ab3b97752e8fec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollectSfx: {fileID: 8300000, guid: 507e834cf580ab1499f2dd5c2bc7af48, type: 3}
-  CollectVfxPrefab: {fileID: 0}
-  Inventaire: {fileID: 0}
-  HuD: {fileID: 0}
   Type: 5
 --- !u!1001 &7754435369239617773
 PrefabInstance:
@@ -171,12 +152,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a6d0f5220739f54a8360796e52ce058, type: 3}
---- !u!1 &7447863290758012348 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6a6d0f5220739f54a8360796e52ce058,
-    type: 3}
-  m_PrefabInstance: {fileID: 7754435369239617773}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7788958647593060102 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6a6d0f5220739f54a8360796e52ce058,

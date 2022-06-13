@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6312817779032697457}
   - component: {fileID: 8765173300831454444}
   - component: {fileID: 1019025020535921391}
+  - component: {fileID: 3600161269027820674}
   m_Layer: 0
   m_Name: Trampoplante_Anim3
   m_TagString: Trampoplante
@@ -155,3 +156,16 @@ MonoBehaviour:
   Type: 0
   collision: 0
   Prefab: {fileID: 0}
+--- !u!135 &3600161269027820674
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7988680935920404565}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.85
+  m_Center: {x: -0.042613328, y: 0.36, z: 0.064745605}
