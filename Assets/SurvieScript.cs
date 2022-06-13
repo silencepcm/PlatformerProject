@@ -22,7 +22,7 @@ public class SurvieScript : MonoBehaviour
     private float minEau = 0f;
     private float maxEau = 60f;
     private float minGourde = 0f;
-    private float maxGourde = 100f;
+    private float maxGourde = 60f;
     private float maxVie = 100f;
     private int timerCoolDown = 2;
     private int timer = 0;
