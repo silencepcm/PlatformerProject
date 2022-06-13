@@ -1,5 +1,6 @@
 ﻿using Unity.FPS.Game;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Unity.FPS.Gameplay
 {
@@ -8,6 +9,15 @@ namespace Unity.FPS.Gameplay
 
         public AudioClip CollectSfx;
         public GameObject CollectVfxPrefab;
+        public Image Munitite;
+        public Image Directite;
+        public Image Clochite;
+        public Image Baie;
+        public Image Fruit;
+        public Image Poussite;
+        public Image Plontite;
+        public GameObject Sac;
+        private Vector3 TargetPosition;
 
         public enum TypeRessource
         {
@@ -19,10 +29,7 @@ namespace Unity.FPS.Gameplay
             Poussite,
             Plontite1,
             Sac,
-            eau,
-            RecetteT,
-            RecetteS,
-            RecetteP
+            eau
         }
 
         public TypeRessource Type;
@@ -37,6 +44,7 @@ namespace Unity.FPS.Gameplay
 
             m_Collider.isTrigger = true;
             m_StartPosition = transform.position;
+            TargetPosition = Sac.transform.position;
         }
 
         void Update()
@@ -110,23 +118,11 @@ namespace Unity.FPS.Gameplay
             {
                 GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().Plontite += 1;
             }
-            else if (Type == TypeRessource.Poussite)
+            else if(Type == TypeRessource.Poussite)
             {
                 GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().Poussite += 1;
             }
-            else if (Type == TypeRessource.RecetteP)
-            {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().RecettePlonte += 1;
-            }
-            else if (Type == TypeRessource.RecetteS)
-            {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().RecettePotionSante += 1;
-            }
-            else if (Type == TypeRessource.RecetteT)
-            {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().RecetteTrampoplante += 1;
-            }
-            else if (Type == TypeRessource.Sac)
+            else if(Type == TypeRessource.Sac)
             {
                 Debug.Log("biblou");
 
@@ -162,8 +158,8 @@ namespace Unity.FPS.Gameplay
             gameObject.SetActive(false);
             if (name != "Sac")
             {
-
-                GetComponentInParent<Spawner_Ingredient>().StartCoroutine(GetComponentInParent<Spawner_Ingredient>().RespawnWaiter(gameObject));
+                
+                GetComponentInParent<Spawner_Ingredient>().RespawnWaiter(gameObject);
             }
 
            
