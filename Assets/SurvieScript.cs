@@ -34,6 +34,7 @@ public class SurvieScript : MonoBehaviour
     public GameObject Prefab;
     public GameObject FbSante;
     private SpriteRenderer spriteRenderer;
+    private int timer2 = 0;
 
 
 
@@ -54,10 +55,11 @@ public class SurvieScript : MonoBehaviour
         //perte d'eau et de nourriture
         SliderNourriture.value -= perteNourritureSec;
         SliderEau.value -= perteEauSec;
-        if (Vie.value < 25f)
+        if ( timer2 >= 20 && !FbSante.activeInHierarchy && Vie.value < 25f)
         {
+            Debug.Log("actif");
             FbSante.SetActive(true);
-            TweenColor();
+            timer2 = 0;
         }
         
         //perte de vie si l'une des 2 barres est a 0
@@ -72,12 +74,18 @@ public class SurvieScript : MonoBehaviour
                 Dead();
             }
         }
-        FbSante.SetActive(false);
+
+        if (timer2 >= 20 && FbSante.activeInHierarchy)
+        {
+            Debug.Log("Desactif");
+            FbSante.SetActive(false);
+            timer2 = 0;
+        }
     }
 
     private void Update()
     {
-       
+        timer2 += 1;
         timer += 1;
         //mise a 0 de la barre de nourriture
         if (SliderNourriture.value <= minNourriture)
@@ -172,7 +180,7 @@ public class SurvieScript : MonoBehaviour
         }
 
     }
-    private void TweenColor()
+    /*private void TweenColor()
     {
         System.Action<ITween<Color>> updateColor = (t) =>
         {
@@ -183,7 +191,7 @@ public class SurvieScript : MonoBehaviour
 
         // completion defaults to null if not passed in
         FbSante.gameObject.Tween("ColorCircle", spriteRenderer.color, endColor, 1.0f, TweenScaleFunctions.QuadraticEaseOut, updateColor);
-    }
+    }*/
     public void Dead()
     {
         Player.GetComponent<PlayerStatsScript>().Kill();
