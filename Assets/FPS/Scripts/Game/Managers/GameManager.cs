@@ -302,8 +302,8 @@ public class GameManager : MonoBehaviour
     
     private void Update()
     {
-        AthMunitionDirect.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().NbPotionDirect.ToString();
-        AthMunitionOblique.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().NbPotionOblique.ToString();
+        AthMunitionDirect.text = Player.GetComponent<InventaireScript>().NbPotionDirect.ToString();
+        AthMunitionOblique.text = Player.GetComponent<InventaireScript>().NbPotionOblique.ToString();
         NbPotionSanteATH.GetComponent<TextMeshProUGUI>().text = Player.GetComponent<InventaireScript>().NbPotionSante.ToString();
 
         if (InventairePanel.activeInHierarchy)
