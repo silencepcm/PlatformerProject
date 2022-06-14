@@ -355,28 +355,28 @@ public class GameManager : MonoBehaviour
     
     public void OnClickRecetteMunitionDirect()
     {
-        if (Player.GetComponent<InventaireScript>().Munitite >= 3 && Player.GetComponent<InventaireScript>().Directite >= 2)
+        if (Player.GetComponent<InventaireScript>().Munitite >= 2 && Player.GetComponent<InventaireScript>().Directite >= 2)
         {
-            Player.GetComponent<InventaireScript>().Directite -= 1;
-            Player.GetComponent<InventaireScript>().Munitite -= 3;
-            Player.GetComponent<InventaireScript>().NbPotionDirect += 5;
+            Player.GetComponent<InventaireScript>().Directite -= 2;
+            Player.GetComponent<InventaireScript>().Munitite -= 2;
+            Player.GetComponent<InventaireScript>().NbPotionDirect += 4;
         }
     }
     public void OnClickRecetteMunitionOblique()
     {
-        if (Player.GetComponent<InventaireScript>().Munitite >= 3 && Player.GetComponent<InventaireScript>().Clochite >= 2)
+        if (Player.GetComponent<InventaireScript>().Munitite >= 2 && Player.GetComponent<InventaireScript>().Clochite >= 2)
         {
             Player.GetComponent<InventaireScript>().Clochite -= 2;
-            Player.GetComponent<InventaireScript>().Munitite -= 6;
-            Player.GetComponent<InventaireScript>().NbPotionOblique += 5;
+            Player.GetComponent<InventaireScript>().Munitite -= 2;
+            Player.GetComponent<InventaireScript>().NbPotionOblique += 4;
         }
     }
     public void OnClickRecettePotionDeSanté()
     {
         if (Player.GetComponent<InventaireScript>().Baie >= 3 && Player.GetComponent<InventaireScript>().Fruit >= 1)
         {
-            Player.GetComponent<InventaireScript>().Baie -= 4;
-            Player.GetComponent<InventaireScript>().Fruit -= 3;
+            Player.GetComponent<InventaireScript>().Baie -= 3;
+            Player.GetComponent<InventaireScript>().Fruit -= 1;
             Player.GetComponent<InventaireScript>().NbPotionSante += 1;
 
         }
@@ -392,7 +392,7 @@ public class GameManager : MonoBehaviour
     }
     public void OnClickRecetteDePlonte()
     {
-        if (Player.GetComponent<InventaireScript>().Poussite >= 5 && Player.GetComponent<InventaireScript>().Plontite >= 1)
+        if (Player.GetComponent<InventaireScript>().Poussite >= 2 && Player.GetComponent<InventaireScript>().Plontite >= 2)
         {
             Player.GetComponent<InventaireScript>().Poussite -= 2;
             Player.GetComponent<InventaireScript>().Plontite -= 2;

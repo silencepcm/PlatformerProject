@@ -143,6 +143,9 @@ namespace Unity.FPS.Gameplay
         public delegate void CollectActivateUI(bool active);
         public event CollectActivateUI OnCollectActivateUI;
         float ArchimedForce = 0f;
+
+        private int timer = 0;
+        public GameObject DamageFb;
         void Start()
         {
 
@@ -177,6 +180,12 @@ namespace Unity.FPS.Gameplay
 
         void Update()
         {
+            timer++;
+            if (timer >= 500 && DamageFb.activeInHierarchy)
+            {
+                DamageFb.SetActive(false);
+            }
+
             // check for Y kill
             if (!IsDead && transform.position.y < KillHeight)
             {
@@ -269,7 +278,10 @@ namespace Unity.FPS.Gameplay
             {
                 AudioSource.PlayOneShot(DamageSfx);
             }
-
+            if (DamageFb)
+            {
+                DamageFb.SetActive(true);
+            }
             // remember last time we jumped because we need to prevent snapping to ground for a short time
             m_LastTimeJumped = Time.time;
             HasJumpedThisFrame = true;
