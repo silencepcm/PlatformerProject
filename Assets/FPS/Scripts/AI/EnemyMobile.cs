@@ -123,8 +123,8 @@ namespace Unity.FPS.AI
                     break;
                 case AIState.Attack:
                     if (Vector3.Distance(m_EnemyController.Player.transform.position,
-                            m_EnemyController.DetectionModule.DetectionSourcePoint.position)
-                        >= (AttackStopDistanceRatio * m_EnemyController.DetectionModule.AttackRange))
+                            m_EnemyController.DetectionSourcePoint.position)
+                        >= (AttackStopDistanceRatio * m_EnemyController.AttackRange))
                     {
                         m_EnemyController.SetNavDestination(m_EnemyController.Player.transform.position);
                     }

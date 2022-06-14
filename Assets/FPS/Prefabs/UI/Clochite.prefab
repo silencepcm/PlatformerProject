@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 119887785756242602}
   - component: {fileID: 5689169662333957945}
   - component: {fileID: 1789445420598951795}
+  - component: {fileID: 9220053391550790824}
   m_Layer: 5
   m_Name: Clochite
   m_TagString: Untagged
@@ -75,3 +76,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &9220053391550790824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383714848576800941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33d4105522265d547a919690c4293ba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moi: {fileID: 383714848576800941}

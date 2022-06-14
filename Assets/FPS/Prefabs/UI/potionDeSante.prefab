@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4004461075738784517}
   - component: {fileID: 2063231292611329038}
   - component: {fileID: 9187598470161038607}
+  - component: {fileID: 6408819100705057417}
   m_Layer: 5
   m_Name: potionDeSante
   m_TagString: Untagged
@@ -75,3 +76,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6408819100705057417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998160487660246139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33d4105522265d547a919690c4293ba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moi: {fileID: 998160487660246139}

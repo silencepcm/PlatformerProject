@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6556938821227004053}
   - component: {fileID: 7791532452715903283}
   - component: {fileID: 3005223327561379834}
+  - component: {fileID: 456806791790677013}
   m_Layer: 5
   m_Name: Plontite
   m_TagString: Untagged
@@ -75,3 +76,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &456806791790677013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6715603451188811580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33d4105522265d547a919690c4293ba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moi: {fileID: 6715603451188811580}

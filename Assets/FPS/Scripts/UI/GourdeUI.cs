@@ -51,7 +51,7 @@ public class GourdeUI : MonoBehaviour
                 gourdeEtat1.SetActive(false);
                 gourdeEtat2.SetActive(false);
                 gourdeEtat3.SetActive(false);
-                gourdeEtat4.SetActive(true);
+                gourdeEtat4.SetActive(false);
                 break;
 
         }

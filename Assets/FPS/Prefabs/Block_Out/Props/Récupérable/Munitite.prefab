@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2342088007709079308}
   - component: {fileID: 3962297623733524359}
-  - component: {fileID: 1881032239079179454}
   - component: {fileID: 2750039192065540728}
   - component: {fileID: 5913407265022594242}
   - component: {fileID: 2085619290428738225}
+  - component: {fileID: 6527217672891244648}
   m_Layer: 0
   m_Name: Munitite
   m_TagString: Untagged
@@ -49,23 +49,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollectSfx: {fileID: 8300000, guid: 507e834cf580ab1499f2dd5c2bc7af48, type: 3}
   CollectVfxPrefab: {fileID: 0}
-  Inventaire: {fileID: 0}
+  Inventaire: {fileID: 3646831259037691368, guid: 24996078fb5454e40b2ea4862f4eb6dd,
+    type: 3}
   HuD: {fileID: 124938118033223167, guid: b224c50a2dd5f36428a3a626b2dedf61, type: 3}
   Type: 0
---- !u!64 &1881032239079179454
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 523883205445342058}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 5060444177187149915, guid: 10cc9327ca8ddf84b8bb6a1cc06d9326, type: 3}
 --- !u!54 &2750039192065540728
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -132,3 +119,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 523883205445342058}
   m_Mesh: {fileID: 5060444177187149915, guid: 358e12eb5e5705f4c89f03ef486a8cac, type: 3}
+--- !u!64 &6527217672891244648
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523883205445342058}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5060444177187149915, guid: 10cc9327ca8ddf84b8bb6a1cc06d9326, type: 3}

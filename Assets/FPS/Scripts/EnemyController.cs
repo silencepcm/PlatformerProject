@@ -72,7 +72,6 @@ namespace Unity.FPS.AI
         public bool IsSeeingTarget;
         public bool HadKnownTarget;
         public NavMeshAgent NavMeshAgent { get; private set; }
-        public DetectionModule DetectionModule { get; private set; }
         public int Degats = 30;
         int m_PathDestinationNodeIndex;
         //ActorsManager m_ActorsManager;
@@ -116,10 +115,10 @@ namespace Unity.FPS.AI
                     DetectionRange = GameManager.Instance.BruteDetectDistance;
                     break;
                 case EnemyType.Tourelle:
-                    NavMeshAgent.angularSpeed = GameManager.Instance.TourelleAngleSpeed;
+                    //NavMeshAgent.angularSpeed = GameManager.Instance.TourelleAngleSpeed;
                     AttackDelay = GameManager.Instance.TourelleAttackDelay;
                     AttackRange = GameManager.Instance.TourelleAttackDistance;
-                    NavMeshAgent.speed = 0f;
+                    //NavMeshAgent.speed = 0f;
                     DetectionRange = GameManager.Instance.TourelleDetectDistance;
                     break;
                 case EnemyType.Fronde:
@@ -139,9 +138,6 @@ namespace Unity.FPS.AI
             Player = GameObject.FindGameObjectWithTag("Player");
 
             FindObjectOfType<Unity.FPS.Gameplay.ToyboxScript>().setEnemyParamsUpdate += ImportParams;
-            //m_EnemyManager = FindObjectOfType<EnemyManager>();
-             
-            //m_EnemyManager.RegisterEnemy(this);
 
 
             
@@ -150,21 +146,10 @@ namespace Unity.FPS.AI
 
             m_GameFlowManager = FindObjectOfType<GameFlowManager>();
 
-            var detectionModules = GetComponentsInChildren<DetectionModule>();
-            DebugUtility.HandleErrorIfNoComponentFound<DetectionModule, EnemyController>(detectionModules.Length, this,
-                gameObject);
-            DebugUtility.HandleWarningIfDuplicateObjects<DetectionModule, EnemyController>(detectionModules.Length,
-                this, gameObject);
             // Initialize detection module
-            DetectionModule = detectionModules[0];
             onAttack += OnAttack;
             onDetectedTarget += OnDetectedTarget;
             ImportParams();
-
-             /*   NavMeshAgent.speed = m_NavigationModule.MoveSpeed;
-                NavMeshAgent.angularSpeed = m_NavigationModule.AngularSpeed;
-                NavMeshAgent.acceleration = m_NavigationModule.Acceleration;*/
-            
         }
 
         void Update()
@@ -226,7 +211,7 @@ namespace Unity.FPS.AI
             IsTargetInAttackRange = Player != null &&
                                     Vector3.Distance(transform.position, Player.transform.position) <=
                                     AttackRange;
-
+            Debug.Log(HadKnownTarget + "   " + detected + "     " + IsSeeingTarget);
             // Detection events
             if (!HadKnownTarget &&
                 !detected && IsSeeingTarget)
@@ -423,17 +408,6 @@ namespace Unity.FPS.AI
             // Path reaching range
             Gizmos.color = PathReachingRangeColor;
             Gizmos.DrawWireSphere(transform.position, PathReachingRadius);
-
-            if (DetectionModule != null)
-            {
-                // Detection range
-                Gizmos.color = DetectionRangeColor;
-                Gizmos.DrawWireSphere(transform.position, DetectionModule.DetectionRange);
-
-                // Attack range
-                Gizmos.color = AttackRangeColor;
-                Gizmos.DrawWireSphere(transform.position, DetectionModule.AttackRange);
-            }
         }
         
         public bool TryAtack(Vector3 enemyPosition)

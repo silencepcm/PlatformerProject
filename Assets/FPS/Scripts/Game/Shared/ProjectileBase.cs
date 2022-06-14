@@ -35,6 +35,14 @@ namespace Unity.FPS.Game
             OnShoot?.Invoke();
 
         }
+        public void EnemyShoot(Vector3 where)
+        {
+            InitialPosition = transform.position;
+            rb = GetComponent<Rigidbody>();
+            rb.velocity = (where) * speed;
+            OnShoot?.Invoke();
+        }
+
 
         private void Update()
         {

@@ -69,8 +69,11 @@ namespace Unity.FPS.Game
                     GameIsEnding = false;
                     Player.GetComponent<Gameplay.PlayerCharacterController>().OnRespawn();
                     Player.GetComponent<PlayerStatsScript>().Respawn();
-                    Player.GetComponent<Transform>().SetPositionAndRotation(PtSauvegarde, Rotation);
-                    
+                    Player.GetComponent<CharacterController>().enabled = false;
+                    Player.transform.SetPositionAndRotation(PtSauvegarde, Rotation);
+                    Player.GetComponent<CharacterController>().enabled = true;
+
+
                 }
             }
         }

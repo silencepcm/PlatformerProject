@@ -216,9 +216,14 @@ namespace Unity.FPS.Gameplay
             {
                 collider.GetComponent<Animator>().SetTrigger("start");
             }
-            else if (collider.gameObject.tag == "Enemy")
+            else if (collider.gameObject.tag == "Brute")
             {
                 collider.GetComponent<FPS.AI.EnemyMobile>().OnDamaged();
+            }
+            else if (collider.gameObject.tag == "Tourelle")
+            {
+
+                //collider.GetComponent<TourelleControllerScript>().OnDamaged();
             }
             // impact vfx
             if (ImpactVfx)

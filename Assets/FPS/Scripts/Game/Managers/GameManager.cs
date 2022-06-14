@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
 
 
 
-    private GameObject Player;
+    public GameObject Player;
     public GameObject InventairePanel;
 
     public TextMeshProUGUI NbIngredient1;
@@ -124,7 +124,6 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI NbIngredient5;
     public TextMeshProUGUI NbIngredient6;
     public TextMeshProUGUI NbIngredient7;
-    public TextMeshProUGUI NbIngredient8;
 
     public GameObject Recette1;
     public GameObject Recette2;
@@ -138,8 +137,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI NbPotionTrampoplante;
     public TextMeshProUGUI NbPotionPlonte;
 
-    public GameObject AthMunitionDirect;
-    public GameObject AthMunitionOblique;
+    public TextMeshProUGUI AthMunitionDirect;
+    public TextMeshProUGUI AthMunitionOblique;
     public GameObject NbPotionSanteATH;
 
     private bool HasBeenUsed;

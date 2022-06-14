@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DeplacementUI : MonoBehaviour
 {
-    public GameObject Inventaire;
+    
     public GameObject moi;
     // Start is called before the first frame update
     void Start()

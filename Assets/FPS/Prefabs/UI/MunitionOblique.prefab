@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 386434314873667137}
   - component: {fileID: 1878497821211524359}
   - component: {fileID: 3605544608679814465}
+  - component: {fileID: -3357302365007561150}
   m_Layer: 5
   m_Name: MunitionOblique
   m_TagString: Untagged
@@ -75,3 +76,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-3357302365007561150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9058038055746737755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33d4105522265d547a919690c4293ba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moi: {fileID: 9058038055746737755}

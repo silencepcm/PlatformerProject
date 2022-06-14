@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2769939466729278248}
   - component: {fileID: 6054949375506103697}
   - component: {fileID: 2147946162804772438}
+  - component: {fileID: 2639626327911571153}
   m_Layer: 0
   m_Name: Recette Trampoplante
   m_TagString: RecetteTrampoplante
@@ -112,6 +113,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollectSfx: {fileID: 0}
   CollectVfxPrefab: {fileID: 0}
-  Inventaire: {fileID: 0}
+  Inventaire: {fileID: 3646831259037691368, guid: 24996078fb5454e40b2ea4862f4eb6dd,
+    type: 3}
   HuD: {fileID: 124938118033223167, guid: b224c50a2dd5f36428a3a626b2dedf61, type: 3}
   Type: 9
+--- !u!65 &2639626327911571153
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427497573351014114}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.607218, y: 7.8170795, z: 1.1126357}
+  m_Center: {x: -0.21697998, y: -0.604409, z: 0.55631787}

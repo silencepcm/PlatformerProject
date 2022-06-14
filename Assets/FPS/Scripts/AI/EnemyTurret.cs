@@ -36,11 +36,9 @@ namespace Unity.FPS.AI
         Quaternion m_PivotAimingRotation;
 
         const string k_AnimOnDamagedParameter = "OnDamaged";
-        const string k_AnimIsActiveParameter = "IsActive";
 
         void Start()
         {
-
             m_EnemyController = GetComponent<EnemyController>();
             DebugUtility.HandleErrorIfNullGetComponent<EnemyController, EnemyTurret>(m_EnemyController, this,
                 gameObject);
@@ -50,7 +48,7 @@ namespace Unity.FPS.AI
 
             // Remember the rotation offset between the pivot's forward and the weapon's forward
             m_RotationWeaponForwardToPivot =
-                Quaternion.Inverse(m_EnemyController.CurrentWeapon.WeaponMuzzle.rotation) * TurretPivot.rotation;
+                /*Quaternion.Inverse(m_EnemyController.WeaponMuzzle.rotation) **/ TurretPivot.rotation;
 
             // Start with idle
             AiState = AIState.Idle;
@@ -143,7 +141,7 @@ namespace Unity.FPS.AI
                 AudioUtility.CreateSFX(OnDetectSfx, transform.position, AudioUtility.AudioGroups.EnemyDetection, 1f);
             }
 
-            Animator.SetBool(k_AnimIsActiveParameter, true);
+            Animator.SetTrigger("PlayerSeen");
             m_TimeStartedDetection = Time.time;
         }
 
@@ -159,7 +157,7 @@ namespace Unity.FPS.AI
                 OnDetectVfx[i].Stop();
             }
 
-            Animator.SetBool(k_AnimIsActiveParameter, false);
+            Animator.SetTrigger("PlayerLost");
             m_TimeLostDetection = Time.time;
         }
     }
