@@ -184,6 +184,7 @@ namespace Unity.FPS.Gameplay
             if (timer >= 500 && DamageFb.activeInHierarchy)
             {
                 DamageFb.SetActive(false);
+                timer = 0;
             }
 
             // check for Y kill
