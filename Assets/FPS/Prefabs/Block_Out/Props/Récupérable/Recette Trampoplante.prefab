@@ -114,4 +114,4 @@ MonoBehaviour:
   CollectVfxPrefab: {fileID: 0}
   Inventaire: {fileID: 0}
   HuD: {fileID: 124938118033223167, guid: b224c50a2dd5f36428a3a626b2dedf61, type: 3}
-  Type: 0
+  Type: 9

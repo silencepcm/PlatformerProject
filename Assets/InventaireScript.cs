@@ -38,7 +38,7 @@ public class InventaireScript : MonoBehaviour
         NbPotionDirect = 5;
         NbPotionOblique = 5;
         NbPotionSante = 0;
-        NbPotionTrampoplante = 1;
+        NbPotionTrampoplante = 0;
         NbPotionPlonte = 0;
         RecetteMunitionDirect = 1;
         RecetteMunitionOblique = 1;

@@ -40,7 +40,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 98190520101566661}
-  m_Mesh: {fileID: 1881639094710657103, guid: 11a6420ef6a3ea64b8d34128eee117a7, type: 3}
+  m_Mesh: {fileID: 0}
 --- !u!23 &1899441185414011152
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4671,5 +4671,6 @@ MonoBehaviour:
       m_Topology: 0
     m_Mesh: {fileID: 0}
   m_SkinMeshRef: {fileID: 0}
-  m_OriginalMeshObject: {fileID: 1881639094710657103, guid: 11a6420ef6a3ea64b8d34128eee117a7, type: 3}
+  m_OriginalMeshObject: {fileID: 1881639094710657103, guid: 11a6420ef6a3ea64b8d34128eee117a7,
+    type: 3}
   m_Mode: 0
