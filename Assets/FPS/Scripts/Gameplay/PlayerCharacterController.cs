@@ -111,6 +111,10 @@ namespace Unity.FPS.Gameplay
         public bool HasJumpedThisFrame { get; private set; }
         public bool IsDead { get; private set; }
         public bool IsCrouching { get; private set; }
+
+        public GameObject DamageFb;
+        private int timer = 0;
+
         public float RotationMultiplier
         {
             get
@@ -177,6 +181,14 @@ namespace Unity.FPS.Gameplay
 
         void Update()
         {
+            timer++;
+
+
+            if (timer >= 500 && DamageFb.activeInHierarchy)
+            {
+                DamageFb.SetActive(false);
+            }
+
             // check for Y kill
             if (!IsDead && transform.position.y < KillHeight)
             {
@@ -268,6 +280,10 @@ namespace Unity.FPS.Gameplay
             if (DamageSfx)
             {
                 AudioSource.PlayOneShot(DamageSfx);
+            }
+            if (DamageFb)
+            {
+                DamageFb.SetActive(true);
             }
 
             // remember last time we jumped because we need to prevent snapping to ground for a short time

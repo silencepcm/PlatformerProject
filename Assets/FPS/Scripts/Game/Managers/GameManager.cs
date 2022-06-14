@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI NbIngredient5;
     public TextMeshProUGUI NbIngredient6;
     public TextMeshProUGUI NbIngredient7;
-    public TextMeshProUGUI NbIngredient8;
+    //public TextMeshProUGUI NbIngredient8;
 
     public GameObject Recette1;
     public GameObject Recette2;

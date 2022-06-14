@@ -17,22 +17,27 @@ public class SurvieScript : MonoBehaviour
     public GameObject passiveImageConsom;
     public GameObject activeTextConsom;
     public GameObject passiveTextConsom;
+    public GameObject FbFaim;
+    public GameObject FbSoif;
+    public GameObject FbSante;
     private float minNourriture = 0f;
     private float maxNourriture = 100f;
     private float minEau = 0f;
-    private float maxEau = 60f;
+    private float maxEau = 100f;
     private float minGourde = 0f;
     private float maxGourde = 60f;
     private float maxVie = 100f;
     private int timerCoolDown = 2;
     private int timer = 0;
+    private int timer2 = 0;
+    private int timer3 = 0;
+    private int timer4 = 0;
     private float perteEauSec = 0.01f;
     private float perteNourritureSec = 0.01f;
     private float perteVieSec = 0.01f;
     private bool baieActive = true;
     private float timerHoldButton = 0f;
     public GameObject Prefab;
-    public GameObject FbSante;
     private SpriteRenderer spriteRenderer;
 
 
@@ -54,31 +59,59 @@ public class SurvieScript : MonoBehaviour
         //perte d'eau et de nourriture
         SliderNourriture.value -= perteNourritureSec;
         SliderEau.value -= perteEauSec;
-        if (Vie.value < 25f)
+        if (timer3 >= 500 && !FbFaim.activeInHierarchy && SliderNourriture.value < 25f)
+        {
+            FbFaim.SetActive(true);
+            timer3 = 0;
+        }
+        else if (timer3 >= 500)
+        {
+            FbFaim.SetActive(false);
+            timer3 = 0;
+        }
+        if (timer4 >= 500 && !FbSoif.activeInHierarchy && SliderEau.value < 25f)
+        {
+            FbSoif.SetActive(true);
+            timer4 = 0;
+        }
+        else if (timer4 >= 500)
+        {
+            FbSoif.SetActive(false);
+            timer4 = 0;
+        }
+        if (timer2 >= 500 && !FbSante.activeInHierarchy && Vie.value < 25f)
         {
             FbSante.SetActive(true);
-            TweenColor();
+            timer2 = 0;
         }
-        
+        else if (timer2 >= 500)
+        {
+            FbSante.SetActive(false);
+            timer2 = 0;
+        }
+
         //perte de vie si l'une des 2 barres est a 0
         if (SliderEau.value <= 0f || SliderNourriture.value <= 0f)
         {
             Debug.Log(Vie.value);
             Vie.value -= perteVieSec;
             
-            
             if (Vie.value <= 0f)
             {
                 Dead();
             }
         }
-        FbSante.SetActive(false);
     }
 
     private void Update()
     {
        
         timer += 1;
+        timer2++;
+        timer3++;
+        timer4++;
+        Debug.Log(timer4.ToString());
+
         //mise a 0 de la barre de nourriture
         if (SliderNourriture.value <= minNourriture)
         {
