@@ -45,9 +45,9 @@ public class TourelleControllerScript : MonoBehaviour
 
         //NavMeshAgent.angularSpeed = GameManager.Instance.TourelleAngleSpeed;
         DetectionFireDelay = 2.5f;
-        AttackRange = 8f;
+        AttackRange = 14f;
         //NavMeshAgent.speed = 0f;
-        DetectionRange = 12f;
+        DetectionRange = 17f;
 
     }
     // Update is called once per frame

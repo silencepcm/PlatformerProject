@@ -23,6 +23,7 @@ TagManager:
   - InventaireUi
   - Tourelle
   - WaterDeath
+  - Brute
   layers:
   - Default
   - TransparentFX

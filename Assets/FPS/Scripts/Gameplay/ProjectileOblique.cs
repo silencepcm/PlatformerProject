@@ -115,7 +115,13 @@ namespace Unity.FPS.Gameplay
                 if (IsHitValid(hit))
                 {
                     OnHit(hit.point, hit.normal, hit.collider);
-                }
+                        RaycastHit[] hitBomb = (Physics.SphereCastAll(transform.position, 4f, transform.forward));
+                        
+                        foreach (var element in hitBomb)
+                        {
+                            OnHit(element.point, element.normal, element.collider);
+                        }
+                    }
             }
         }
     }
@@ -190,7 +196,13 @@ namespace Unity.FPS.Gameplay
                 }
 
                 OnHit(closestHit.point, closestHit.normal, closestHit.collider);
-            }
+                    RaycastHit[] hitBomb = (Physics.SphereCastAll(transform.position, 4f, transform.forward));
+
+                    foreach (var element in hitBomb)
+                    {
+                        OnHit(element.point, element.normal, element.collider);
+                    }
+                }
         }
 
         m_LastRootPosition = Root.position;
@@ -218,8 +230,7 @@ namespace Unity.FPS.Gameplay
         if (collider.gameObject.tag == "InteractableEnv")
         {
             collider.GetComponent<Animator>().SetTrigger("start");
-                Debug.Log(collider);
-        } else if (collider.gameObject.tag == "Brute")
+        } else if ((collider.gameObject.tag == "Brute")|| (collider.gameObject.tag == "Fronde"))
             {
 
                 collider.GetComponent<FPS.AI.EnemyMobile>().OnDamaged();

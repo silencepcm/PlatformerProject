@@ -12,6 +12,8 @@ public class TourelleProjectileScript : MonoBehaviour
     [Tooltip("Layers this projectile can collide with")]
     public LayerMask HittableLayers = -1;
     public float speed;
+    public float hspeed;
+    public float mass;
     const QueryTriggerInteraction k_TriggerInteraction = QueryTriggerInteraction.Collide;
     Vector3 m_LastRootPosition;
     Vector3 target;
@@ -21,10 +23,18 @@ public class TourelleProjectileScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.MoveRotation(owner.transform.rotation);
-        rb.AddForce((Camera.main.transform.position - owner.transform.position)*speed, ForceMode.Force);
+        if (owner.name == "Fronde2")
+        {
+            rb.useGravity = true;
+            rb.mass = mass;
+            rb.AddForce((Camera.main.transform.position - owner.transform.position) * speed, ForceMode.Force);
+            rb.AddForce( Vector3.up* hspeed, ForceMode.Impulse);
+        }
+        else
+        {
+            rb.AddForce((Camera.main.transform.position - owner.transform.position) * speed, ForceMode.Force);
+        }
         m_LastRootPosition = transform.position;
-
-
         m_IgnoredColliders = new List<Collider>();
         // Ignore colliders of owner
         Collider[] ownerColliders = owner.GetComponentsInChildren<Collider>();

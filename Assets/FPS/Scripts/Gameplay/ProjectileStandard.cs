@@ -215,6 +215,7 @@ namespace Unity.FPS.Gameplay
             if(collider.gameObject.tag == "InteractableEnv")
             {
                 collider.GetComponent<Animator>().SetTrigger("start");
+                collider.GetComponent<AudioSource>().PlayOneShot(collider.GetComponent<AudioSource>().clip);
             }
             else if (collider.gameObject.tag == "Brute")
             {

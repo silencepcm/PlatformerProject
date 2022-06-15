@@ -83,6 +83,7 @@ namespace Unity.FPS.Gameplay
         [Tooltip("Sound played when jumping")] public AudioClip JumpSfx;
         [Tooltip("Sound played OnDamage")] public AudioClip DamageSfx;
         [Tooltip("Sound played when landing")] public AudioClip LandSfx;
+        [Tooltip("Sound played when collect")] public AudioClip CollectSfx;
 
         [Tooltip("Sound played when taking damage froma fall")]
         public AudioClip FallDamageSfx;
@@ -146,6 +147,11 @@ namespace Unity.FPS.Gameplay
 
         private int timer = 0;
         public GameObject DamageFb;
+        public void OnCollectSound()
+        {
+            Debug.Log("YEAH");
+            AudioSource.PlayOneShot(CollectSfx);
+        }
         void Start()
         {
 
@@ -322,6 +328,7 @@ namespace Unity.FPS.Gameplay
                         WaterCollider = hit.collider;
                         player.Kill();
                         OnDie();
+
                         CharacterVelocity =new Vector3(CharacterVelocity.x, CharacterVelocity.y/4, CharacterVelocity.z);
                         GravityDownForce /= 5;
                         WaterDeath = true;

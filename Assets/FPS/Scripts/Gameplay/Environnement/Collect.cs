@@ -6,7 +6,6 @@ namespace Unity.FPS.Gameplay
     public class Collect : MonoBehaviour
     {
 
-        public AudioClip CollectSfx;
         public GameObject CollectVfxPrefab;
         public GameObject Inventaire;
         public GameObject HuD;
@@ -72,11 +71,7 @@ namespace Unity.FPS.Gameplay
             if (m_HasPlayedFeedback)
                 return;
 
-            if (CollectSfx)
-            {
-                AudioUtility.CreateSFX(CollectSfx, transform.position, AudioUtility.AudioGroups.Pickup, 0f);
-            }
-
+            
             if (CollectVfxPrefab)
             {
                 Instantiate(CollectVfxPrefab, transform.position, Quaternion.identity);
@@ -173,33 +168,33 @@ namespace Unity.FPS.Gameplay
                 HuD.GetComponent<Spawner_Ui_Ingredient>().Spawn_Ui_Ingredient("RecetteT");
                 GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().RecettePlonte += GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().RecettePlonte;
                 HuD.GetComponent<Spawner_Ui_Ingredient>().Spawn_Ui_Ingredient("RecetteP");
-
-                GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Munitite = 0;
-                GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Clochite = 0;
-                GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Directite = 0;
-                GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().NbPotionOblique = 0;
-                GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().NbPotionDirect = 0;
-                GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Baie = 0;
-                GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Fruit = 0;
-                GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Plontite = 0;
-                GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().Poussite = 0;
-                GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().RecetteMunitionDirect = 0;
-                GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().RecetteMunitionOblique = 0;
-                GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().RecettePotionSante = 0;
-                GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().RecetteTrampoplante = 0;
-                GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>().RecettePlonte = 0;
+                InventaireScript sacInventaire = GameObject.FindGameObjectWithTag("Sac").GetComponent<InventaireScript>();
+                sacInventaire.Munitite = 0;
+                sacInventaire.Clochite = 0;
+                sacInventaire.Directite = 0;
+                sacInventaire.NbPotionOblique = 0;
+                sacInventaire.NbPotionDirect = 0;
+                sacInventaire.Baie = 0;
+                sacInventaire.Fruit = 0;
+                sacInventaire.Plontite = 0;
+                sacInventaire.Poussite = 0;
+                sacInventaire.RecetteMunitionDirect = 0;
+                sacInventaire.RecetteMunitionOblique = 0;
+                sacInventaire.RecettePotionSante = 0;
+                sacInventaire.RecetteTrampoplante = 0;
+                sacInventaire.RecettePlonte = 0;
                 Inventaire.GetComponent<UI.InGameMenuManager>().SetInventaireMenuActivation();
 
 
             }
             PlayPickupFeedback();
             gameObject.SetActive(false);
-            if (name != "Sac")
+            if ((name != "Sac")&&(name != "Recette Soin") && (name != "Recette Trampoplante") && (name != "Recette Plonte"))
             {
 
                 GetComponentInParent<Spawner_Ingredient>().StartCoroutine(GetComponentInParent<Spawner_Ingredient>().RespawnWaiter(gameObject));
             }
-
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCharacterController>().OnCollectSound();
 
         }
     }

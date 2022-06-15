@@ -10,7 +10,9 @@ namespace Unity.FPS.AI
 {
     public class EnemyController : MonoBehaviour
     {
-
+        public GameObject ProjectilePrefab;
+        public GameObject ProjectileFakePrefabAnimation;
+        public Transform TurretPivot;
 
         [Header("Parameters")]
         [Tooltip("The Y height at which the enemy will be automatically killed (if it falls off of the level)")]
@@ -100,6 +102,7 @@ namespace Unity.FPS.AI
         const string k_AnimOnDamagedTrigger = "OnDamaged";
         public enum EnemyType { Brute, Tourelle, Fronde};
         public EnemyType enemyType;
+        Vector3 whereShoot;
         void ImportParams()
         {
             switch (enemyType)
@@ -409,21 +412,38 @@ namespace Unity.FPS.AI
             Gizmos.color = PathReachingRangeColor;
             Gizmos.DrawWireSphere(transform.position, PathReachingRadius);
         }
-        
+        void ShootAnimation()
+        {
+            Animator.SetTrigger("Attack");
+            whereShoot = Camera.main.transform.position;
+        }
+        public void ActiveReload()
+        {
+            ProjectileFakePrefabAnimation.SetActive(true);
+        }
+        public void DesactiveShoot()
+        {
+            ProjectileFakePrefabAnimation.SetActive(false);
+
+            GameObject newProjectile = Instantiate(ProjectilePrefab, ProjectileFakePrefabAnimation.transform.position,
+   Quaternion.identity);
+            newProjectile.GetComponent<TourelleProjectileScript>().EnemyShoot(gameObject);
+        }
+
         public bool TryAtack(Vector3 enemyPosition)
         {
             if (m_GameFlowManager.GameIsEnding)
                 return false;
             bool didFire;
-          /*  if (CanShoot)
+            if (enemyType == EnemyType.Fronde)
             {
                 didFire = CurrentWeapon.TryShoot();
                 if (didFire && onAttack != null)
                 {
-                    onAttack.Invoke();
+                    ShootAnimation();
                 }
             }
-            else*/
+            else
             {
                 if (LastTimeAttack + AttackDelay < Time.time && onAttack != null)
                 {

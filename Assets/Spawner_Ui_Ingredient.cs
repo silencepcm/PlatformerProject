@@ -23,9 +23,10 @@ public class Spawner_Ui_Ingredient : MonoBehaviour
     public Image Ui_potionplonte;
     public Image Ui_RecetteMO;
     public Image Ui_RecetteMD;
-  
+
     public Vector3 defaultPosition;
 
+    GameObject canvas;
     // Start is called before the first frame update
     private void Start()
     {
@@ -35,77 +36,78 @@ public class Spawner_Ui_Ingredient : MonoBehaviour
     // Update is called once per frame
     public void Spawn_Ui_Ingredient(string Nom)
     {
+        canvas = GameObject.FindGameObjectWithTag("canva");
         switch (Nom)
         {
             case "Munite":
                 
                 //Ui_Munite.transform.Translate((new Vector3(-90.9f,-2.6f,0f)- transform.position).normalized*Time.deltaTime*0.01f);
-                Image Munite = Instantiate(Ui_Munite,transform) as Image;
-                Munite.transform.SetParent(GameObject.FindGameObjectWithTag("canva").transform);
+                Image Munite = Instantiate(Ui_Munite) as Image;
+                Munite.transform.SetParent(canvas.transform);
                 break;
             case "Directite":
-                Image Directite = Instantiate(Ui_Directite, transform) as Image;
-                Directite.transform.SetParent(GameObject.FindGameObjectWithTag("canva").transform);
+                Image Directite = Instantiate(Ui_Directite) as Image;
+                Directite.transform.SetParent(canvas.transform);
                 break;
             case "Clochite":
-                Image Clochite = Instantiate(Ui_Clochite, transform) as Image;
-                Clochite.transform.SetParent(GameObject.FindGameObjectWithTag("canva").transform);
+                Image Clochite = Instantiate(Ui_Clochite) as Image;
+                Clochite.transform.SetParent(canvas.transform);
                 break;
             case "Baie":
-                Image Baie = Instantiate(UI_Baie, transform) as Image;
-                Baie.transform.SetParent(GameObject.FindGameObjectWithTag("canva").transform);
+                Image Baie = Instantiate(UI_Baie) as Image;
+                Baie.transform.SetParent(canvas.transform);
                 break;
             case "Fruit":
-                Image Fruit = Instantiate(Ui_Fruit, transform) as Image;
-                Fruit.transform.SetParent(GameObject.FindGameObjectWithTag("canva").transform);
+                Image Fruit = Instantiate(Ui_Fruit) as Image;
+                Fruit.transform.SetParent(canvas.transform);
                 break;
             case "Plontite1":
-                Image Plontite1 = Instantiate(Ui_Plontite1, transform) as Image;
-                Plontite1.transform.SetParent(GameObject.FindGameObjectWithTag("canva").transform);
+                Image Plontite1 = Instantiate(Ui_Plontite1) as Image;
+                Plontite1.transform.SetParent(canvas.transform);
                 break;
             case "Poussite":
-                Image Poussite = Instantiate(Ui_Poussite, transform) as Image;
-                Poussite.transform.SetParent(GameObject.FindGameObjectWithTag("canva").transform);
+                Image Poussite = Instantiate(Ui_Poussite) as Image;
+                Poussite.transform.SetParent(canvas.transform);
                 break;
             case "RecetteP":
-                Image RecetteP = Instantiate(Ui_RecetteP, transform) as Image;
-                RecetteP.transform.SetParent(GameObject.FindGameObjectWithTag("canva").transform);
+                Image RecetteP = Instantiate(Ui_RecetteP) as Image;
+                RecetteP.transform.SetParent(canvas.transform);
                 break;
             case "RecetteS":
-                Image RecetteS = Instantiate(Ui_RecetteS, transform) as Image;
-                RecetteS.transform.SetParent(GameObject.FindGameObjectWithTag("canva").transform);
+                Image RecetteS = Instantiate(Ui_RecetteS) as Image;
+                RecetteS.transform.SetParent(canvas.transform);
                 break;
             case "RecetteT":
-                Image RecetteT = Instantiate(Ui_RecetteT, transform) as Image;
-                RecetteT.transform.SetParent(GameObject.FindGameObjectWithTag("canva").transform);
+                Image RecetteT = Instantiate(Ui_RecetteT) as Image;
+                RecetteT.transform.SetParent(canvas.transform);
                 break;
             case "PotionDirect":
-                Image PotionDirect = Instantiate(Ui_PotionDirect, transform) as Image;
-                PotionDirect.transform.SetParent(GameObject.FindGameObjectWithTag("canva").transform);
+                Image PotionDirect = Instantiate(Ui_PotionDirect) as Image;
+                PotionDirect.transform.SetParent(canvas.transform);
                 break;
             case "PotionOblique":
-                Image PotionOblique = Instantiate(Ui_PotionOblique, transform) as Image;
-                PotionOblique.transform.SetParent(GameObject.FindGameObjectWithTag("canva").transform);
+                Image PotionOblique = Instantiate(Ui_PotionOblique) as Image;
+                PotionOblique.transform.SetParent(canvas.transform);
                 break;
             case "PotionSante":
-                Image PotionSante = Instantiate(Ui_PotionSante, transform) as Image;
-                PotionSante.transform.SetParent(GameObject.FindGameObjectWithTag("canva").transform);
+                Image PotionSante = Instantiate(Ui_PotionSante) as Image;
+                PotionSante.transform.SetParent(canvas.transform);
                 break;
             case "PotionTrampoplante":
-                Image PotionTrampoplante = Instantiate(Ui_PotionTrampoplante, transform) as Image;
-                PotionTrampoplante.transform.SetParent(GameObject.FindGameObjectWithTag("canva").transform);
+                Image PotionTrampoplante = Instantiate(Ui_PotionTrampoplante) as Image;
+                PotionTrampoplante.transform.SetParent(canvas.transform);
                 break;
             case "PotionPlonte":
-                Image PotionPlonte = Instantiate(Ui_potionplonte, transform) as Image;
-                PotionPlonte.transform.SetParent(GameObject.FindGameObjectWithTag("canva").transform);
+                Image PotionPlonte = Instantiate(Ui_potionplonte) as Image;
+                PotionPlonte.transform.SetParent(canvas.transform);
                 break;
             case "RecetteMD":
-                Image RecetteMD = Instantiate(Ui_RecetteMO, transform) as Image;
-                RecetteMD.transform.SetParent(GameObject.FindGameObjectWithTag("canva").transform);
+                Image RecetteMD = Instantiate(Ui_RecetteMO) as Image;
+                RecetteMD.transform.SetParent(canvas.transform);
                 break;
             case "RecetteMO":
-                Image RecetteMO = Instantiate(Ui_RecetteMD, transform) as Image;
-                RecetteMO.transform.SetParent(GameObject.FindGameObjectWithTag("canva").transform);
+                Image RecetteMO = Instantiate(Ui_RecetteMD) as Image;
+                RecetteMO.transform.SetParent(canvas.transform);
                 break;
         }
     }
