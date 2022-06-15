@@ -8,7 +8,7 @@ namespace Unity.FPS.Game
         [Header("Parameters")]
         [Tooltip("Duration of the fade-to-black at the end of the game")]
         public float EndSceneLoadDelay = 3f;
-        public GameObject Player;
+        private GameObject Player;
 
         public Vector3 PtSauvegarde;
         public Quaternion Rotation;
@@ -44,6 +44,7 @@ namespace Unity.FPS.Game
         }
         void Start()
         {
+            Player = GameObject.FindGameObjectWithTag("Player");
             PtSauvegarde = Player.transform.position;
             AudioUtility.SetMasterVolume(1);
             StartGame();
@@ -53,7 +54,7 @@ namespace Unity.FPS.Game
         {
             if (GameIsEnding)
             {
-                Player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                Camera.main.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 float timeRatio = 1 - (m_TimeLoadEndGameScene - Time.time) / EndSceneLoadDelay;
                 GetComponent<HUDManager>().canvasGroup.alpha = timeRatio;
 
@@ -69,10 +70,12 @@ namespace Unity.FPS.Game
                     GameIsEnding = false;
                     Player.GetComponent<Gameplay.PlayerCharacterController>().OnRespawn();
                     Player.GetComponent<PlayerStatsScript>().Respawn();
+                    GameManager.Instance.GetComponent<SurvieScript>().Vie.value = 100;
                     Player.GetComponent<CharacterController>().enabled = false;
                     Player.transform.SetPositionAndRotation(PtSauvegarde, Rotation);
                     Player.GetComponent<CharacterController>().enabled = true;
-
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
 
                 }
             }
