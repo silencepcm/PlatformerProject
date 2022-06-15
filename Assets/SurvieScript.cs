@@ -40,7 +40,10 @@ public class SurvieScript : MonoBehaviour
     private int timer3 = 0;
     private int timer4 = 0;
 
-
+    public void RemplirGourde()
+    {
+        SliderGourde.value = maxGourde;
+    }
 
 
     // Start is called before the first frame update

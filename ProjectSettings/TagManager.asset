@@ -21,6 +21,8 @@ TagManager:
   - UIInventaire
   - canva
   - InventaireUi
+  - Tourelle
+  - WaterDeath
   layers:
   - Default
   - TransparentFX

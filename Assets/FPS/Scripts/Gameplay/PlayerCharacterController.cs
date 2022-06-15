@@ -58,7 +58,6 @@ namespace Unity.FPS.Gameplay
         [Header("TrampopnateForce")]
         [Tooltip("Force applied upward when jumping on trampoplante")]
         public float TrampoplanteForce = 30f;
-        public float DamageFlyForce = 3f;
 
         [Header("Stance")] [Tooltip("Ratio (0-1) of the character height where the camera will be at")]
         public float CameraHeightRatio = 0.9f;
@@ -111,6 +110,7 @@ namespace Unity.FPS.Gameplay
         public bool HasJumpedThisFrame { get; private set; }
         public bool IsDead { get; private set; }
         public bool IsCrouching { get; private set; }
+        Collider WaterCollider;
         public float RotationMultiplier
         {
             get
@@ -269,10 +269,16 @@ namespace Unity.FPS.Gameplay
         public void OnRespawn()
         {
             IsDead = false;
+            if (WaterDeath)
+            {
+                WaterDeath = false;
+                GravityDownForce *= 5;
+                WaterCollider.enabled = true;
+            }
         }
-        public void OnDamage(Vector3 PositionDamage)
+        public void OnDamage(Vector3 PositionDamage, float DamageFlyForce)
         {
-            CharacterVelocity = (transform.position - PositionDamage + Vector3.up) * DamageFlyForce;
+            CharacterVelocity = (transform.position - PositionDamage + Vector3.up*2) * DamageFlyForce;
 
             // play sound
             if (DamageSfx)
@@ -310,9 +316,10 @@ namespace Unity.FPS.Gameplay
                     QueryTriggerInteraction.Ignore))
                 {
 
-                    if ((!WaterDeath)&&(!IsDead) && (hit.collider.transform.tag == "Water"))
+                    if ((!WaterDeath)&&(!IsDead) && (hit.collider.transform.tag == "WaterDeath"))
                     {
                         hit.collider.enabled = false;
+                        WaterCollider = hit.collider;
                         player.Kill();
                         OnDie();
                         CharacterVelocity =new Vector3(CharacterVelocity.x, CharacterVelocity.y/4, CharacterVelocity.z);

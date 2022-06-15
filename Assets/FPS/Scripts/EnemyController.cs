@@ -243,7 +243,7 @@ namespace Unity.FPS.AI
             yield return new WaitForSeconds(0.3f);
             if(Vector3.Distance(transform.position, Player.transform.position) < 1f)
             {
-                Player.GetComponent<Gameplay.PlayerCharacterController>().OnDamage(transform.position);
+                Player.GetComponent<Gameplay.PlayerCharacterController>().OnDamage(transform.position, 7f);
                 Player.GetComponent<PlayerStatsScript>().OnDamage(Degats);
             }
         }
@@ -415,7 +415,7 @@ namespace Unity.FPS.AI
             if (m_GameFlowManager.GameIsEnding)
                 return false;
             bool didFire;
-            if (CanShoot)
+          /*  if (CanShoot)
             {
                 didFire = CurrentWeapon.TryShoot();
                 if (didFire && onAttack != null)
@@ -423,7 +423,7 @@ namespace Unity.FPS.AI
                     onAttack.Invoke();
                 }
             }
-            else
+            else*/
             {
                 if (LastTimeAttack + AttackDelay < Time.time && onAttack != null)
                 {

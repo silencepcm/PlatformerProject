@@ -227,7 +227,7 @@ namespace Unity.FPS.Gameplay
             else if (collider.gameObject.tag == "Tourelle")
             {
 
-           //     collider.GetComponent<TourelleControllerScript>().OnDamaged();
+                collider.GetComponent<TourelleControllerScript>().OnDamaged();
             }
             // impact vfx
             if (ImpactVfx)
