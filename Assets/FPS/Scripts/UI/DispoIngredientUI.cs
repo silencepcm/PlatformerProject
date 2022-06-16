@@ -28,7 +28,7 @@ public class DispoIngredientUI : MonoBehaviour
             case Ingredient.Munitite :
                 if (player.GetComponent<InventaireScript>().Munitite < int.Parse(_text.text))
                 {
-                    image.color = Color.grey;
+                    image.color = Color.black;
                 }
                 else
                 {
@@ -39,7 +39,7 @@ public class DispoIngredientUI : MonoBehaviour
             case Ingredient.Directite:
                 if (player.GetComponent<InventaireScript>().Directite < int.Parse(_text.text))
                 {
-                    image.color = Color.grey;
+                    image.color = Color.black;
                 }
                 else
                 {
@@ -50,7 +50,7 @@ public class DispoIngredientUI : MonoBehaviour
             case Ingredient.Clochite:
                 if (player.GetComponent<InventaireScript>().Clochite < int.Parse(_text.text))
                 {
-                    image.color = Color.grey;
+                    image.color = Color.black;
                 }
                 else
                 {
@@ -61,7 +61,7 @@ public class DispoIngredientUI : MonoBehaviour
             case Ingredient.Baie:
                 if (player.GetComponent<InventaireScript>().Baie < int.Parse(_text.text))
                 {
-                    image.color = Color.grey;
+                    image.color = Color.black;
                 }
                 else
                 {
@@ -72,7 +72,7 @@ public class DispoIngredientUI : MonoBehaviour
             case Ingredient.Fruit:
                 if (player.GetComponent<InventaireScript>().Fruit < int.Parse(_text.text))
                 {
-                    image.color = Color.grey;
+                    image.color = Color.black;
                 }
                 else
                 {
@@ -83,7 +83,7 @@ public class DispoIngredientUI : MonoBehaviour
             case Ingredient.Poussite:
                 if (player.GetComponent<InventaireScript>().Poussite < int.Parse(_text.text))
                 {
-                    image.color = Color.grey;
+                    image.color = Color.black;
                 }
                 else
                 {
@@ -94,7 +94,7 @@ public class DispoIngredientUI : MonoBehaviour
             case Ingredient.Plontite:
                 if (player.GetComponent<InventaireScript>().Plontite < int.Parse(_text.text))
                 {
-                    image.color = Color.grey;
+                    image.color = Color.black;
                 }
                 else
                 {

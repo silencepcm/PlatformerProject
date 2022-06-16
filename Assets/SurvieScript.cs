@@ -8,7 +8,9 @@ using DigitalRuby.Tween;
 //Script en construction : OBJECTIF : GEstion des barres d'eau/de Nourriture/de Gourde/de vie + lancement de la mort lier a la barre de vie
 public class SurvieScript : MonoBehaviour
 {
-    private GameObject Player;
+    public int bob;
+    public GameObject Player;
+    private GameObject Sac;
     public Slider SliderNourriture;
     public Slider SliderEau;
     public Slider SliderGourde;
@@ -221,43 +223,49 @@ public class SurvieScript : MonoBehaviour
     }*/
     public void Dead()
     {
+        /*bob += 1;
+        
+        if (bob == 1)
+        {
+            Sac = Instantiate(Prefab, Player.transform.position, Quaternion.identity);
+
+            InventaireScript sacInventaire = Sac.GetComponent<InventaireScript>();
+            InventaireScript Inventaire = Player.GetComponent<InventaireScript>();
+            sacInventaire.NbPotionDirect = Inventaire.NbPotionDirect / 2;
+            sacInventaire.NbPotionOblique = Inventaire.NbPotionOblique / 2;
+            sacInventaire.Munitite = Inventaire.Munitite;
+            sacInventaire.Directite = Inventaire.Directite;
+            sacInventaire.Clochite = Inventaire.Clochite;
+            sacInventaire.NbPotionSante = Inventaire.NbPotionSante;
+            sacInventaire.NbPotionTrampoplante = Inventaire.NbPotionTrampoplante;
+            sacInventaire.Fruit = Inventaire.Fruit;
+            sacInventaire.Baie = Inventaire.Baie;
+            sacInventaire.Poussite = Inventaire.Poussite;
+            sacInventaire.Plontite = Inventaire.Plontite;
+            sacInventaire.RecetteMunitionDirect = Inventaire.RecetteMunitionDirect;
+            sacInventaire.RecetteMunitionOblique = Inventaire.RecetteMunitionOblique;
+            sacInventaire.RecettePotionSante = Inventaire.RecettePotionSante;
+            sacInventaire.RecetteTrampoplante = Inventaire.RecetteTrampoplante;
+
+
+
+            Inventaire.Clochite = 0;
+            Inventaire.Directite = 0;
+            Inventaire.Munitite = 0;
+            Inventaire.NbPotionDirect /= 2;
+            Inventaire.NbPotionOblique /= 2;
+            Inventaire.NbPotionSante = 0;
+            Inventaire.NbPotionTrampoplante = 0;
+            Inventaire.Fruit = 0;
+            Inventaire.Baie = 0;
+            Inventaire.Poussite = 0;
+            Inventaire.Plontite = 0;
+            Inventaire.RecetteMunitionDirect = 0;
+            Inventaire.RecetteMunitionOblique = 0;
+            Inventaire.RecettePotionSante = 0;
+            Inventaire.RecetteTrampoplante = 0;
+        }*/
         Player.GetComponent<PlayerStatsScript>().Kill();
-        GameObject Sac = Instantiate(Prefab, transform.position, Quaternion.identity);
-        InventaireScript sacInventaire = Sac.GetComponent<InventaireScript>();
-        InventaireScript Inventaire = Player.GetComponent<InventaireScript>();
-        sacInventaire.NbPotionDirect = Inventaire.NbPotionDirect / 2;
-        sacInventaire.NbPotionOblique = Inventaire.NbPotionOblique / 2;
-        sacInventaire.Munitite = Inventaire.Munitite;
-        sacInventaire.Directite = Inventaire.Directite;
-        sacInventaire.Clochite = Inventaire.Clochite;
-        sacInventaire.NbPotionSante = Inventaire.NbPotionSante;
-        sacInventaire.NbPotionTrampoplante = Inventaire.NbPotionTrampoplante;
-        sacInventaire.Fruit = Inventaire.Fruit;
-        sacInventaire.Baie = Inventaire.Baie;
-        sacInventaire.Poussite = Inventaire.Poussite;
-        sacInventaire.Plontite = Inventaire.Plontite;
-        sacInventaire.RecetteMunitionDirect = Inventaire.RecetteMunitionDirect;
-        sacInventaire.RecetteMunitionOblique = Inventaire.RecetteMunitionOblique;
-        sacInventaire.RecettePotionSante = Inventaire.RecettePotionSante;
-        sacInventaire.RecetteTrampoplante = Inventaire.RecetteTrampoplante;
-
-
-
-        Inventaire.Clochite = 0;
-        Inventaire.Directite = 0;
-        Inventaire.Munitite = 0;
-        Inventaire.NbPotionDirect /= 2;
-        Inventaire.NbPotionOblique /=  2;
-        Inventaire.NbPotionSante = 0;
-        Inventaire.NbPotionTrampoplante = 0;
-        Inventaire.Fruit = 0;
-        Inventaire.Baie = 0;
-        Inventaire.Poussite = 0;
-        Inventaire.Plontite = 0;
-        Inventaire.RecetteMunitionDirect = 0;
-        Inventaire.RecetteMunitionOblique = 0;
-        Inventaire.RecettePotionSante = 0;
-        Inventaire.RecetteTrampoplante = 0;
     }
 
     // Update is called once per frame

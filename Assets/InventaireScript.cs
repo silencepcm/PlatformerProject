@@ -28,23 +28,23 @@ public class InventaireScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Munitite = 0;
-        Directite = 0;
-        Clochite = 0;
-        Baie = 0;
-        Fruit = 0;
-        Poussite = 0;
-        Plontite = 0;
+        Munitite = Munitite;
+        Directite = Directite;
+        Clochite = Clochite;
+        Baie = Baie;
+        Fruit = Fruit;
+        Poussite = Poussite;
+        Plontite = Plontite;
         NbPotionDirect = 5;
         NbPotionOblique = 5;
-        NbPotionSante = 0;
-        NbPotionTrampoplante = 0;
-        NbPotionPlonte = 0;
+        NbPotionSante = NbPotionSante;
+        NbPotionTrampoplante = NbPotionTrampoplante;
+        NbPotionPlonte = NbPotionPlonte;
         RecetteMunitionDirect = RecetteMunitionDirect;
         RecetteMunitionOblique = RecetteMunitionOblique;
-        RecettePotionSante = 0;
-        RecetteTrampoplante = 0;
-        RecettePlonte = 0;
+        RecettePotionSante = RecettePotionSante;
+        RecetteTrampoplante = RecetteTrampoplante;
+        RecettePlonte = RecettePlonte;
     }
 
 }

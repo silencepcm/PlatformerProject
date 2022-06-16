@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1883973506167852457}
   m_Layer: 0
   m_Name: Sac PJ
-  m_TagString: Sac
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,7 +87,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c72a2c2e0f8c9194f9ab3b97752e8fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CollectSfx: {fileID: 8300000, guid: 507e834cf580ab1499f2dd5c2bc7af48, type: 3}
   CollectVfxPrefab: {fileID: 0}
   Inventaire: {fileID: 8824232397177945070, guid: 08dec1e68a552c649889571e90fa7b2d,
     type: 3}
