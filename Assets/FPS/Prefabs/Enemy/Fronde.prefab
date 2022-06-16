@@ -188,10 +188,9 @@ MonoBehaviour:
   RandomHitSparks: []
   OnDetectVfx: []
   OnDetectSfx: {fileID: 0}
-  MovementSound: {fileID: 8300000, guid: 63b51ba362ad79c43a2c9f37b6506285, type: 3}
-  PitchDistortionMovementSpeed:
-    Min: 0
-    Max: 0
+  PasGauche: {fileID: 0}
+  PasDroit: {fileID: 0}
+  m_AudioSource: {fileID: 0}
 --- !u!114 &6469694681006201046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,6 +203,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3de939d976a5bb0419ccd8dbd0b6836b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ProjectilePrefab: {fileID: 0}
+  ProjectileFakePrefabAnimation: {fileID: 0}
+  TurretPivot: {fileID: 0}
   SelfDestructYHeight: -20
   PathReachingRadius: 2
   OrientationSpeed: 10
@@ -394,7 +396,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 20865d7f17559d046a16cfe50326fad9, type: 2}
+      objectReference: {fileID: 9100000, guid: aa9401503efb87449b90de9bf6fa735c, type: 2}
+    - target: {fileID: 5866666021909216657, guid: edc943dd4474ad7408e0268ced441e80,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edc943dd4474ad7408e0268ced441e80, type: 3}
 --- !u!1 &2846443663561578174 stripped

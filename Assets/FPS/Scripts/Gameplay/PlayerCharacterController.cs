@@ -35,7 +35,7 @@ namespace Unity.FPS.Gameplay
         public float MaxSpeedCrouchedRatio = 0.5f;
 
         [Tooltip("Max movement speed when not grounded")]
-        public float MaxSpeedInAir = 10f;
+        public float MaxSpeedInAir = 5.5f;
 
         [Tooltip("Acceleration speed when in the air")]
         public float AccelerationSpeedInAir = 25f;

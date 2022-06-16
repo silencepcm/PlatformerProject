@@ -125,14 +125,14 @@ namespace Unity.FPS.AI
                     DetectionRange = GameManager.Instance.TourelleDetectDistance;
                     break;
                 case EnemyType.Fronde:
-                    GetComponent<EnemyMobile>().WalkSpeed = GameManager.Instance.FrondeWalkSpeed;
-                    GetComponent<EnemyMobile>().RunSpeed = GameManager.Instance.FrondeRunSpeed;
-                    NavMeshAgent.angularSpeed = GameManager.Instance.FrondeAngleSpeed;
-                    NavMeshAgent.speed = GameManager.Instance.FrondeWalkSpeed;
-                    NavMeshAgent.acceleration = GameManager.Instance.FrondeAcceleration;
-                    AttackRange = GameManager.Instance.FrondeAttackDistance;
-                    AttackDelay = GameManager.Instance.FrondeAttackDelay;
-                    DetectionRange = GameManager.Instance.FrondeDetectDistance;
+                    GetComponent<EnemyMobile>().WalkSpeed = 1f;
+                    GetComponent<EnemyMobile>().RunSpeed = 5f;
+                    NavMeshAgent.angularSpeed = 5f;
+                    NavMeshAgent.speed = 1f;
+                    NavMeshAgent.acceleration = 5f;
+                    AttackRange = 6f;
+                    AttackDelay = 7f;
+                    DetectionRange = 4f;
                     break;
             }
         }
@@ -215,7 +215,7 @@ namespace Unity.FPS.AI
                                     Vector3.Distance(transform.position, Player.transform.position) <=
                                     AttackRange;
             // Detection events
-            if (!HadKnownTarget &&
+            if (/*!HadKnownTarget &&*/
                 !detected && IsSeeingTarget)
             {
                 OnDetect();
@@ -342,7 +342,10 @@ namespace Unity.FPS.AI
                 m_PathDestinationNodeIndex = 0;
             }
         }
-
+        public void SetCanFuire()
+        {
+            NavMeshAgent.enabled = true;
+        }
         public Vector3 GetDestinationOnPath()
         {
             if (IsPathValid())
@@ -413,8 +416,15 @@ namespace Unity.FPS.AI
         }
         void ShootAnimation()
         {
-            Animator.SetTrigger("Attack");
-            whereShoot = Camera.main.transform.position;
+            if (ProjectileFakePrefabAnimation.activeSelf == true)
+            {
+                Animator.SetTrigger("Attack");
+                whereShoot = Camera.main.transform.position;
+            }
+            else
+            {
+                Animator.SetTrigger("Reload");
+            }
         }
         public void ActiveReload()
         {
@@ -436,10 +446,11 @@ namespace Unity.FPS.AI
             bool didFire;
             if (enemyType == EnemyType.Fronde)
             {
-                didFire = CurrentWeapon.TryShoot();
-                if (didFire && onAttack != null)
+              /*  didFire = CurrentWeapon.TryShoot();
+                if (didFire && onAttack != null)*/
                 {
                     ShootAnimation();
+                    return true;
                 }
             }
             else

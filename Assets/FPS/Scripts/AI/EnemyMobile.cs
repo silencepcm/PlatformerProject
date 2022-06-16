@@ -47,7 +47,7 @@ namespace Unity.FPS.AI
 
         float fuiteDelayPathDestination = 5f;
         float actualfuitetimePathDestination = 0f;
-        float multiplierFuite = 50f;
+        float multiplierFuite = 5000f;
         void Start()
         {
             m_EnemyController = GetComponent<EnemyController>();
@@ -94,24 +94,54 @@ namespace Unity.FPS.AI
             {
                 case AIState.Follow:
                     // Transition to attack when there is a line of sight to the target
-                    if (m_EnemyController.IsSeeingTarget && m_EnemyController.IsTargetInAttackRange)
+                    if (m_EnemyController.enemyType == EnemyController.EnemyType.Brute)
                     {
-                        AiState = AIState.Attack;
-                        m_EnemyController.SetNavDestination(transform.position);
+                        if (m_EnemyController.IsSeeingTarget && m_EnemyController.IsTargetInAttackRange)
+                        {
+                            AiState = AIState.Attack;
+                            m_EnemyController.SetNavDestination(transform.position);
+                        }
+                    } else if (m_EnemyController.enemyType == EnemyController.EnemyType.Fronde)
+                    {
+                        if (m_EnemyController.NavMeshAgent.enabled == false) m_EnemyController.NavMeshAgent.enabled = true;
+                        if (m_EnemyController.IsSeeingTarget && !m_EnemyController.IsTargetInAttackRange)
+                        {
+                            AiState = AIState.Patrol;
+                        } else if (m_EnemyController.IsSeeingTarget && (Time.time > actualfuitetimePathDestination + fuiteDelayPathDestination))
+                        {
+                            actualfuitetimePathDestination = Time.time;
+                            m_EnemyController.NavMeshAgent.enabled = false;
+                            Animator.SetTrigger("Attack");
+                            AiState = AIState.Attack;
+                        }
+                        
                     }
-
                     break;
                 case AIState.Attack:
                     // Transition to follow when no longer a target in attack range
-                    if (!m_EnemyController.IsTargetInAttackRange)
+                    if (m_EnemyController.enemyType == EnemyController.EnemyType.Brute)
                     {
-                        AiState = AIState.Follow;
+                        if (!m_EnemyController.IsTargetInAttackRange)
+                        {
+                            AiState = AIState.Follow;
+                        }
                     }
-
-                    break;
+                    else if (m_EnemyController.enemyType == EnemyController.EnemyType.Fronde)
+                    {
+                        if (m_EnemyController.IsTargetInAttackRange)
+                        {
+                            AiState = AIState.Follow;
+                            StartCoroutine(WaitForRun());
+                        }
+                    }
+                        break;
             }
         }
-
+        IEnumerator WaitForRun()
+        {
+            yield return new WaitForSeconds(2f);
+            m_EnemyController.NavMeshAgent.enabled = true;
+        }
         void UpdateCurrentAiState()
         {
             // Handle logic 
@@ -127,28 +157,31 @@ namespace Unity.FPS.AI
                     {
                         m_EnemyController.SetNavDestination(m_EnemyController.Player.transform.position);
                         m_EnemyController.OrientTowards(m_EnemyController.Player.transform.position);
-                    } else if ((m_EnemyController.enemyType == EnemyController.EnemyType.Fronde)/*&&(Time.time>actualfuitetimePathDestination+fuiteDelayPathDestination)*/)
+                    } else if ((m_EnemyController.enemyType == EnemyController.EnemyType.Fronde))
                     {
                         //actualfuitetimePathDestination = Time.time;
-                        m_EnemyController.SetNavDestination((transform.position - m_EnemyController.Player.transform.position)*multiplierFuite);
-                        Debug.Log((transform.position - m_EnemyController.Player.transform.position) * multiplierFuite);
-                        m_EnemyController.OrientTowards(transform.position -  m_EnemyController.Player.transform.position);
+                        m_EnemyController.NavMeshAgent.enabled = true;
+                        m_EnemyController.SetNavDestination((m_EnemyController.Player.transform.forward) *multiplierFuite);
+                        m_EnemyController.OrientTowards(m_EnemyController.Player.transform.forward);
                     }
                     break;
                 case AIState.Attack:
-                    if (Vector3.Distance(m_EnemyController.Player.transform.position,
+                    if (m_EnemyController.enemyType == EnemyController.EnemyType.Brute)
+                    {
+                        if (Vector3.Distance(m_EnemyController.Player.transform.position,
                             m_EnemyController.DetectionSourcePoint.position)
                         >= (AttackStopDistanceRatio * m_EnemyController.AttackRange))
-                    {
-                        m_EnemyController.SetNavDestination(m_EnemyController.Player.transform.position);
-                    }
-                    else
-                    {
-                        m_EnemyController.SetNavDestination(transform.position);
-                    }
+                        {
+                            m_EnemyController.SetNavDestination(m_EnemyController.Player.transform.position);
+                        }
+                        else
+                        {
+                            m_EnemyController.SetNavDestination(transform.position);
+                        }
 
-                    m_EnemyController.OrientTowards(m_EnemyController.Player.transform.position);
-                    m_EnemyController.TryAtack(m_EnemyController.Player.transform.position);
+                        m_EnemyController.OrientTowards(m_EnemyController.Player.transform.position);
+                        m_EnemyController.TryAtack(m_EnemyController.Player.transform.position);
+                    }
                     break;
             }
         }
@@ -222,10 +255,11 @@ namespace Unity.FPS.AI
         public void SetCanMove()
         {
             m_EnemyController.NavMeshAgent.enabled = true;
-            if((AiState == AIState.Detect)|| (AiState == AIState.Damage))
+            if((AiState == AIState.Detect)|| (AiState == AIState.Damage)|| (AiState == AIState.Attack))
             {
                 AiState = AIState.Follow;
             }
         }
+       
     }
 }
