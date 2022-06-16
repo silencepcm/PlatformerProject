@@ -72,7 +72,7 @@ namespace Unity.FPS.Game
                     Player.GetComponent<PlayerStatsScript>().Respawn();
                     GameManager.Instance.GetComponent<SurvieScript>().Vie.value = 100;
                     Player.GetComponent<CharacterController>().enabled = false;
-                    Player.transform.SetPositionAndRotation(PtSauvegarde, Rotation);
+                    Player.transform.SetPositionAndRotation(GameManager.Instance.LastSpawn, GameManager.Instance.LastRotation);
                     Player.GetComponent<CharacterController>().enabled = true;
                     Cursor.lockState = CursorLockMode.Locked;
                     Cursor.visible = false;

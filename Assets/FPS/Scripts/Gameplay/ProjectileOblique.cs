@@ -227,13 +227,16 @@ namespace Unity.FPS.Gameplay
 
     void OnHit(Vector3 point, Vector3 normal, Collider collider)
     {
-        if (collider.gameObject.tag == "InteractableEnv")
-        {
-            collider.GetComponent<Animator>().SetTrigger("start");
-        } else if ((collider.gameObject.tag == "Brute")|| (collider.gameObject.tag == "Fronde"))
+            if (collider.gameObject.tag == "InteractableEnv")
+            {
+                collider.gameObject.tag = "Untagged";
+                collider.GetComponent<Animator>().SetTrigger("start");
+                collider.GetComponent<AudioSource>().PlayOneShot(collider.GetComponent<AudioSource>().clip);
+            }
+            else if ((collider.gameObject.tag == "Brute") || (collider.gameObject.tag == "Fronde"))
             {
 
-                collider.GetComponent<FPS.AI.EnemyMobile>().OnDamaged();
+                collider.GetComponent<FPS.AI.EnemyMobile>().OnDamaged(2);
             }
             else if (collider.gameObject.tag == "Tourelle")
             {

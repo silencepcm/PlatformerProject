@@ -97,7 +97,7 @@ public class SurvieScript : MonoBehaviour
         //perte de vie si l'une des 2 barres est a 0
         if (SliderEau.value <= 0f || SliderNourriture.value <= 0f)
         {
-            Debug.Log(Vie.value);
+            //Debug.Log(Vie.value);
             Vie.value -= perteVieSec;
             
             

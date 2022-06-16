@@ -16,9 +16,9 @@ public class DeplacementUI : MonoBehaviour
     void Update()
     {
        transform.position = Vector3.MoveTowards(transform.position, GameObject.FindGameObjectWithTag("InventaireUi").transform.position, 2000 * Time.deltaTime);
-        Debug.Log(transform.position);
+       // Debug.Log(transform.position);
         float Dist = Vector3.Distance(GameObject.FindGameObjectWithTag("InventaireUi").transform.position, transform.position);
-        Debug.Log(Dist);
+       // Debug.Log(Dist);
         if (  Dist <= 20f )
         {
             Debug.Log("destruction");

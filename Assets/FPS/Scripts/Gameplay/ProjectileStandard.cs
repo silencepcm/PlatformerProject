@@ -214,12 +214,13 @@ namespace Unity.FPS.Gameplay
         {
             if(collider.gameObject.tag == "InteractableEnv")
             {
+                collider.gameObject.tag = "Untagged";
                 collider.GetComponent<Animator>().SetTrigger("start");
                 collider.GetComponent<AudioSource>().PlayOneShot(collider.GetComponent<AudioSource>().clip);
             }
             else if (collider.gameObject.tag == "Brute")
             {
-                collider.GetComponent<FPS.AI.EnemyMobile>().OnDamaged();
+                collider.GetComponent<FPS.AI.EnemyMobile>().OnDamaged(1);
             }
             else if (collider.gameObject.tag == "Tourelle")
             {

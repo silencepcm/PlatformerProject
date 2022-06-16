@@ -44,6 +44,10 @@ namespace Unity.FPS.AI
         public float WalkSpeed { get; set; }
         public float RunSpeed { get; set; }
         float lastTimeSpeed;
+
+        float fuiteDelayPathDestination = 5f;
+        float actualfuitetimePathDestination = 0f;
+        float multiplierFuite = 50f;
         void Start()
         {
             m_EnemyController = GetComponent<EnemyController>();
@@ -119,8 +123,17 @@ namespace Unity.FPS.AI
                     m_EnemyController.OrientTowards(m_EnemyController.GetDestinationOnPath());
                     break;
                 case AIState.Follow:
-                    m_EnemyController.SetNavDestination(m_EnemyController.Player.transform.position);
-                    m_EnemyController.OrientTowards(m_EnemyController.Player.transform.position);
+                    if (m_EnemyController.enemyType == EnemyController.EnemyType.Brute)
+                    {
+                        m_EnemyController.SetNavDestination(m_EnemyController.Player.transform.position);
+                        m_EnemyController.OrientTowards(m_EnemyController.Player.transform.position);
+                    } else if ((m_EnemyController.enemyType == EnemyController.EnemyType.Fronde)/*&&(Time.time>actualfuitetimePathDestination+fuiteDelayPathDestination)*/)
+                    {
+                        //actualfuitetimePathDestination = Time.time;
+                        m_EnemyController.SetNavDestination((transform.position - m_EnemyController.Player.transform.position)*multiplierFuite);
+                        Debug.Log((transform.position - m_EnemyController.Player.transform.position) * multiplierFuite);
+                        m_EnemyController.OrientTowards(transform.position -  m_EnemyController.Player.transform.position);
+                    }
                     break;
                 case AIState.Attack:
                     if (Vector3.Distance(m_EnemyController.Player.transform.position,
@@ -181,7 +194,7 @@ namespace Unity.FPS.AI
 
         }
 
-        public void OnDamaged()
+        public void OnDamaged(int degats)
         {
             Debug.Log(Vie);
             AiState = AIState.Damage;
@@ -193,7 +206,7 @@ namespace Unity.FPS.AI
                 int n = Random.Range(0, RandomHitSparks.Length - 1);
                 RandomHitSparks[n].Play();
             }
-            Vie--;
+            Vie-=degats;
             if (Vie > 0)
             {
                 Animator.SetTrigger(k_AnimOnDamagedParameter);
@@ -213,12 +226,6 @@ namespace Unity.FPS.AI
             {
                 AiState = AIState.Follow;
             }
-        }
-        IEnumerator DetectWait()
-        {
-            yield return new WaitForSeconds(1f);
-            AiState = AIState.Follow;
-            m_EnemyController.NavMeshAgent.speed = speedTemp;
         }
     }
 }

@@ -182,6 +182,8 @@ namespace Unity.FPS.Gameplay
             FallDamageAtMaxSpeed = GameManager.Instance.FallDamageValeurAtMaxSpeed;
             TrampoplanteForce = GameManager.Instance.TrampoplanteForce;
             RecievesFallDamage = GameManager.Instance.FallDamage;
+            GameManager.Instance.LastSpawn = transform.position;
+            GameManager.Instance.LastRotation = transform.rotation;
         }
 
         void Update()

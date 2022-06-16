@@ -2,6 +2,7 @@
 using Unity.FPS.Gameplay;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 namespace Unity.FPS.UI
 {
@@ -40,7 +41,8 @@ namespace Unity.FPS.UI
 
             ShadowsToggle.isOn = QualitySettings.shadows != ShadowQuality.Disable;
             ShadowsToggle.onValueChanged.AddListener(OnShadowsChanged);
-
+            SetPauseMenuActivation(true);
+            SetPauseMenuActivation(false);
         }
 
         void Update()
@@ -109,6 +111,14 @@ namespace Unity.FPS.UI
                 AudioUtility.SetMasterVolume(1);
             }
 
+        }
+        public void RestartButton()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        public void MenutButton()
+        {
+            SceneManager.LoadScene("IntroMenu");
         }
         public void SetInventaireMenuActivation()
         {

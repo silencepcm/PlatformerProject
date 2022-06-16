@@ -130,9 +130,14 @@ public class TourelleControllerScript : MonoBehaviour
     void OnDie()
     {
         // this will call the OnDestroy function
-        AiState = AIState.Death;
         animator.SetTrigger("Death");
-        Destroy(gameObject, 4f);
+        AiState = AIState.Death;
+        StartCoroutine(WaitDeath());
+    }
+    IEnumerator WaitDeath()
+    {
+        yield return new WaitForSeconds(4f);
+        Destroy(gameObject);
     }
     void OnLostTarget()
     {

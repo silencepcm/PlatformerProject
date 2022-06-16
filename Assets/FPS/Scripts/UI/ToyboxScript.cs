@@ -230,8 +230,7 @@ namespace Unity.FPS.Gameplay
         }
         public void LeftSettingButton()
         {
-            activeSetting = (activeSetting - 1) % 5;
-
+            activeSetting = ((activeSetting -1)  % 5 + 5) % 5;
             switch (activeSetting)
             {
                 case 0:

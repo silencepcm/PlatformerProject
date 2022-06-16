@@ -23,7 +23,7 @@ public class TourelleProjectileScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.MoveRotation(owner.transform.rotation);
-        if (owner.name == "Fronde2")
+        if (owner.tag == "Fronde")
         {
             rb.useGravity = true;
             rb.mass = mass;

@@ -110,7 +110,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public float FrondeAttackDistance;
     [HideInInspector] public float FrondeStopDistance;
     [HideInInspector] public float FrondeDetectDistance;
-    
+    [HideInInspector] public Vector3 LastSpawn;
+    [HideInInspector] public Quaternion LastRotation;
 
 
 
@@ -200,6 +201,7 @@ public class GameManager : MonoBehaviour
 
             BulletGravity = data.BulletGravity;
             BulletSpeed = data.BulletSpeed;
+            LastSpawn = data.LastSpawn;
 
 
 

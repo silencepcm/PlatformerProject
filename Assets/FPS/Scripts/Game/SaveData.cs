@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Unity.FPS.Game
 {
     [System.Serializable]
@@ -80,5 +82,6 @@ namespace Unity.FPS.Game
         public float FrondeStopDistance;
         public float FrondeDetectDistance;
         public float FrondeAcceleration;
+        public Vector3 LastSpawn;
     }
 }

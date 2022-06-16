@@ -800,7 +800,7 @@ GameObject:
   - component: {fileID: 8051929835955947894}
   m_Layer: 0
   m_Name: Fronde2
-  m_TagString: Enemy
+  m_TagString: Fronde
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1079,10 +1079,9 @@ MonoBehaviour:
   RandomHitSparks: []
   OnDetectVfx: []
   OnDetectSfx: {fileID: 0}
-  MovementSound: {fileID: 8300000, guid: 63b51ba362ad79c43a2c9f37b6506285, type: 3}
-  PitchDistortionMovementSpeed:
-    Min: 0
-    Max: 0
+  PasGauche: {fileID: 0}
+  PasDroit: {fileID: 0}
+  m_AudioSource: {fileID: 0}
 --- !u!114 &8051929835955947894
 MonoBehaviour:
   m_ObjectHideFlags: 0

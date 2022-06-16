@@ -96,8 +96,8 @@ GameObject:
   - component: {fileID: 33088977022150595}
   - component: {fileID: 2635260478496917863}
   - component: {fileID: 640949100796760377}
-  - component: {fileID: 1875417798724677070}
   - component: {fileID: 5290045253188621745}
+  - component: {fileID: 726212336346491499}
   m_Layer: 0
   m_Name: Brute
   m_TagString: Brute
@@ -273,7 +273,7 @@ MonoBehaviour:
   OnDetectSfx: {fileID: 0}
   PasGauche: {fileID: 8300000, guid: 4d2bbf60d7fdbbf4da1678f1ac1fe23d, type: 3}
   PasDroit: {fileID: 8300000, guid: b3cbb5003b0deb94294a2894d643d228, type: 3}
-  m_AudioSource: {fileID: 1875417798724677070}
+  m_AudioSource: {fileID: 726212336346491499}
 --- !u!136 &640949100796760377
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -288,7 +288,26 @@ CapsuleCollider:
   m_Height: 1.2511268
   m_Direction: 1
   m_Center: {x: 0.04918194, y: 0.5818713, z: -0.0035729408}
---- !u!82 &1875417798724677070
+--- !u!95 &5290045253188621745
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015434656898269652}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 461acca1788fe8b4cb6c40f09013b2e8, type: 3}
+  m_Controller: {fileID: 9100000, guid: a67be3682ec167c4c8770ce77bb8b4a4, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!82 &726212336346491499
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -310,7 +329,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -345,7 +364,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -360,7 +379,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.19166666
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -385,25 +404,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!95 &5290045253188621745
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2015434656898269652}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 461acca1788fe8b4cb6c40f09013b2e8, type: 3}
-  m_Controller: {fileID: 9100000, guid: a67be3682ec167c4c8770ce77bb8b4a4, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2201913640410082181
 GameObject:
   m_ObjectHideFlags: 0

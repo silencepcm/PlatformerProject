@@ -24,6 +24,8 @@ TagManager:
   - Tourelle
   - WaterDeath
   - Brute
+  - Fronde
+  - CheckPoint
   layers:
   - Default
   - TransparentFX

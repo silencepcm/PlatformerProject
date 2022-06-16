@@ -214,7 +214,6 @@ namespace Unity.FPS.AI
             IsTargetInAttackRange = Player != null &&
                                     Vector3.Distance(transform.position, Player.transform.position) <=
                                     AttackRange;
-            Debug.Log(HadKnownTarget + "   " + detected + "     " + IsSeeingTarget);
             // Detection events
             if (!HadKnownTarget &&
                 !detected && IsSeeingTarget)
@@ -246,7 +245,7 @@ namespace Unity.FPS.AI
             yield return new WaitForSeconds(0.3f);
             if(Vector3.Distance(transform.position, Player.transform.position) < 1f)
             {
-                Player.GetComponent<Gameplay.PlayerCharacterController>().OnDamage(transform.position, 7f);
+                Player.GetComponent<Gameplay.PlayerCharacterController>().OnDamage(transform.position, 5f);
                 Player.GetComponent<PlayerStatsScript>().OnDamage(Degats);
             }
         }
