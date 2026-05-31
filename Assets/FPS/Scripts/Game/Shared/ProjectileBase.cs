@@ -31,7 +31,7 @@ namespace Unity.FPS.Game
             var ray = Camera.main.ScreenPointToRay(new Vector3(x, y, 0));
             InitialDirection = ray.direction;
             InheritedMuzzleVelocity = controller.MuzzleWorldVelocity + ray.direction;
-            rb.velocity = (ray.direction)*speed;
+            rb.linearVelocity = (ray.direction)*speed;
             OnShoot?.Invoke();
 
         }
@@ -39,7 +39,7 @@ namespace Unity.FPS.Game
         {
             InitialPosition = transform.position;
             rb = GetComponent<Rigidbody>();
-            rb.velocity = (where) * speed;
+            rb.linearVelocity = (where) * speed;
             OnShoot?.Invoke();
         }
 
@@ -55,7 +55,7 @@ namespace Unity.FPS.Game
             if (GravityDownAcceleration > 0)
             {
                 // add gravity to the projectile velocity for ballistic effect
-                rb.velocity += Vector3.down * GravityDownAcceleration * Time.deltaTime;
+                rb.linearVelocity += Vector3.down * GravityDownAcceleration * Time.deltaTime;
             }
 
 

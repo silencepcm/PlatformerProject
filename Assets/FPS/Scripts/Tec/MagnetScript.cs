@@ -11,7 +11,7 @@ public class MagnetScript : MonoBehaviour
     {
         for (int i = 0; i < caughtRigidbodies.Count; i++)
         {
-            caughtRigidbodies[i].velocity = (transform.position - (caughtRigidbodies[i].transform.position + caughtRigidbodies[i].centerOfMass)) * magnetForce * Time.deltaTime;
+            caughtRigidbodies[i].linearVelocity = (transform.position - (caughtRigidbodies[i].transform.position + caughtRigidbodies[i].centerOfMass)) * magnetForce * Time.deltaTime;
         }
     }
 
