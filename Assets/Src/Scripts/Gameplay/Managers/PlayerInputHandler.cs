@@ -25,6 +25,8 @@ namespace Unity.FPS.Gameplay {
         private bool canEat;
         private bool canCollect;
         private bool canOpenInventaire;
+
+        private float WebglLookSensitivityMultiplier = 0.5f;
         void Start()
         {
             playerPhysx = GetComponent<PlayerCharacterController>();
